@@ -365,27 +365,20 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
             </div>
             <div class="field-row">
               <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="021 123 4567" required>
+              </div>
+              <div class="field">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="you@company.co.nz" required>
               </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" placeholder="021 123 4567">
-              </div>
             </div>
             <div class="field">
-              <label for="type">What do you need?</label>
-              <select id="type" name="type">
-                <option>A brand-new website</option>
-                <option>A website redesign</option>
-                <option>E-commerce / online store</option>
-                <option>Branding &amp; design</option>
-                <option>Ongoing website management</option>
-                <option>Something else</option>
-              </select>
+              <label for="business">Business name</label>
+              <input type="text" id="business" name="business" placeholder="Your company Ltd" required>
             </div>
             <div class="field">
-              <label for="message">Project details <span style="color:var(--grey-2);font-weight:400">(optional)</span></label>
+              <label for="message">How can we help? <span style="color:var(--grey-2);font-weight:400">(optional)</span></label>
               <textarea id="message" name="message" rows="2" placeholder="A quick sentence or two about your goals..."></textarea>
             </div>
             <!-- honeypot -->
