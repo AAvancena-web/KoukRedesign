@@ -85,10 +85,13 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .topbar{background:var(--ink);color:#cfd0cd;font-size:.85rem}
 .topbar__inner{display:flex;align-items:center;justify-content:space-between;min-height:42px;gap:16px}
 .topbar__left{color:#a3a49f;letter-spacing:.01em}
-.topbar__social{display:flex;align-items:center;gap:14px}
-.topbar__social a{color:#c8c9c5;display:inline-flex}
-.topbar__social a:hover{color:#fff;transform:translateY(-1px)}
-.topbar__social svg{width:16px;height:16px}
+.topbar__social{display:flex;align-items:center;gap:10px}
+.topbar__social a{
+  width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.12);color:#fff;transition:.2s ease;
+}
+.topbar__social a:hover{background:#fff;color:var(--ink);transform:translateY(-1px)}
+.topbar__social a svg{width:15px;height:15px;color:inherit}
 .topbar__right{display:flex;align-items:center;gap:24px}
 .topbar a{color:#e9e9e6;display:inline-flex;align-items:center;gap:8px;transition:.2s}
 .topbar a:hover{color:#fff}
