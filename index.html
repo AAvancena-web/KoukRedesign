@@ -85,9 +85,12 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .topbar{background:var(--ink);color:#cfd0cd;font-size:.85rem}
 .topbar__inner{display:flex;align-items:center;justify-content:space-between;min-height:42px;gap:16px;padding:9px 0}
 .topbar__left{color:#a3a49f;letter-spacing:.01em}
-.topbar__status{display:inline-flex;align-items:center;gap:10px;color:#eaeae7;font-weight:600;letter-spacing:.01em}
-.topbar__status .live{position:relative;width:9px;height:9px;border-radius:50%;background:#5fbf86;flex-shrink:0}
-.topbar__status .live::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #5fbf86;
+.topbar__status{display:inline-flex;align-items:center;gap:9px;color:#2b2c2b;font-weight:600;letter-spacing:.01em;
+  background:#fff;padding:7px 15px;border-radius:999px;
+  /* pull left by the left padding so the dot lands on the container/logo/hero line */
+  margin-left:-15px}
+.topbar__status .live{position:relative;width:9px;height:9px;border-radius:50%;background:#3fae6a;flex-shrink:0}
+.topbar__status .live::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #3fae6a;
   opacity:.5;animation:pulse-ring 2.2s ease-out infinite}
 .topbar__right{display:flex;align-items:center;gap:24px}
 .topbar a{color:#e9e9e6;display:inline-flex;align-items:center;gap:8px;transition:.2s}
