@@ -107,11 +107,24 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 /* ===== Header ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
-  background:rgba(251,249,246,.82);backdrop-filter:saturate(160%) blur(12px);
-  border-bottom:1px solid transparent;transition:.25s ease;
+  background:rgba(244,243,240,.85);backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid var(--line);transition:.28s ease;
 }
-.site-header.is-scrolled{border-color:var(--line);box-shadow:0 6px 24px -18px rgba(13,18,32,.5)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.site-header.is-scrolled{background:rgba(244,243,240,.94);box-shadow:0 10px 30px -20px rgba(43,44,43,.55)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px;transition:height .28s ease}
+.site-header.is-scrolled .header-inner{height:70px}
+
+/* Availability chip */
+.status-chip{display:inline-flex;align-items:center;gap:9px;font-size:.82rem;font-weight:600;color:#3c3d3b;
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.status-chip .live{position:relative;width:9px;height:9px;border-radius:50%;background:#4a9e6f;flex-shrink:0}
+.status-chip .live::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #4a9e6f;
+  opacity:.5;animation:pulse-ring 2.2s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(.7);opacity:.6}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.status-chip .live::after{animation:none}}
+.header-cta .btn--primary svg{width:17px;height:17px;transition:transform .2s}
+.header-cta .btn--primary:hover svg{transform:translateX(3px)}
+@media(max-width:1080px){.status-chip{display:none}}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:1.2rem}
 .brand__logo{height:34px;width:auto;display:block}
 .footer .brand__logo{filter:brightness(0) invert(1)} /* render the dark wordmark white on the dark footer */
@@ -120,10 +133,10 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
   background:linear-gradient(135deg,var(--brand),var(--ink));font-size:1.15rem;
   box-shadow:0 8px 18px -8px rgba(43,44,43,.5);
 }
-.nav{display:flex;align-items:center;gap:30px}
-.nav a{font-weight:500;font-size:.96rem;color:var(--ink);position:relative;padding:6px 0}
-.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--coral);transition:.2s}
-.nav a:hover::after{width:100%}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{font-weight:600;font-size:.95rem;color:#3c3d3b;padding:9px 15px;border-radius:9px;transition:.2s ease}
+.nav a:hover{background:rgba(43,44,43,.06);color:var(--ink)}
+.nav a.active{color:var(--brand);background:rgba(80,81,80,.11)}
 .header-cta{display:flex;align-items:center;gap:12px}
 .header-cta .phone{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem}
 .header-cta .phone svg{width:18px;height:18px;color:var(--coral)}
@@ -394,7 +407,10 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
       <a href="#quote">Contact</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn--primary" href="#quote">Get a free quote</a>
+      <span class="status-chip"><span class="live"></span> Now booking new projects</span>
+      <a class="btn btn--primary" href="#quote">Get a free quote
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -761,6 +777,20 @@ form.addEventListener('submit',(e)=>{
   form.style.display='none';
   success.classList.add('show');
   success.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+// Scroll-spy: highlight the nav link for the section in view
+const navLinks=[...document.querySelectorAll('.nav a')];
+const spy=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id='#'+e.target.id;
+      navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')===id));
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px',threshold:0});
+['about','services','projects','process','faq','quote'].forEach(id=>{
+  const el=document.getElementById(id); if(el) spy.observe(el);
 });
 
 // FAQ accordion
