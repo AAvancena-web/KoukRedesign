@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kouk Creatives — Websites that win you customers | NZ Web Specialists</title>
+<meta name="description" content="Kouk Creatives designs, builds and looks after high-performing websites for New Zealand businesses. Fast, SEO-friendly, and built to turn visitors into enquiries. Get a free quote today.">
+<meta property="og:title" content="Kouk Creatives — Websites that win you customers">
+<meta property="og:description" content="We design, build and look after high-performing websites for NZ businesses. Built to turn visitors into leads.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Kouk Creatives — Redesign prototype
+   Colour system, layout and components (self-contained)
+   ============================================================ */
+:root{
+  --ink:#0d1220;          /* near-black navy */
+  --ink-2:#1a2234;
+  --cream:#fbf9f6;        /* warm off-white */
+  --paper:#ffffff;
+  --coral:#ff5a3c;        /* primary accent / CTA */
+  --coral-dark:#e8431f;
+  --teal:#12b3a6;         /* secondary accent */
+  --amber:#ffb23e;
+  --grey:#6b7280;
+  --grey-2:#9aa1ad;
+  --line:rgba(13,18,32,.10);
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 18px 50px -20px rgba(13,18,32,.28);
+  --shadow-sm:0 8px 24px -12px rgba(13,18,32,.25);
+  --maxw:1200px;
+  --font-display:'Sora',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02em;font-weight:700}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--coral);border-radius:2px}
+.section__head{max-width:640px;margin-bottom:56px}
+.section__head h2{font-size:clamp(2rem,4vw,2.9rem);margin:16px 0 14px}
+.section__head p{color:var(--grey);font-size:1.075rem}
+.lead-muted{color:var(--grey)}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:600;font-size:.98rem;padding:14px 24px;border-radius:999px;
+  border:1.5px solid transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;
+}
+.btn--primary{background:var(--coral);color:#fff;box-shadow:0 10px 24px -8px rgba(255,90,60,.6)}
+.btn--primary:hover{background:var(--coral-dark);transform:translateY(-2px)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:var(--ink-2);transform:translateY(-2px)}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn--ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.btn--light{background:#fff;color:var(--ink)}
+.btn--light:hover{transform:translateY(-2px)}
+.btn--block{width:100%}
+.btn svg{width:18px;height:18px}
+
+/* ===== Header ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,249,246,.82);backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid transparent;transition:.25s ease;
+}
+.site-header.is-scrolled{border-color:var(--line);box-shadow:0 6px 24px -18px rgba(13,18,32,.5)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:1.2rem}
+.brand__mark{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,var(--coral),var(--amber));font-size:1.15rem;
+  box-shadow:0 8px 18px -6px rgba(255,90,60,.6);
+}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-weight:500;font-size:.96rem;color:var(--ink);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--coral);transition:.2s}
+.nav a:hover::after{width:100%}
+.header-cta{display:flex;align-items:center;gap:12px}
+.header-cta .phone{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem}
+.header-cta .phone svg{width:18px;height:18px;color:var(--coral)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+
+/* ===== Hero ===== */
+.hero{position:relative;padding:72px 0 90px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(60% 55% at 82% 12%,rgba(255,90,60,.14),transparent 60%),
+    radial-gradient(50% 50% at 8% 80%,rgba(18,179,166,.12),transparent 60%);
+}
+.hero .container{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.15fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.2vw,4rem);font-weight:800;margin:18px 0 20px}
+.hero h1 .accent{color:var(--coral)}
+.hero .sub{font-size:1.18rem;color:#3c4459;max-width:520px;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:30px}
+.hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap;color:var(--grey);font-size:.92rem}
+.stars{color:var(--amber);letter-spacing:2px}
+.hero-avatars{display:flex}
+.hero-avatars span{
+  width:34px;height:34px;border-radius:50%;border:2px solid var(--cream);margin-left:-10px;
+  background:linear-gradient(135deg,var(--teal),var(--ink));display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;
+}
+.hero-avatars span:first-child{margin-left:0}
+
+/* Lead form card */
+.lead-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;box-shadow:var(--shadow);position:relative;
+}
+.lead-card__badge{
+  position:absolute;top:-14px;left:30px;background:var(--ink);color:#fff;
+  font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  padding:6px 14px;border-radius:999px;
+}
+.lead-card h3{font-size:1.4rem;margin:6px 0 4px}
+.lead-card p{color:var(--grey);font-size:.94rem;margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:.96rem;padding:13px 15px;border-radius:12px;
+  border:1.5px solid var(--line);background:#fbfbfc;color:var(--ink);transition:.18s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--coral);background:#fff;box-shadow:0 0 0 4px rgba(255,90,60,.12);
+}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hp{position:absolute;left:-9999px}
+.form-note{font-size:.8rem;color:var(--grey-2);margin-top:12px;text-align:center}
+.form-success{
+  display:none;text-align:center;padding:30px 10px;
+}
+.form-success.show{display:block}
+.form-success .tick{width:58px;height:58px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin:0 auto 14px}
+.form-success h3{margin-bottom:6px}
+
+/* ===== Logo marquee ===== */
+.logos{padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.logos p{text-align:center;color:var(--grey);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:22px}
+.logo-track{display:flex;gap:56px;align-items:center;flex-wrap:wrap;justify-content:center}
+.logo-track span{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:#b6bcc7;transition:.2s}
+.logo-track span:hover{color:var(--ink)}
+
+/* ===== Stats ===== */
+.stats{background:var(--ink);color:#fff}
+.stats .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{padding:14px 0}
+.stat .num{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3rem);font-weight:800;line-height:1;
+  background:linear-gradient(120deg,#fff,var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .label{color:#aeb6c6;font-size:.95rem;margin-top:8px}
+
+/* ===== Services ===== */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+  transition:.25s ease;position:relative;overflow:hidden;
+}
+.service:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+.service__icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;
+  background:rgba(255,90,60,.1);color:var(--coral)}
+.service:nth-child(2) .service__icon{background:rgba(18,179,166,.12);color:var(--teal)}
+.service:nth-child(3) .service__icon{background:rgba(255,178,62,.16);color:#d98a00}
+.service:nth-child(5) .service__icon{background:rgba(18,179,166,.12);color:var(--teal)}
+.service:nth-child(6) .service__icon{background:rgba(255,178,62,.16);color:#d98a00}
+.service__icon svg{width:26px;height:26px}
+.service h3{font-size:1.28rem;margin-bottom:10px}
+.service .lead{font-weight:600;font-size:.98rem;margin-bottom:8px}
+.service p{color:var(--grey);font-size:.93rem;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.76rem;font-weight:500;padding:5px 11px;border-radius:999px;background:rgba(13,18,32,.05);color:#4a5162}
+
+/* ===== Projects ===== */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project{
+  display:block;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.25s ease;
+}
+.project:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.project__img{height:190px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--ink),var(--ink-2))}
+.project:nth-child(2) .project__img{background:linear-gradient(135deg,#1d3b53,#12b3a6)}
+.project:nth-child(3) .project__img{background:linear-gradient(135deg,#3a2140,#ff5a3c)}
+.project:nth-child(4) .project__img{background:linear-gradient(135deg,#102a43,#334e68)}
+.project:nth-child(5) .project__img{background:linear-gradient(135deg,#1b4332,#40916c)}
+.project:nth-child(6) .project__img{background:linear-gradient(135deg,#3d2c1e,#ffb23e)}
+.project__img span{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.92);
+  font-family:var(--font-display);font-weight:700;font-size:1.4rem;letter-spacing:.02em}
+.project__body{padding:22px 24px 26px}
+.project__body h4{font-size:1.15rem;margin-bottom:7px}
+.project__body p{color:var(--grey);font-size:.9rem}
+.project__more{display:inline-flex;align-items:center;gap:6px;color:var(--coral);font-weight:600;font-size:.9rem;margin-top:14px}
+.project__more svg{width:16px;height:16px;transition:.2s}
+.project:hover .project__more svg{transform:translateX(4px)}
+
+/* ===== Process ===== */
+.process{background:var(--paper)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:step}
+.step{position:relative;padding-top:12px}
+.step__num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:#fff;
+  background:linear-gradient(135deg,var(--coral),var(--amber));margin-bottom:20px;box-shadow:var(--shadow-sm)}
+.step:nth-child(2) .step__num{background:linear-gradient(135deg,var(--teal),#0e7490)}
+.step:nth-child(3) .step__num{background:linear-gradient(135deg,var(--ink),var(--ink-2))}
+.step h3{font-size:1.3rem;margin-bottom:10px}
+.step p{color:var(--grey)}
+
+/* ===== Testimonial ===== */
+.testimonial{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.testimonial::before{content:"";position:absolute;top:-60px;right:-40px;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(255,90,60,.25),transparent 70%)}
+.testimonial .container{position:relative;z-index:1;max-width:920px;text-align:center}
+.quote-mark{font-family:var(--font-display);font-size:5rem;line-height:.6;color:var(--coral);margin-bottom:10px}
+.testimonial blockquote{font-family:var(--font-display);font-weight:600;font-size:clamp(1.4rem,3vw,2.1rem);
+  line-height:1.35;letter-spacing:-.01em;margin-bottom:28px}
+.testimonial blockquote .hl{color:var(--amber)}
+.tperson{display:flex;align-items:center;justify-content:center;gap:14px}
+.tperson .av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral));
+  display:grid;place-items:center;font-weight:700}
+.tperson .who{text-align:left}
+.tperson .who strong{display:block}
+.tperson .who span{color:#aeb6c6;font-size:.9rem}
+
+/* ===== CTA band ===== */
+.cta-band{padding:0 0 96px}
+.cta-inner{
+  background:linear-gradient(120deg,var(--coral),var(--amber));border-radius:28px;
+  padding:64px 56px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:40px;
+  box-shadow:0 30px 70px -30px rgba(255,90,60,.7);position:relative;overflow:hidden;
+}
+.cta-inner::after{content:"";position:absolute;right:-60px;bottom:-80px;width:280px;height:280px;
+  border-radius:50%;background:rgba(255,255,255,.12)}
+.cta-inner h2{font-size:clamp(1.8rem,3.5vw,2.6rem);max-width:640px;position:relative;z-index:1}
+.cta-inner p{margin-top:10px;opacity:.92;font-size:1.05rem;position:relative;z-index:1}
+.cta-inner .btn{position:relative;z-index:1;flex-shrink:0}
+
+/* ===== Footer ===== */
+.footer{background:var(--ink);color:#c3cad8;padding:80px 0 32px}
+.footer a{color:#c3cad8}
+.footer a:hover{color:#fff}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer .brand{color:#fff;margin-bottom:16px}
+.footer-blurb{font-size:.95rem;max-width:300px;margin-bottom:20px}
+.footer-mail{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:#fff;margin-bottom:8px}
+.footer-col h5{color:#fff;font-family:var(--font-display);font-size:.95rem;margin-bottom:16px}
+.footer-col a{display:block;font-size:.93rem;margin-bottom:10px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:.86rem;color:var(--grey-2);flex-wrap:wrap;gap:12px}
+
+/* Floating call button (mobile lead driver) */
+.fab{position:fixed;right:20px;bottom:20px;z-index:40;display:none;align-items:center;gap:9px;
+  background:var(--coral);color:#fff;padding:14px 20px;border-radius:999px;font-weight:600;
+  box-shadow:0 14px 34px -10px rgba(255,90,60,.7)}
+.fab svg{width:20px;height:20px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== Responsive ===== */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .services-grid,.projects-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+  .stats .container{grid-template-columns:repeat(2,1fr);gap:32px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .cta-inner{flex-direction:column;text-align:center;padding:48px 32px}
+}
+@media(max-width:720px){
+  .section{padding:70px 0}
+  .nav,.header-cta .phone{display:none}
+  .nav-toggle{display:flex}
+  .header-cta .btn--primary{padding:11px 18px;font-size:.9rem}
+  .services-grid,.projects-grid,.process-grid{grid-template-columns:1fr}
+  .fab{display:inline-flex}
+  .nav.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;
+    background:var(--paper);padding:22px 24px;gap:14px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .nav.open a{padding:8px 0;font-size:1.05rem}
+}
+@media(max-width:460px){
+  .field-row{grid-template-columns:1fr}
+  .stats .container{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark">K</span>
+      <span>Kouk<span style="color:var(--coral)">.</span></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#services">Services</a>
+      <a href="#projects">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#quote">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a class="phone" href="tel:0800182088">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>
+        0800 18 20 88
+      </a>
+      <a class="btn btn--primary" href="#quote">Get a free quote</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Web specialists · Since 2015</span>
+        <h1>Websites you can <span class="accent">smile</span> about — built to win you customers</h1>
+        <p class="sub">We design, build and look after high-performing websites for New Zealand businesses. Fast, SEO-friendly, and made to turn visitors into real enquiries.</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#quote">Start your project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#projects">See our work</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-avatars">
+            <span>EM</span><span>PC</span><span>C</span><span>E4</span>
+          </div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div>Trusted by <strong>40+</strong> NZ businesses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lead capture -->
+      <div class="reveal">
+        <div class="lead-card" id="quote">
+          <span class="lead-card__badge">Free · No obligation</span>
+          <form id="leadForm">
+            <h3>Get a free quote</h3>
+            <p>Tell us a little about your project — we'll reply within one business day.</p>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.co.nz" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="021 123 4567">
+              </div>
+            </div>
+            <div class="field">
+              <label for="type">What do you need?</label>
+              <select id="type" name="type">
+                <option>A brand-new website</option>
+                <option>A website redesign</option>
+                <option>E-commerce / online store</option>
+                <option>Branding &amp; design</option>
+                <option>Ongoing website management</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Project details <span style="color:var(--grey-2);font-weight:400">(optional)</span></label>
+              <textarea id="message" name="message" rows="2" placeholder="A quick sentence or two about your goals..."></textarea>
+            </div>
+            <!-- honeypot -->
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn--primary btn--block" type="submit">Send my enquiry</button>
+            <p class="form-note">🔒 We'll never share your details. Prefer to talk? Call 0800 18 20 88.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="tick">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Thanks — got it! 🙌</h3>
+            <p class="lead-muted">One of the team will be in touch within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGOS ============ -->
+<section class="logos">
+  <div class="container">
+    <p>Proud to have worked with</p>
+    <div class="logo-track">
+      <span>Ensemble</span><span>Suncorp</span><span>Vero</span><span>Rotary</span>
+      <span>AMP</span><span>Eyes4Everest</span><span>Chemicorp</span><span>Blast&nbsp;Worx</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats section" style="padding:64px 0">
+  <div class="container">
+    <div class="stat"><div class="num">2015</div><div class="label">Founding year</div></div>
+    <div class="stat"><div class="num">40+</div><div class="label">Clients &amp; growing</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">Projects completed &amp; satisfied</div></div>
+    <div class="stat"><div class="num">24hr</div><div class="label">Typical reply time</div></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">How we help</span>
+      <h2>Everything you need to get found &amp; get chosen</h2>
+      <p>From first idea to ongoing care, we cover the full journey — so your website keeps working for your business long after launch.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <h3>Consultation &amp; Strategy</h3>
+        <div class="lead">We connect the dots so you can hit your goals.</div>
+        <p>The digital world can be daunting — it doesn't have to be. We strategise the how <em>and</em> the what before we build a single thing.</p>
+        <div class="tags"><span class="tag">Research</span><span class="tag">Wireframes</span><span class="tag">Roadmapping</span></div>
+      </div>
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Web Design &amp; Development</h3>
+        <div class="lead">Your next winning website, delivered.</div>
+        <p>Not just a site you're proud of — one that works for your business. SEO-friendly, fast-loading and optimised to turn visitors into enquiries.</p>
+        <div class="tags"><span class="tag">Web design</span><span class="tag">Development</span><span class="tag">E-commerce</span><span class="tag">Landing pages</span></div>
+      </div>
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.8L18.7 9.7 13.9 11.6 12 16.4 10.1 11.6 5.3 9.7l4.8-1.9L12 3z"/></svg></div>
+        <h3>Branding</h3>
+        <div class="lead">The statement, not just the look.</div>
+        <p>We turn your story into a compelling, memorable brand — clear communication with real visual impact.</p>
+        <div class="tags"><span class="tag">Brand research</span><span class="tag">Logo</span><span class="tag">Style guide</span></div>
+      </div>
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <h3>Digital Assets</h3>
+        <div class="lead">Images, video, documents — sorted.</div>
+        <p>Essential assets for your business, both digital and print-ready, so everything looks sharp everywhere it appears.</p>
+        <div class="tags"><span class="tag">Brochures</span><span class="tag">Mock-ups</span><span class="tag">Editable PDFs</span></div>
+      </div>
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Web Management</h3>
+        <div class="lead">We make maintenance painless.</div>
+        <p>A good website needs looking after. We keep yours secure, updated and performing — the boring bits handled, so you don't have to.</p>
+        <div class="tags"><span class="tag">Content loading</span><span class="tag">Accessibility</span><span class="tag">Debugging</span></div>
+      </div>
+      <div class="service reveal">
+        <div class="service__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg></div>
+        <h3>SEO &amp; Growth</h3>
+        <div class="lead">Being online is step one. Being chosen is ours.</div>
+        <p>Technical SEO, performance and conversion improvements that help the right people find you — and take action.</p>
+        <div class="tags"><span class="tag">Technical SEO</span><span class="tag">Performance</span><span class="tag">Analytics</span><span class="tag">CRO</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects" style="background:var(--paper)">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2>Great client stories worth sharing</h2>
+      <p>Go on, have a browse — you might just find some inspiration for your own project. 😉</p>
+    </div>
+    <div class="projects-grid">
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Ensemble</span></div>
+        <div class="project__body"><h4>Ensemble Magazine</h4><p>Revolutionary web platform for fashion insights.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Parnell CC</span></div>
+        <div class="project__body"><h4>Parnell Cricket Club</h4><p>An immersive digital platform with cutting-edge 3D web technology.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Chemicorp</span></div>
+        <div class="project__body"><h4>Chemicorp</h4><p>A product-focused platform with integrated business automation.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Blast Worx</span></div>
+        <div class="project__body"><h4>Blast Worx</h4><p>A high-performing site with a custom product catalogue and integrations.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Eyes4Everest</span></div>
+        <div class="project__body"><h4>Eyes4Everest</h4><p>A transformative platform supporting mountain-based eye care.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+      <a class="project reveal" href="#quote">
+        <div class="project__img"><span>Nice Fuels</span></div>
+        <div class="project__body"><h4>Nice Fuels NZ</h4><p>Streamlined solutions for a premium race-fuel provider.</p><span class="project__more">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">The process</span>
+      <h2>Getting started is simple</h2>
+      <p>No jargon, no surprises. Just a clear path from "let's chat" to a website that earns its keep.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="step__num">1</div>
+        <h3>Discovery</h3>
+        <p>Every business has its own fingerprint. We meet, we listen, and we propose a solution built around your goals and budget.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__num">2</div>
+        <h3>We do the work</h3>
+        <p>Design, development, content or management — we get it done, keep you in the loop, and refine as we go.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__num">3</div>
+        <h3>Launch, support &amp; grow</h3>
+        <p>The project goes live — but we don't disappear. We support you after launch and help you keep growing. No dumb questions here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="section testimonial" id="about">
+  <div class="container">
+    <div class="quote-mark">“</div>
+    <blockquote>When communicating with the team, you can feel the <span class="hl">energy and passion</span> they bring to the project. Their vision is <span class="hl">forward thinking</span>.</blockquote>
+    <div class="tperson">
+      <div class="av">SC</div>
+      <div class="who"><strong>Shaun Chang</strong><span>Founder, Eyes4Everest</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div>
+        <h2>Ready for a website you can smile about?</h2>
+        <p>Free quote, no obligation. Let's hash out the details.</p>
+      </div>
+      <a class="btn btn--dark" href="#quote" style="padding:16px 30px;font-size:1.05rem">Get started today</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top"><span class="brand__mark">K</span><span>Kouk<span style="color:var(--coral)">.</span></span></a>
+        <p class="footer-blurb">Getting websites sorted out for New Zealand businesses since 2015.</p>
+        <a class="footer-mail" href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a><br>
+        <a href="tel:0800182088" style="font-weight:600">0800 18 20 88</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#about">About us</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#quote">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Existing customers</h5>
+        <a href="#quote">Raise a support ticket</a>
+        <a href="#quote">Request a feature</a>
+        <a href="#quote">Invoice enquiry</a>
+        <a href="#quote">Report a bug</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get started</h5>
+        <a href="#quote">Request a quote</a>
+        <a href="#projects">Browse projects</a>
+        <a href="https://nz.linkedin.com/company/kouk-creatives-ltd" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Kouk Creatives Ltd. All rights reserved.</span>
+      <span>Made with care in Aotearoa New Zealand 🇳🇿</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="#quote">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>
+  Get a quote
+</a>
+
+<script>
+// Sticky header shadow
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('is-scrolled',window.scrollY>10));
+
+// Mobile nav
+const toggle=document.getElementById('navToggle'),nav=document.getElementById('nav');
+toggle.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',open);
+});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// Reveal on scroll
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Lead form (prototype — front-end only; wire to backend/WordPress later)
+const form=document.getElementById('leadForm'),success=document.getElementById('formSuccess');
+form.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  if(form.website.value){return;} // honeypot
+  // Prototype: simulate submission. Replace with real endpoint (WP admin-ajax / HubSpot).
+  form.style.display='none';
+  success.classList.add('show');
+  success.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+// Year
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
