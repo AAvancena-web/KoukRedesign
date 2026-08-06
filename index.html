@@ -82,17 +82,19 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .btn--block{width:100%}
 .btn svg{width:18px;height:18px}
 
-/* ===== Announcement bar (scrolling marquee) ===== */
-.announce{background:var(--ink);color:#fff;overflow:hidden;position:relative;white-space:nowrap}
-.announce__track{display:inline-flex;align-items:center;will-change:transform;
-  animation:announce-scroll 32s linear infinite}
-.announce:hover .announce__track{animation-play-state:paused}
-.announce__item{display:inline-flex;align-items:center;gap:10px;
-  font-size:.85rem;font-weight:500;letter-spacing:.01em;padding:9px 0;margin:0 26px}
-.announce__item .dot{width:5px;height:5px;border-radius:50%;background:var(--brand-3);flex-shrink:0}
-.announce__item a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
-@keyframes announce-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.announce__track{animation:none}}
+/* ===== Utility top bar ===== */
+.topbar{background:var(--ink);color:#cfd0cd;font-size:.85rem}
+.topbar__inner{display:flex;align-items:center;justify-content:space-between;min-height:42px;gap:16px}
+.topbar__left{color:#a3a49f;letter-spacing:.01em}
+.topbar__right{display:flex;align-items:center;gap:24px}
+.topbar a{color:#e9e9e6;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.topbar a:hover{color:#fff}
+.topbar svg{width:15px;height:15px;color:var(--brand-3);flex-shrink:0}
+@media(max-width:640px){
+  .topbar__left{display:none}
+  .topbar__inner{justify-content:center}
+  .topbar__right{gap:16px;font-size:.8rem}
+}
 
 /* ===== Header ===== */
 .site-header{
@@ -323,19 +325,20 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 </head>
 <body>
 
-<!-- ============ ANNOUNCEMENT BAR ============ -->
-<div class="announce" role="region" aria-label="Announcements">
-  <div class="announce__track">
-    <!-- Set 1 -->
-    <span class="announce__item">🎉 Free, no-obligation website quotes — <a href="#quote">get yours today</a></span>
-    <span class="announce__item"><span class="dot"></span> Trusted by 40+ New Zealand businesses since 2015</span>
-    <span class="announce__item"><span class="dot"></span> Websites built to turn visitors into real enquiries</span>
-    <span class="announce__item"><span class="dot"></span> Now booking new projects — call <a href="tel:0800182088">0800 18 20 88</a></span>
-    <!-- Set 2 (duplicate for seamless loop) -->
-    <span class="announce__item" aria-hidden="true">🎉 Free, no-obligation website quotes — <a href="#quote">get yours today</a></span>
-    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Trusted by 40+ New Zealand businesses since 2015</span>
-    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Websites built to turn visitors into real enquiries</span>
-    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Now booking new projects — call <a href="tel:0800182088">0800 18 20 88</a></span>
+<!-- ============ UTILITY TOP BAR ============ -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__left">Web specialists · Getting websites sorted since 2015</div>
+    <div class="topbar__right">
+      <a href="mailto:hello@kouk.co.nz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+        hello@kouk.co.nz
+      </a>
+      <a href="tel:0800182088">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>
+        0800 18 20 88
+      </a>
+    </div>
   </div>
 </div>
 
