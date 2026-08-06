@@ -82,6 +82,18 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .btn--block{width:100%}
 .btn svg{width:18px;height:18px}
 
+/* ===== Announcement bar (scrolling marquee) ===== */
+.announce{background:var(--ink);color:#fff;overflow:hidden;position:relative;white-space:nowrap}
+.announce__track{display:inline-flex;align-items:center;will-change:transform;
+  animation:announce-scroll 32s linear infinite}
+.announce:hover .announce__track{animation-play-state:paused}
+.announce__item{display:inline-flex;align-items:center;gap:10px;
+  font-size:.85rem;font-weight:500;letter-spacing:.01em;padding:9px 0;margin:0 26px}
+.announce__item .dot{width:5px;height:5px;border-radius:50%;background:var(--brand-3);flex-shrink:0}
+.announce__item a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+@keyframes announce-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.announce__track{animation:none}}
+
 /* ===== Header ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
@@ -308,6 +320,22 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 </style>
 </head>
 <body>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="announce" role="region" aria-label="Announcements">
+  <div class="announce__track">
+    <!-- Set 1 -->
+    <span class="announce__item">🎉 Free, no-obligation website quotes — <a href="#quote">get yours today</a></span>
+    <span class="announce__item"><span class="dot"></span> Trusted by 40+ New Zealand businesses since 2015</span>
+    <span class="announce__item"><span class="dot"></span> Websites built to turn visitors into real enquiries</span>
+    <span class="announce__item"><span class="dot"></span> Now booking new projects — call <a href="tel:0800182088">0800 18 20 88</a></span>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <span class="announce__item" aria-hidden="true">🎉 Free, no-obligation website quotes — <a href="#quote">get yours today</a></span>
+    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Trusted by 40+ New Zealand businesses since 2015</span>
+    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Websites built to turn visitors into real enquiries</span>
+    <span class="announce__item" aria-hidden="true"><span class="dot"></span> Now booking new projects — call <a href="tel:0800182088">0800 18 20 88</a></span>
+  </div>
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="header">
