@@ -17,17 +17,24 @@
    Colour system, layout and components (self-contained)
    ============================================================ */
 :root{
-  --ink:#0d1220;          /* near-black navy */
-  --ink-2:#1a2234;
-  --cream:#fbf9f6;        /* warm off-white */
+  /* Main brand colour: #505150 — a refined, muted stone grey.
+     The palette is a disciplined tonal system built around it. */
+  --brand:#505150;        /* main brand colour */
+  --brand-2:#6d6e6a;      /* lighter tonal sibling */
+  --brand-3:#8a8b82;      /* lightest tonal sibling */
+  --ink:#2b2c2b;          /* deep charcoal for headings / dark sections */
+  --ink-2:#3c3d3b;
+  --cream:#f4f3f0;        /* warm neutral off-white */
   --paper:#ffffff;
-  --coral:#ff5a3c;        /* primary accent / CTA */
-  --coral-dark:#e8431f;
-  --teal:#12b3a6;         /* secondary accent */
-  --amber:#ffb23e;
-  --grey:#6b7280;
-  --grey-2:#9aa1ad;
-  --line:rgba(13,18,32,.10);
+  /* Legacy accent tokens remapped onto the grey system so every
+     component inherits the new scheme. */
+  --coral:#505150;        /* primary accent / CTA -> brand */
+  --coral-dark:#3d3e3c;
+  --teal:#6d6e6a;
+  --amber:#8a8b82;
+  --grey:#7a7b78;
+  --grey-2:#a3a49f;
+  --line:rgba(43,44,43,.12);
   --radius:18px;
   --radius-sm:12px;
   --shadow:0 18px 50px -20px rgba(13,18,32,.28);
@@ -61,11 +68,11 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 /* Buttons */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font-weight:600;font-size:.98rem;padding:14px 24px;border-radius:999px;
+  font-weight:600;font-size:.98rem;padding:14px 26px;border-radius:8px;
   border:1.5px solid transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;
 }
-.btn--primary{background:var(--coral);color:#fff;box-shadow:0 10px 24px -8px rgba(255,90,60,.6)}
-.btn--primary:hover{background:var(--coral-dark);transform:translateY(-2px)}
+.btn--primary{background:var(--ink);color:#fff;box-shadow:0 10px 24px -10px rgba(43,44,43,.55)}
+.btn--primary:hover{background:var(--brand);transform:translateY(-2px)}
 .btn--dark{background:var(--ink);color:#fff}
 .btn--dark:hover{background:var(--ink-2);transform:translateY(-2px)}
 .btn--ghost{background:transparent;border-color:var(--line);color:var(--ink)}
@@ -85,9 +92,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:1.2rem}
 .brand__mark{
-  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff;
-  background:linear-gradient(135deg,var(--coral),var(--amber));font-size:1.15rem;
-  box-shadow:0 8px 18px -6px rgba(255,90,60,.6);
+  width:38px;height:38px;border-radius:8px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,var(--brand),var(--ink));font-size:1.15rem;
+  box-shadow:0 8px 18px -8px rgba(43,44,43,.5);
 }
 .nav{display:flex;align-items:center;gap:30px}
 .nav a{font-weight:500;font-size:.96rem;color:var(--ink);position:relative;padding:6px 0}
@@ -104,17 +111,19 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .hero::before{
   content:"";position:absolute;inset:0;z-index:0;
   background:
-    radial-gradient(60% 55% at 82% 12%,rgba(255,90,60,.14),transparent 60%),
-    radial-gradient(50% 50% at 8% 80%,rgba(18,179,166,.12),transparent 60%);
+    radial-gradient(60% 55% at 82% 12%,rgba(80,81,80,.12),transparent 60%),
+    radial-gradient(50% 50% at 8% 80%,rgba(43,44,43,.08),transparent 60%);
 }
 .hero .container{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.15fr .95fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(2.5rem,5.2vw,4rem);font-weight:800;margin:18px 0 20px}
-.hero h1 .accent{color:var(--coral)}
+.hero h1 .accent{color:var(--brand);position:relative;white-space:nowrap}
+.hero h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.14em;border-radius:4px;
+  background:var(--brand);opacity:.35}
 .hero .sub{font-size:1.18rem;color:#3c4459;max-width:520px;margin-bottom:28px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:30px}
 .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap;color:var(--grey);font-size:.92rem}
-.stars{color:var(--amber);letter-spacing:2px}
+.stars{color:var(--brand);letter-spacing:2px}
 .hero-avatars{display:flex}
 .hero-avatars span{
   width:34px;height:34px;border-radius:50%;border:2px solid var(--cream);margin-left:-10px;
@@ -130,7 +139,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .lead-card__badge{
   position:absolute;top:-14px;left:30px;background:var(--ink);color:#fff;
   font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-  padding:6px 14px;border-radius:999px;
+  padding:6px 14px;border-radius:6px;
 }
 .lead-card h3{font-size:1.4rem;margin:6px 0 4px}
 .lead-card p{color:var(--grey);font-size:.94rem;margin-bottom:18px}
@@ -141,7 +150,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
   border:1.5px solid var(--line);background:#fbfbfc;color:var(--ink);transition:.18s;
 }
 .field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;border-color:var(--coral);background:#fff;box-shadow:0 0 0 4px rgba(255,90,60,.12);
+  outline:none;border-color:var(--brand);background:#fff;box-shadow:0 0 0 4px rgba(80,81,80,.14);
 }
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .hp{position:absolute;left:-9999px}
@@ -157,7 +166,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .logos{padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
 .logos p{text-align:center;color:var(--grey);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:22px}
 .logo-track{display:flex;gap:56px;align-items:center;flex-wrap:wrap;justify-content:center}
-.logo-track span{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:#b6bcc7;transition:.2s}
+.logo-track span{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:#b7b8b2;transition:.2s}
 .logo-track span:hover{color:var(--ink)}
 
 /* ===== Stats ===== */
@@ -175,18 +184,18 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
   transition:.25s ease;position:relative;overflow:hidden;
 }
 .service:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
-.service__icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;
-  background:rgba(255,90,60,.1);color:var(--coral)}
-.service:nth-child(2) .service__icon{background:rgba(18,179,166,.12);color:var(--teal)}
-.service:nth-child(3) .service__icon{background:rgba(255,178,62,.16);color:#d98a00}
-.service:nth-child(5) .service__icon{background:rgba(18,179,166,.12);color:var(--teal)}
-.service:nth-child(6) .service__icon{background:rgba(255,178,62,.16);color:#d98a00}
+.service__icon{width:54px;height:54px;border-radius:12px;display:grid;place-items:center;margin-bottom:20px;
+  background:rgba(80,81,80,.10);color:var(--brand)}
+.service:nth-child(2) .service__icon{background:rgba(43,44,43,.09);color:var(--ink)}
+.service:nth-child(3) .service__icon{background:rgba(138,139,130,.18);color:var(--brand-2)}
+.service:nth-child(5) .service__icon{background:rgba(43,44,43,.09);color:var(--ink)}
+.service:nth-child(6) .service__icon{background:rgba(138,139,130,.18);color:var(--brand-2)}
 .service__icon svg{width:26px;height:26px}
 .service h3{font-size:1.28rem;margin-bottom:10px}
 .service .lead{font-weight:600;font-size:.98rem;margin-bottom:8px}
 .service p{color:var(--grey);font-size:.93rem;margin-bottom:16px}
 .tags{display:flex;flex-wrap:wrap;gap:7px}
-.tag{font-size:.76rem;font-weight:500;padding:5px 11px;border-radius:999px;background:rgba(13,18,32,.05);color:#4a5162}
+.tag{font-size:.76rem;font-weight:500;padding:5px 11px;border-radius:6px;background:rgba(43,44,43,.06);color:#54554f}
 
 /* ===== Projects ===== */
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -197,11 +206,11 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 .project:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .project__img{height:190px;position:relative;overflow:hidden;
   background:linear-gradient(135deg,var(--ink),var(--ink-2))}
-.project:nth-child(2) .project__img{background:linear-gradient(135deg,#1d3b53,#12b3a6)}
-.project:nth-child(3) .project__img{background:linear-gradient(135deg,#3a2140,#ff5a3c)}
-.project:nth-child(4) .project__img{background:linear-gradient(135deg,#102a43,#334e68)}
-.project:nth-child(5) .project__img{background:linear-gradient(135deg,#1b4332,#40916c)}
-.project:nth-child(6) .project__img{background:linear-gradient(135deg,#3d2c1e,#ffb23e)}
+.project:nth-child(2) .project__img{background:linear-gradient(135deg,#3c3d3b,#6d6e6a)}
+.project:nth-child(3) .project__img{background:linear-gradient(135deg,#2b2c2b,#505150)}
+.project:nth-child(4) .project__img{background:linear-gradient(135deg,#45463f,#8a8b82)}
+.project:nth-child(5) .project__img{background:linear-gradient(135deg,#33342f,#6d6e6a)}
+.project:nth-child(6) .project__img{background:linear-gradient(135deg,#505150,#3c3d3b)}
 .project__img span{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.92);
   font-family:var(--font-display);font-weight:700;font-size:1.4rem;letter-spacing:.02em}
 .project__body{padding:22px 24px 26px}
@@ -226,7 +235,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 /* ===== Testimonial ===== */
 .testimonial{background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .testimonial::before{content:"";position:absolute;top:-60px;right:-40px;width:320px;height:320px;
-  background:radial-gradient(circle,rgba(255,90,60,.25),transparent 70%)}
+  background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%)}
 .testimonial .container{position:relative;z-index:1;max-width:920px;text-align:center}
 .quote-mark{font-family:var(--font-display);font-size:5rem;line-height:.6;color:var(--coral);margin-bottom:10px}
 .testimonial blockquote{font-family:var(--font-display);font-weight:600;font-size:clamp(1.4rem,3vw,2.1rem);
@@ -242,9 +251,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 /* ===== CTA band ===== */
 .cta-band{padding:0 0 96px}
 .cta-inner{
-  background:linear-gradient(120deg,var(--coral),var(--amber));border-radius:28px;
+  background:linear-gradient(120deg,var(--brand),var(--ink));border-radius:20px;
   padding:64px 56px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:40px;
-  box-shadow:0 30px 70px -30px rgba(255,90,60,.7);position:relative;overflow:hidden;
+  box-shadow:0 30px 70px -34px rgba(43,44,43,.7);position:relative;overflow:hidden;
 }
 .cta-inner::after{content:"";position:absolute;right:-60px;bottom:-80px;width:280px;height:280px;
   border-radius:50%;background:rgba(255,255,255,.12)}
@@ -266,8 +275,8 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
 
 /* Floating call button (mobile lead driver) */
 .fab{position:fixed;right:20px;bottom:20px;z-index:40;display:none;align-items:center;gap:9px;
-  background:var(--coral);color:#fff;padding:14px 20px;border-radius:999px;font-weight:600;
-  box-shadow:0 14px 34px -10px rgba(255,90,60,.7)}
+  background:var(--ink);color:#fff;padding:14px 20px;border-radius:10px;font-weight:600;
+  box-shadow:0 14px 34px -12px rgba(43,44,43,.7)}
 .fab svg{width:20px;height:20px}
 
 .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
@@ -560,7 +569,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
         <h2>Ready for a website you can smile about?</h2>
         <p>Free quote, no obligation. Let's hash out the details.</p>
       </div>
-      <a class="btn btn--dark" href="#quote" style="padding:16px 30px;font-size:1.05rem">Get started today</a>
+      <a class="btn btn--light" href="#quote" style="padding:16px 30px;font-size:1.05rem">Get started today</a>
     </div>
   </div>
 </section>
