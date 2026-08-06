@@ -368,9 +368,15 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
           <form id="leadForm">
             <h3>Get a free quote</h3>
             <p>Tell us a little about your project — we'll reply within one business day.</p>
-            <div class="field">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.co.nz" required>
+              </div>
             </div>
             <div class="field-row">
               <div class="field">
@@ -378,13 +384,20 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.1;letter-spacing:-.02e
                 <input type="tel" id="phone" name="phone" placeholder="021 123 4567" required>
               </div>
               <div class="field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.co.nz" required>
+                <label for="business">Business name</label>
+                <input type="text" id="business" name="business" placeholder="Your company Ltd" required>
               </div>
             </div>
             <div class="field">
-              <label for="business">Business name</label>
-              <input type="text" id="business" name="business" placeholder="Your company Ltd" required>
+              <label for="type">What do you need?</label>
+              <select id="type" name="type">
+                <option>A brand-new website</option>
+                <option>A website redesign</option>
+                <option>E-commerce / online store</option>
+                <option>Branding &amp; design</option>
+                <option>Ongoing website management</option>
+                <option>Something else</option>
+              </select>
             </div>
             <div class="field">
               <label for="message">How can we help? <span style="color:var(--grey-2);font-weight:400">(optional)</span></label>
