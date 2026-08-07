@@ -586,3 +586,21 @@ p { margin: 0; }
   .marquee-label { padding: 0 18px; }
   .footer-base { flex-direction: column; gap: 10px; align-items: flex-start; }
 }
+
+/* Showcase filter tabs: on small screens the max-content pill overflowed the
+   viewport (looked full-width / cut off). Turn it into a compact, horizontally
+   scrollable chip strip instead. */
+@media (max-width: 760px) {
+  .tabs {
+    width: auto; max-width: 100%; margin: 0 auto 26px;
+    flex-wrap: nowrap; justify-content: flex-start;
+    overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    background: transparent; border: 0; padding: 2px 0; gap: 8px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 0 0 auto; padding: 10px 16px; font-size: 14px;
+    background: #fff; border: 1px solid var(--line);
+  }
+  .tab.is-active { border-color: var(--accent); }
+}
