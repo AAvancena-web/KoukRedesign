@@ -496,3 +496,46 @@
     boot();
   }
 })();
+
+/* Mobile navigation (hamburger) toggle */
+(function () {
+  function initMobileNav() {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if (!toggle || !nav) return;
+
+    function close() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      // Lock body scroll while the full-height menu is open.
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Tapping a real link closes the menu; the Services trigger just expands.
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (a.classList.contains('menu-trigger')) return;
+        close();
+      });
+    });
+
+    // Reset when resizing back up to desktop.
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 960 && nav.classList.contains('is-open')) close();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileNav);
+  } else {
+    initMobileNav();
+  }
+})();

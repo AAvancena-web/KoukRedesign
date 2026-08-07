@@ -496,6 +496,8 @@ p { margin: 0; }
 .footer-base a { color: var(--body); }
 
 /* ---------- responsive ---------- */
+.nav-toggle { display: none; }
+
 @media (max-width: 1200px) {
   .nav a { font-size: 15px; padding: 8px 7px; }
   .showcase-grid, .cap-grid { grid-template-columns: repeat(2, 1fr); }
@@ -503,11 +505,10 @@ p { margin: 0; }
   .review-grid { grid-template-columns: repeat(2, 1fr); }
   .rail { display: none; }
 }
+
 @media (max-width: 960px) {
-  .header-row { flex-wrap: wrap; gap: 12px; }
-  .nav { order: 3; width: 100%; flex-wrap: wrap; justify-content: flex-start; }
   .section { padding: 80px 24px; }
-  .hero { padding: 190px 24px 60px; }
+  .hero { padding: 116px 24px 60px; }
   .hero-body, .problem-layout, .process-layout, .faq-layout, .quote-layout,
   .case--img-left, .case--img-right, .hero-review-inner { grid-template-columns: 1fr; gap: 40px; }
   .case--img-right figure { order: -1; }
@@ -517,5 +518,68 @@ p { margin: 0; }
   .quote-layout h2 { font-size: 44px; }
   .section h2 { font-size: 38px; }
   .hero-review blockquote { font-size: 28px; }
+  .hero-review-inner { padding: 48px 36px; }
   .faq-a { padding-right: 6px; }
+
+  /* ---- mobile navigation (hamburger) ---- */
+  .header-row { padding: 14px 20px; }
+  .nav-toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 11px; flex: none;
+    background: transparent; border: 0; cursor: pointer; border-radius: 10px;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px;
+    transition: transform .3s ease, opacity .2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .header-cta { display: none; }
+
+  .nav {
+    position: fixed; top: 62px; left: 0; right: 0;
+    max-height: calc(100vh - 62px); overflow-y: auto;
+    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
+    background: var(--header); border-top: 1px solid rgba(251, 248, 243, 0.10);
+    padding: 12px 20px 28px;
+    transform: translateY(-145%); transition: transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .nav.is-open { transform: translateY(0); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45); }
+  .nav > a, .has-menu { border-bottom: 1px solid rgba(251, 248, 243, 0.07); }
+  .nav a { font-size: 18px; padding: 15px 10px; border-radius: 10px; width: 100%; }
+
+  /* Services mega-menu becomes an inline, expandable list on mobile */
+  .has-menu { position: static; }
+  .menu-trigger { justify-content: space-between; }
+  .dropdown { position: static; transform: none; width: 100%; padding-top: 0; }
+  .dropdown-inner { background: transparent; border: 0; box-shadow: none; padding: 2px 0 12px; }
+  .dropdown-grid { grid-template-columns: 1fr; gap: 0; }
+  .dropdown-grid a { padding: 12px 10px; }
+  .dropdown-grid .title { color: #fff; }
+  .dropdown-grid .desc { color: rgba(251, 248, 243, 0.55); }
+  .dropdown-grid a:hover { background: rgba(251, 248, 243, 0.08); }
+  .dropdown-foot { flex-wrap: wrap; gap: 6px; border-top-color: rgba(251, 248, 243, 0.12); }
+  .dropdown-foot > a { color: #fff; }
+  .dropdown-cta { margin-left: 0; }
+}
+
+@media (max-width: 560px) {
+  .header-row { padding: 12px 16px; }
+  .nav { top: 58px; max-height: calc(100vh - 58px); }
+  .hero { padding: 100px 18px 50px; }
+  .hero h1 { font-size: clamp(30px, 9vw, 50px); margin-top: 22px; }
+  .hero-lede { font-size: 17px; }
+  .badge .label { font-size: 11px; letter-spacing: 0.05em; }
+  .section { padding: 60px 18px; }
+  .section h2 { font-size: 29px; }
+  .quote-layout h2 { font-size: 33px; }
+  .hero-review blockquote { font-size: 22px; }
+  .hero-review-inner { padding: 40px 22px; }
+  .case-body { padding: 26px 20px; }
+  .field-pair { grid-template-columns: 1fr; gap: 0; }
+  .field-pair .field + .field { margin-top: 20px; }
+  .marquee-label { padding: 0 18px; }
+  .footer-base { flex-direction: column; gap: 10px; align-items: flex-start; }
 }
