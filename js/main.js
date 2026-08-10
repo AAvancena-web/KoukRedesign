@@ -41,7 +41,9 @@
     { alt: 'Eyes2Learn',           src: CDN + '66c73098d6ec042a68da152d_client-logos_0003s_0001_eyes2learn--black.png' },
     { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' },
     { alt: 'Allely Estate',        src: 'https://allelyestate.co.nz/wp-content/themes/allely-estate/img/allely-logo.png' },
-    { alt: 'Gordon and Ryan',      src: 'https://gordonandryan.co.nz/wp-content/uploads/2026/01/logo-horizontal@2x-1.png' }
+    { alt: 'Gordon and Ryan',      src: 'https://gordonandryan.co.nz/wp-content/uploads/2026/01/logo-horizontal@2x-1.png' },
+    { alt: 'Client',               src: 'https://cdn.prod.website-files.com/672c0cdaf93a668d1c531d46/672d6c478b3aa544a36b20a2_logo-long2-p-1080.png' },
+    { alt: 'Cake House',           src: 'https://cdn.prod.website-files.com/64b552586899c9e4de899daa/64b55298ffa24a709ba376ec_cake-house.png.webp' }
   ];
 
   var PROJECTS = [
