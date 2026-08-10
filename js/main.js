@@ -522,6 +522,48 @@
   }
 })();
 
+/* Hero website showcase slider */
+(function () {
+  function initHeroSlider() {
+    var slider = document.getElementById('heroSlider');
+    var dotsHost = document.getElementById('heroDots');
+    if (!slider || !dotsHost) return;
+    var slides = slider.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+
+    var idx = 0, timer;
+    slides.forEach(function (_, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      b.addEventListener('click', function () { go(i); restart(); });
+      dotsHost.appendChild(b);
+    });
+    var dots = dotsHost.querySelectorAll('button');
+
+    function go(n) {
+      slides[idx].classList.remove('is-active');
+      dots[idx].classList.remove('is-active');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('is-active');
+    }
+    function restart() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 3200); }
+
+    slides[0].classList.add('is-active');
+    dots[0].classList.add('is-active');
+    restart();
+    // Pause while hovering so people can look.
+    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+    slider.addEventListener('mouseleave', restart);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
+  } else {
+    initHeroSlider();
+  }
+})();
+
 /* Mobile navigation (hamburger) toggle */
 (function () {
   function initMobileNav() {
