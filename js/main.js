@@ -20,7 +20,13 @@
     { alt: 'Truffle Lovers',       src: 'https://trufflelovers.co.nz/cdn/shop/files/sabatino-logo-transparent.png?v=1784800050&width=240' },
     { alt: 'DIY Auckland',         src: 'https://diyauckland.co.nz/cdn/shop/files/main-logo-side_4x_6bef3cee-92af-417b-911f-397a823e6ec8_250x@2x.png?v=1756257629' },
     { alt: '47 Mornings',          src: 'https://47mornings.com/cdn/shop/files/47M_5b291632-47fd-484b-9f27-922b85f0a88f_500x500.png?v=1786229888' },
-    { alt: 'TGIF',                 src: 'https://tgif.co.nz/wp-content/uploads/2026/05/cropped-TG-LOGO-TRANSPARENT-500x211.png', inv: true }
+    { alt: 'TGIF',                 src: 'https://tgif.co.nz/wp-content/uploads/2026/05/cropped-TG-LOGO-TRANSPARENT-500x211.png', inv: true },
+    { alt: 'Blast Worx',           src: CDN + '670670b9d6ca687e741bfc9d_blastworx-black-p-500.png' },
+    { alt: 'Nice Fuels',           src: CDN + '66c730b75195922d0f8d3690_client-logos_0004s_0001_nicefuel--black-p-500.png' },
+    { alt: 'Chemicorp',            src: CDN + '66c7314caa841b1d0e5996da_client-logos_0009s_0001_chemicorp--black-p-500.png' },
+    { alt: 'Parnell Cricket Club', src: CDN + '66c735ac2412b6088a38288f_pcc-black-p-500.png' },
+    { alt: 'Ensemble',             src: CDN + '66c7368ac5a65747c5be6ad5_ensemble-black-p-500.png' },
+    { alt: 'Eyes4Everest',         src: CDN + '66c731970de12bcb5b7b7122_client-logos_0012s_0001_eyes4everest-black-p-500.png' }
   ];
 
   var PROJECTS = [
