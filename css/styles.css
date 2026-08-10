@@ -238,8 +238,10 @@ p { margin: 0; }
 /* ---------- generic section ---------- */
 .section { position: relative; z-index: 3; padding: 130px 52px; }
 .section--tight { padding-top: 0; }
-/* Breathing room between the logo marquee and the reviews that follow it */
-#reviews { padding-top: 96px; }
+/* Alternating background bands so each section reads as its own block,
+   with consistent breathing room above each banded section */
+#reviews, #work, #process { background-color: var(--bg-alt); padding-top: 96px; }
+#problem, #showcase, #faq { background-color: var(--bg); }
 .section h2 { font-size: 54px; line-height: 1.0; letter-spacing: -0.04em; margin: 18px 0 0; }
 .section-lede { font-size: 18px; line-height: 1.65; color: var(--body); margin-top: 20px; }
 
