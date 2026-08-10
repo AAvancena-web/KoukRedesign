@@ -168,7 +168,6 @@ p { margin: 0; }
 .hero-copy { grid-column: 1; }
 .hero-visual { grid-column: 2; }
 .hero-inner .stat-grid { grid-column: 1 / -1; margin-top: 8px; }
-.hero-visual .hero-actions { flex-direction: column; gap: 12px; margin-top: 18px; }
 
 .badge {
   display: inline-flex; align-items: center; gap: 10px;
@@ -230,22 +229,15 @@ p { margin: 0; }
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease, background .35s ease;
 }
 .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 14px 46px rgba(228, 85, 43, 0.42); text-transform: capitalize;
-  position: relative; overflow: hidden; justify-content: center; }
-.btn-primary .btn-label { position: relative; z-index: 2; }
-/* Corner brackets that slide to the top/bottom centre on hover (Victory-style) */
-.btn-corners { position: absolute; inset: 8px; pointer-events: none; z-index: 2; }
-.btn-corners i { position: absolute; width: 12px; height: 12px; border: 2px solid rgba(255, 255, 255, 0.9);
-  transition: left .42s cubic-bezier(.2,.8,.2,1), right .42s cubic-bezier(.2,.8,.2,1), border-color .3s ease; }
-.btn-corners i:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.btn-corners i:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
-.btn-corners i:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; }
-.btn-corners i:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
-.btn-primary:hover { background: #fff; color: var(--accent); transform: translateY(-3px); box-shadow: 0 20px 52px rgba(23, 20, 15, 0.16); }
-.btn-primary:hover .btn-corners i { border-color: var(--accent); }
-.btn-primary:hover .btn-corners i:nth-child(1),
-.btn-primary:hover .btn-corners i:nth-child(3) { left: calc(50% - 6px); }
-.btn-primary:hover .btn-corners i:nth-child(2),
-.btn-primary:hover .btn-corners i:nth-child(4) { right: calc(50% - 6px); }
+  position: relative; overflow: hidden; }
+/* Directional fill wipe (orange -> ink) with the arrow sliding on hover */
+.btn-primary::before { content: ""; position: absolute; inset: 0; background: var(--ink);
+  transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
+.btn-primary .btn-label, .btn-primary .btn-arrow { position: relative; z-index: 1; }
+.btn-primary .btn-arrow { display: inline-block; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+.btn-primary:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 20px 56px rgba(23, 20, 15, 0.24); }
+.btn-primary:hover .btn-arrow { transform: translateX(6px); }
 .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,0.6); font-weight: 600; padding: 20px 28px; }
 .btn-ghost:hover { color: var(--ink); border-color: rgba(23,20,15,0.35); background: #fff; }
 .btn-ghost .num { font-family: var(--mono); font-size: 15px; color: var(--body); white-space: nowrap; }
