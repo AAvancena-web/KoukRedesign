@@ -26,7 +26,20 @@
     { alt: 'Chemicorp',            src: CDN + '66c7314caa841b1d0e5996da_client-logos_0009s_0001_chemicorp--black-p-500.png' },
     { alt: 'Parnell Cricket Club', src: CDN + '66c735ac2412b6088a38288f_pcc-black-p-500.png' },
     { alt: 'Ensemble',             src: CDN + '66c7368ac5a65747c5be6ad5_ensemble-black-p-500.png' },
-    { alt: 'Eyes4Everest',         src: CDN + '66c731970de12bcb5b7b7122_client-logos_0012s_0001_eyes4everest-black-p-500.png' }
+    { alt: 'Eyes4Everest',         src: CDN + '66c731970de12bcb5b7b7122_client-logos_0012s_0001_eyes4everest-black-p-500.png' },
+    { alt: 'Suncorp',              src: CDN + '66c731ea95d2a1310d499d4a_client-logos_0015s_0001_suncorp-black.png' },
+    { alt: 'Storm',                src: CDN + '67b70a90e381b49cb95da67d_storm-black.png' },
+    { alt: 'Rotary',               src: CDN + '66c731b09fefee49ef43518f_client-logos_0013s_0001_rotary-black.png' },
+    { alt: 'Vero',                 src: CDN + '66c73162811592e7fff10ff5_client-logos_0010s_0001_vero-black.png' },
+    { alt: 'WPS',                  src: CDN + '66c730e53fb8b29557b51a06_client-logos_0006s_0001_wps-black.png' },
+    { alt: 'AL',                   src: CDN + '66c730f2aaeb424972476795_client-logos_0007s_0001_al-black.png' },
+    { alt: 'AMP',                  src: CDN + '66c7310686d6822f3c08b7d4_client-logos_0008s_0001_amp--black.png' },
+    { alt: 'TCS',                  src: CDN + '66c73185d3d4f83b877dda1a_client-logos_0011s_0001_tcs-black.png' },
+    { alt: 'iDigital',             src: CDN + '66c731d735ee4071a2cbdea0_client-logos_0014s_0000_idigital-black.png' },
+    { alt: 'Good Honest',          src: CDN + '66c7305519cbc1078bfc0b24_client-logos_0000s_0001_goodhonest-black.png' },
+    { alt: 'Make Mind',            src: CDN + '66c730891bf03cc922025f04_client-logos_0002s_0001_makemind-black.png' },
+    { alt: 'Eyes2Learn',           src: CDN + '66c73098d6ec042a68da152d_client-logos_0003s_0001_eyes2learn--black.png' },
+    { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' }
   ];
 
   var PROJECTS = [
