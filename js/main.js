@@ -30,7 +30,8 @@
     { alt: 'Whys Logistics',       src: 'https://cdn.prod.website-files.com/6994daec178f296465098938/69952b6b200d7499cd0e1e49_Whys-Logistics-Logo-1500px.webp' },
     { alt: 'Kiwiana Tours',        src: 'https://kiwianatours.com/wp-content/uploads/2025/01/kiwiana-logo-white-transparent-background.png', inv: true },
     { alt: 'Truffle Lovers',       src: 'https://trufflelovers.co.nz/cdn/shop/files/sabatino-logo-transparent.png?v=1784800050&width=240' },
-    { alt: 'DIY Auckland',         src: 'https://diyauckland.co.nz/cdn/shop/files/main-logo-side_4x_6bef3cee-92af-417b-911f-397a823e6ec8_250x@2x.png?v=1756257629' }
+    { alt: 'DIY Auckland',         src: 'https://diyauckland.co.nz/cdn/shop/files/main-logo-side_4x_6bef3cee-92af-417b-911f-397a823e6ec8_250x@2x.png?v=1756257629' },
+    { alt: '47 Mornings',          src: 'https://47mornings.com/cdn/shop/files/47M_5b291632-47fd-484b-9f27-922b85f0a88f_500x500.png?v=1786229888' }
   ];
 
   var PROJECTS = [
