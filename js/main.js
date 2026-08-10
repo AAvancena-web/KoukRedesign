@@ -110,13 +110,13 @@
   var NEEDS = ['New website', 'Redesign', 'E-commerce', 'Branding', 'Ongoing support', 'Not sure yet'];
 
   var RAIL = [
-    { id: 'top',        label: 'Intro' },
+    { id: 'brands',     label: 'Brands' },
+    { id: 'reviews',    label: 'Reviews' },
     { id: 'problem',    label: 'The problem' },
     { id: 'work',       label: 'Case studies' },
     { id: 'showcase',   label: 'Showcase' },
     { id: 'capability', label: 'Capability' },
     { id: 'process',    label: 'Process' },
-    { id: 'reviews',    label: 'Reviews' },
     { id: 'faq',        label: 'FAQ' },
     { id: 'quote',      label: 'Get a quote' }
   ];
