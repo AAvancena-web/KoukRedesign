@@ -27,7 +27,8 @@
     { alt: 'Serpenti Investigations', src: 'https://cdn.prod.website-files.com/68102b47f03abf5dd072dafe/68177f0cd51c9aa75a2572c5_Serpenti%20LOGO%20WHITE%20TRANS-p-500.png', inv: true },
     { alt: 'NZ Institute of Private Investigators', src: 'https://cdn.prod.website-files.com/68a27cb44ec6ceb822938742/68a9c8bad05fb7bf868aea7c_New-Zealand-Institute-of-Private-Investigators-Logo-whitepartial.png', inv: true },
     { alt: 'Kouki Photography',    src: 'https://cdn.prod.website-files.com/68e7b96779856210aac0f8f5/691c62ecb37a8e647de60fb2_logo-kouki-dark-p-500.png' },
-    { alt: 'Whys Logistics',       src: 'https://cdn.prod.website-files.com/6994daec178f296465098938/69952b6b200d7499cd0e1e49_Whys-Logistics-Logo-1500px.webp' }
+    { alt: 'Whys Logistics',       src: 'https://cdn.prod.website-files.com/6994daec178f296465098938/69952b6b200d7499cd0e1e49_Whys-Logistics-Logo-1500px.webp' },
+    { alt: 'Kiwiana Tours',        src: 'https://kiwianatours.com/wp-content/uploads/2025/01/kiwiana-logo-white-transparent-background.png', inv: true }
   ];
 
   var PROJECTS = [
