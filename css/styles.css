@@ -391,6 +391,8 @@ p { margin: 0; }
 .rating-card hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
 .rating-card p { font-size: 16px; line-height: 1.6; color: var(--body); }
 
+/* Reviews span the full section width (not the centered content column) */
+#reviews .wrap { max-width: none; }
 .review-head { max-width: 640px; margin-bottom: 46px; }
 .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 0; }
 .review {
