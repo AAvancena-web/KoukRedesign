@@ -253,6 +253,8 @@ p { margin: 0; }
 .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
 .problem-cell { background: var(--card); padding: 36px; transition: background .4s ease; }
 .problem-cell:hover { background: var(--tint); }
+.problem-cell .figure { color: var(--accent); line-height: 0; margin-bottom: 16px; }
+.problem-cell .figure svg { width: 42px; height: 42px; display: block; }
 .problem-cell h3 { font-size: 28px; color: var(--accent); margin: 0 0 12px; letter-spacing: -0.03em; line-height: 1.12; }
 .problem-cell p { font-size: 17px; line-height: 1.62; color: var(--body); }
 .problem-cta { display: inline-flex; margin-top: 30px; }
