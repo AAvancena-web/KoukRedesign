@@ -229,8 +229,9 @@ p { margin: 0; }
 }
 .marquee-label { max-width: var(--max); margin: 0 auto 22px; padding: 0 52px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
 .marquee { display: flex; width: max-content; animation: koukMarquee 45s linear infinite; }
-.marquee-run { display: flex; align-items: center; gap: 70px; padding-right: 70px; }
-.marquee img { height: 44px; width: auto; object-fit: contain; opacity: .62; }
+.marquee-run { display: flex; align-items: center; gap: 54px; padding-right: 54px; }
+/* Uniform slot for every logo regardless of its native aspect ratio */
+.marquee img { width: 150px; height: 50px; object-fit: contain; object-position: center; opacity: .62; }
 /* White logos rendered dark so they read on the light strip */
 .marquee img.inv { filter: brightness(0); }
 
