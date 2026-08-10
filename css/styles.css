@@ -374,9 +374,9 @@ p { margin: 0; }
   background: linear-gradient(135deg, rgba(228,85,43,0.16) 0%, #fff 55%, #fff 100%);
 }
 .hero-review .glow { position: absolute; top: -40%; right: -8%; width: 520px; height: 520px; border-radius: 999px; background: radial-gradient(circle, rgba(228,85,43,0.22) 0%, rgba(228,85,43,0) 70%); filter: blur(20px); animation: koukFloat 17s ease-in-out infinite; pointer-events: none; }
-.hero-review-inner { position: relative; display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; padding: 72px 64px; }
-.stars { font-size: 20px; letter-spacing: 4px; color: var(--accent); margin-bottom: 22px; }
-.hero-review blockquote { font-family: var(--display); font-size: 40px; line-height: 1.26; letter-spacing: -0.032em; margin: 0; max-width: 26ch; text-wrap: pretty; }
+.hero-review-inner { position: relative; display: block; padding: 80px 72px; }
+.stars { font-size: 22px; letter-spacing: 4px; color: var(--accent); margin-bottom: 24px; }
+.hero-review blockquote { font-family: var(--display); font-size: clamp(32px, 4.2vw, 56px); line-height: 1.22; letter-spacing: -0.032em; margin: 0; max-width: 30ch; text-wrap: pretty; }
 .byline { display: flex; align-items: center; gap: 15px; margin-top: 32px; font-size: 16px; color: var(--body); }
 .byline img { width: 56px; height: 56px; border-radius: 999px; object-fit: cover; border: 1px solid var(--line); }
 .byline strong { color: var(--ink); }
