@@ -255,6 +255,7 @@ p { margin: 0; }
 .problem-cell:hover { background: var(--tint); }
 .problem-cell h3 { font-size: 28px; color: var(--accent); margin: 0 0 12px; letter-spacing: -0.03em; line-height: 1.12; }
 .problem-cell p { font-size: 17px; line-height: 1.62; color: var(--body); }
+.problem-cta { display: inline-flex; margin-top: 30px; }
 
 /* ---------- case studies ---------- */
 .case-list { display: flex; flex-direction: column; gap: 26px; }
