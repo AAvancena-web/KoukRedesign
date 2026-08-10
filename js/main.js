@@ -23,7 +23,11 @@
     { alt: 'Chemicorp',            src: CDN + '66c7314caa841b1d0e5996da_client-logos_0009s_0001_chemicorp--black.png' },
     { alt: 'Parnell Cricket Club', src: CDN + '66c735ac2412b6088a38288f_pcc-black.png' },
     { alt: 'Eyes4Everest',         src: CDN + '66c731970de12bcb5b7b7122_client-logos_0012s_0001_eyes4everest-black.png' },
-    { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' }
+    { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' },
+    { alt: 'Serpenti Investigations', src: 'https://cdn.prod.website-files.com/68102b47f03abf5dd072dafe/68177f0cd51c9aa75a2572c5_Serpenti%20LOGO%20WHITE%20TRANS-p-500.png', inv: true },
+    { alt: 'NZ Institute of Private Investigators', src: 'https://cdn.prod.website-files.com/68a27cb44ec6ceb822938742/68a9c8bad05fb7bf868aea7c_New-Zealand-Institute-of-Private-Investigators-Logo-whitepartial.png', inv: true },
+    { alt: 'Kouki Photography',    src: 'https://cdn.prod.website-files.com/68e7b96779856210aac0f8f5/691c62ecb37a8e647de60fb2_logo-kouki-dark-p-500.png' },
+    { alt: 'Whys Logistics',       src: 'https://cdn.prod.website-files.com/6994daec178f296465098938/69952b6b200d7499cd0e1e49_Whys-Logistics-Logo-1500px.webp' }
   ];
 
   var PROJECTS = [
@@ -116,7 +120,7 @@
     var host = el('marquee');
     if (!host) return;
     var run = CLIENT_LOGOS.map(function (l) {
-      return '<img src="' + l.src + '" alt="' + esc(l.alt) + '">';
+      return '<img' + (l.inv ? ' class="inv"' : '') + ' src="' + l.src + '" alt="' + esc(l.alt) + '">';
     }).join('');
     host.innerHTML = '<div class="marquee-run">' + run + '</div><div class="marquee-run" aria-hidden="true">' + run + '</div>';
   }

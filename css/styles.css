@@ -231,6 +231,8 @@ p { margin: 0; }
 .marquee { display: flex; width: max-content; animation: koukMarquee 45s linear infinite; }
 .marquee-run { display: flex; align-items: center; gap: 70px; padding-right: 70px; }
 .marquee img { height: 44px; width: auto; object-fit: contain; opacity: .62; }
+/* White logos rendered dark so they read on the light strip */
+.marquee img.inv { filter: brightness(0); }
 
 /* ---------- generic section ---------- */
 .section { position: relative; z-index: 3; padding: 130px 52px; }
