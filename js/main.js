@@ -39,7 +39,9 @@
     { alt: 'Good Honest',          src: CDN + '66c7305519cbc1078bfc0b24_client-logos_0000s_0001_goodhonest-black.png' },
     { alt: 'Make Mind',            src: CDN + '66c730891bf03cc922025f04_client-logos_0002s_0001_makemind-black.png' },
     { alt: 'Eyes2Learn',           src: CDN + '66c73098d6ec042a68da152d_client-logos_0003s_0001_eyes2learn--black.png' },
-    { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' }
+    { alt: 'Bee Society',          src: CDN + '66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' },
+    { alt: 'Allely Estate',        src: 'https://allelyestate.co.nz/wp-content/themes/allely-estate/img/allely-logo.png' },
+    { alt: 'Gordon and Ryan',      src: 'https://gordonandryan.co.nz/wp-content/uploads/2026/01/logo-horizontal@2x-1.png' }
   ];
 
   var PROJECTS = [
