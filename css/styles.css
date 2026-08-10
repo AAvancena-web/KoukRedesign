@@ -231,7 +231,7 @@ p { margin: 0; }
 .marquee { display: flex; width: max-content; animation: koukMarquee 45s linear infinite; }
 .marquee-run { display: flex; align-items: center; gap: 54px; padding-right: 54px; }
 /* Uniform slot for every logo regardless of its native aspect ratio */
-.marquee img { width: 150px; height: 50px; object-fit: contain; object-position: center; opacity: .62; }
+.marquee img { width: 150px; height: 50px; object-fit: contain; object-position: center; }
 /* White logos rendered dark so they read on the light strip */
 .marquee img.inv { filter: brightness(0); }
 
