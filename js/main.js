@@ -90,8 +90,8 @@
   ];
 
   var REVIEWS = [
-    { quote: 'When communicating with Simon, you can feel the energy and passion the team brings to the project. His vision is forward thinking.', name: 'Shaun Chang', role: 'Founder, Eyes4Everest', initials: 'SC', photo: 'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg' },
-    { quote: 'Kouk Creatives was instrumental in the creation and support of our Mobile App and also the support and remediation of our Digital experience. I was most impressed with three attitudes from Simon. The first being his focus on the needs of the customer, which was transparent and total, ensuring no surprises. Secondly the ability to create and present new conversations in how the application could provide the best outcome, both visually and user friendliness. This was very refreshing and honest. Thirdly was the work turnaround, which was done within the time and cost stated parameters. The support of our projects and staff was of a very high standard and was appreciated. No fuss, no nonsense and does what he says.', name: 'Sid Holmes', role: 'AMP New Zealand', initials: 'SH', photo: '' },
+    { quote: 'When communicating with Simon, you can feel the energy and passion the team brings to the project. His vision is forward thinking.', name: 'Shaun Chang', role: 'Founder, Eyes4Everest', initials: 'SC', photo: 'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg', highlight: ['energy and passion', 'forward thinking'] },
+    { quote: 'Kouk Creatives was instrumental in the creation and support of our Mobile App and also the support and remediation of our Digital experience. I was most impressed with three attitudes from Simon. The first being his focus on the needs of the customer, which was transparent and total, ensuring no surprises. Secondly the ability to create and present new conversations in how the application could provide the best outcome, both visually and user friendliness. This was very refreshing and honest. Thirdly was the work turnaround, which was done within the time and cost stated parameters. The support of our projects and staff was of a very high standard and was appreciated. No fuss, no nonsense and does what he says.', name: 'Sid Holmes', role: 'AMP New Zealand', initials: 'SH', photo: '', highlight: ['most impressed', 'transparent and total', 'ensuring no surprises', 'very refreshing and honest', 'very high standard', 'No fuss, no nonsense'] },
     { quote: 'Another review placeholder. Reviews that mention a number such as enquiries, sales or time saved convert far better than praise alone.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
     { quote: 'Placeholder for a review about the process rather than the result. Being kept in the loop, no surprises on the invoice.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
     { quote: 'Placeholder for a review from an e-commerce client. Ideally one who can speak to the ordering experience improving.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
@@ -204,9 +204,14 @@
       var avatar = r.photo
         ? '<img src="' + r.photo + '" alt="' + esc(r.name) + '">'
         : '<div class="avatar-placeholder">' + esc(r.initials) + '</div>';
+      var quote = esc(r.quote);
+      (r.highlight || []).forEach(function (phrase) {
+        var e = esc(phrase);
+        quote = quote.split(e).join('<mark class="hl">' + e + '</mark>');
+      });
       return '<article class="review reveal">' +
         '<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>' +
-        '<p>' + esc(r.quote) + '</p>' +
+        '<p>' + quote + '</p>' +
         '<div class="byline">' + avatar + '<div><strong>' + esc(r.name) + '</strong><br>' + esc(r.role) + '</div></div>' +
       '</article>';
     }).join('');
