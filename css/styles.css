@@ -393,7 +393,7 @@ p { margin: 0; }
 
 /* Reviews span the full section width (not the centered content column) */
 #reviews .wrap { max-width: none; }
-.review-head { max-width: 640px; margin-bottom: 46px; }
+.review-head { margin-bottom: 46px; }
 .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 0; }
 .review {
   background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px;
