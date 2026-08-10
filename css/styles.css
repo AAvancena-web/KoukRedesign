@@ -374,12 +374,18 @@ p { margin: 0; }
   background: linear-gradient(135deg, rgba(228,85,43,0.16) 0%, #fff 55%, #fff 100%);
 }
 .hero-review .glow { position: absolute; top: -40%; right: -8%; width: 520px; height: 520px; border-radius: 999px; background: radial-gradient(circle, rgba(228,85,43,0.22) 0%, rgba(228,85,43,0) 70%); filter: blur(20px); animation: koukFloat 17s ease-in-out infinite; pointer-events: none; }
-.hero-review-inner { position: relative; display: block; padding: 80px 72px; }
+.hero-review-inner { position: relative; display: grid; grid-template-columns: 1fr 288px; gap: 64px; align-items: center; padding: 80px 72px; }
 .stars { font-size: 22px; letter-spacing: 4px; color: var(--accent); margin-bottom: 24px; }
-.hero-review blockquote { font-family: var(--display); font-size: clamp(32px, 4.2vw, 56px); line-height: 1.22; letter-spacing: -0.032em; margin: 0; max-width: 30ch; text-wrap: pretty; }
+.hero-review blockquote { font-family: var(--display); font-size: clamp(32px, 4vw, 52px); line-height: 1.22; letter-spacing: -0.032em; margin: 0; text-wrap: pretty; }
 .byline { display: flex; align-items: center; gap: 15px; margin-top: 32px; font-size: 16px; color: var(--body); }
 .byline img { width: 56px; height: 56px; border-radius: 999px; object-fit: cover; border: 1px solid var(--line); }
 .byline strong { color: var(--ink); }
+/* Featured review: person sits in its own right-hand column */
+.hero-review-inner > .byline {
+  flex-direction: column; text-align: center; gap: 16px; margin-top: 0; font-size: 17px;
+  padding-left: 64px; border-left: 1px solid var(--line);
+}
+.hero-review-inner > .byline img { width: 96px; height: 96px; }
 .rating-card { border: 1px solid var(--line); border-radius: 20px; padding: 34px; text-align: center; background: rgba(255,255,255,0.82); }
 .rating-card .big { font-family: var(--display); font-size: 60px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
 .rating-card hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
@@ -524,6 +530,7 @@ p { margin: 0; }
   .section h2 { font-size: 38px; }
   .hero-review blockquote { font-size: 28px; }
   .hero-review-inner { padding: 48px 36px; }
+  .hero-review-inner > .byline { border-left: 0; padding-left: 0; margin-top: 8px; }
   .faq-a { padding-right: 6px; }
 
   /* ---- mobile navigation (hamburger) ---- */
