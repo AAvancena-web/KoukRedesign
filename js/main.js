@@ -92,10 +92,7 @@
   var REVIEWS = [
     { quote: 'When communicating with Simon, you can feel the energy and passion the team brings to the project. His vision is forward thinking.', name: 'Shaun Chang', role: 'Founder, Eyes4Everest', initials: 'SC', photo: 'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg', highlight: ['energy and passion', 'forward thinking'] },
     { quote: 'Kouk Creatives was instrumental in the creation and support of our Mobile App and also the support and remediation of our Digital experience. I was most impressed with three attitudes from Simon. The first being his focus on the needs of the customer, which was transparent and total, ensuring no surprises. Secondly the ability to create and present new conversations in how the application could provide the best outcome, both visually and user friendliness. This was very refreshing and honest. Thirdly was the work turnaround, which was done within the time and cost stated parameters. The support of our projects and staff was of a very high standard and was appreciated. No fuss, no nonsense and does what he says.', name: 'Sid Holmes', role: 'AMP New Zealand', initials: 'SH', photo: '', highlight: ['most impressed', 'transparent and total', 'ensuring no surprises', 'very refreshing and honest', 'very high standard', 'No fuss, no nonsense'] },
-    { quote: 'Another review placeholder. Reviews that mention a number such as enquiries, sales or time saved convert far better than praise alone.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
-    { quote: 'Placeholder for a review about the process rather than the result. Being kept in the loop, no surprises on the invoice.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
-    { quote: 'Placeholder for a review from an e-commerce client. Ideally one who can speak to the ordering experience improving.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' },
-    { quote: 'Placeholder for a review about support after launch. This is the objection most prospects never say out loud.', name: 'Client name', role: 'Role, Company', initials: 'CN', photo: '' }
+    { quote: 'We\'ve had a great experience working with the team on our Truffle Lovers website. This wasn\'t simply building a new website, it involved migrating our entire existing site from WordPress/WooCommerce to Shopify, so there was a lot of work involved throughout the process. The team has been extremely knowledgeable, professional and responsive, and they made what could have been a complicated migration feel very manageable. They were always happy to answer our questions, make changes and guide us through the process. We\'re really happy with how the new site has turned out, especially the clean design, improved functionality and overall shopping experience. A huge thank you to the team for all the hard work and support. Highly recommended!', name: 'Johnny', role: 'Truffle Lovers NZ', initials: 'JT', photo: '', highlight: ['extremely knowledgeable, professional and responsive', 'made what could have been a complicated migration feel very manageable', 'really happy with how the new site has turned out', 'Highly recommended'] }
   ];
 
   var FAQS = [
@@ -211,10 +208,25 @@
       });
       return '<article class="review reveal">' +
         '<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>' +
-        '<p>' + quote + '</p>' +
+        '<p class="review-quote">' + quote + '</p>' +
+        '<button class="review-more" type="button" hidden>Read more</button>' +
         '<div class="byline">' + avatar + '<div><strong>' + esc(r.name) + '</strong><br>' + esc(r.role) + '</div></div>' +
       '</article>';
     }).join('');
+
+    // Show a "Read more" toggle only on quotes that actually overflow.
+    host.querySelectorAll('.review').forEach(function (card) {
+      var q = card.querySelector('.review-quote');
+      var btn = card.querySelector('.review-more');
+      if (!q || !btn) return;
+      if (q.scrollHeight - q.clientHeight > 6) {
+        btn.hidden = false;
+        btn.addEventListener('click', function () {
+          var expanded = card.classList.toggle('is-expanded');
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+        });
+      }
+    });
   }
 
   function renderFaqs() {
