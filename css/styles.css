@@ -314,6 +314,32 @@ p { margin: 0; }
 .metrics .n { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
 .metrics .t { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--body); margin-top: 5px; }
 
+/* ---------- single case study + before/after ---------- */
+.case-solo-head { max-width: 760px; margin-bottom: 42px; }
+.case-solo-head h3 { font-family: var(--display); font-size: 36px; letter-spacing: -0.03em; margin: 14px 0 16px; }
+.case-solo-head p { font-size: 18px; line-height: 1.6; color: var(--body); }
+
+.ba { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(23,20,15,0.16); background: var(--card);
+  user-select: none; touch-action: none; cursor: ew-resize; }
+.ba-after, .ba-before { position: absolute; inset: 0; }
+.ba-after img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* BEFORE sits on top and is clipped to the left of the divider */
+.ba-before { display: flex; align-items: center; justify-content: center; text-align: center;
+  background: repeating-linear-gradient(135deg, #ece5d9, #ece5d9 22px, #e5ddcf 22px, #e5ddcf 44px);
+  color: #8a7d67; font-family: var(--mono); font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.7;
+  clip-path: inset(0 calc(100% - var(--pos, 55%)) 0 0); }
+.ba-before em { font-style: normal; color: #b3a794; font-size: 11px; }
+.ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos, 55%); width: 2px; background: #fff;
+  box-shadow: 0 0 0 1px rgba(23,20,15,0.10); transform: translateX(-1px); }
+.ba-grip { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px;
+  border-radius: 999px; background: #fff; box-shadow: 0 6px 20px rgba(23,20,15,0.28); display: grid; place-items: center; }
+.ba-grip::before { content: "\2039\2003\203A"; color: var(--ink); font-size: 15px; font-weight: 700; letter-spacing: -2px; }
+.ba-label { position: absolute; bottom: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #fff; background: rgba(23,20,15,0.6); padding: 5px 11px; border-radius: 7px; z-index: 3; }
+.ba-label--before { left: 14px; }
+.ba-label--after { right: 14px; }
+
 /* ---------- showcase ---------- */
 .showcase-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px; margin-bottom: 36px; }
 .showcase-head > div { display: flex; flex-direction: column; align-items: center; }

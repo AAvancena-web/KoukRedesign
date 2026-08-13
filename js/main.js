@@ -534,6 +534,34 @@
   }
 })();
 
+/* Before / after comparison slider */
+(function () {
+  function initBeforeAfter() {
+    var ba = document.getElementById('baTruffle');
+    if (!ba) return;
+    var dragging = false;
+    function setPos(clientX) {
+      var r = ba.getBoundingClientRect();
+      var p = ((clientX - r.left) / r.width) * 100;
+      p = Math.max(0, Math.min(100, p));
+      ba.style.setProperty('--pos', p + '%');
+    }
+    ba.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      if (ba.setPointerCapture) { try { ba.setPointerCapture(e.pointerId); } catch (err) {} }
+      setPos(e.clientX);
+    });
+    ba.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
+    ba.addEventListener('pointerup', function () { dragging = false; });
+    ba.addEventListener('pointercancel', function () { dragging = false; });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBeforeAfter);
+  } else {
+    initBeforeAfter();
+  }
+})();
+
 /* Hero website showcase slider */
 (function () {
   function initHeroSlider() {
