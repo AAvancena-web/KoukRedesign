@@ -197,7 +197,7 @@
   function renderReviews() {
     var host = el('reviewGrid');
     if (!host) return;
-    host.innerHTML = REVIEWS.map(function (r) {
+    host.innerHTML = REVIEWS.map(function (r, i) {
       var avatar = r.photo
         ? '<img src="' + r.photo + '" alt="' + esc(r.name) + '">'
         : '<div class="avatar-placeholder">' + esc(r.initials) + '</div>';
@@ -206,7 +206,7 @@
         var e = esc(phrase);
         quote = quote.split(e).join('<mark class="hl">' + e + '</mark>');
       });
-      return '<article class="review reveal">' +
+      return '<article class="review reveal" style="transition-delay:' + (i * 130) + 'ms">' +
         '<div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>' +
         '<p class="review-quote">' + quote + '</p>' +
         '<button class="review-more" type="button" hidden>Read more</button>' +
