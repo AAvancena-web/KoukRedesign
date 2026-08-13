@@ -426,7 +426,7 @@ p { margin: 0; }
 .rating-card p { font-size: 16px; line-height: 1.6; color: var(--body); }
 
 .review-head { margin-bottom: 46px; }
-.review-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 0 auto; max-width: 880px; }
+.review-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
 /* Highlighter marker on positive phrases in reviews */
 .review .hl { background: linear-gradient(transparent 58%, rgba(228, 85, 43, 0.22) 0); color: inherit; font-weight: 600; border-radius: 2px; }
 .review {
