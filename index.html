@@ -246,8 +246,9 @@
   .svc-head p{color:var(--body);font-size:18px;line-height:1.6;margin-top:14px}
   .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   .svc-card{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:#fff;box-shadow:0 44px 74px -46px rgba(23,20,15,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-  .svc-card::before{content:"";position:absolute;inset:0;z-index:-2}
-  .svc-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 26%,rgba(0,0,0,.62) 100%)}
+  .svc-card::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--img);background-size:cover;background-position:center;filter:grayscale(1) contrast(1.04);transition:transform .5s ease}
+  .svc-card:hover::before{transform:scale(1.06)}
+  .svc-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(160deg,rgba(10,14,16,.2),rgba(10,14,16,.82))}
   .svc-card:hover{transform:translateY(-8px);box-shadow:0 60px 92px -44px rgba(23,20,15,.7)}
   .svc-card .wm{position:absolute;top:-18px;right:8px;z-index:-1;font-family:var(--display);font-weight:800;font-size:180px;line-height:1;color:rgba(255,255,255,.11);pointer-events:none}
   .svc-card .k{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:10px}
@@ -256,10 +257,14 @@
   .svc-card .go{position:absolute;top:26px;right:26px;z-index:2;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;opacity:0;transform:translateY(-8px) rotate(-25deg);transition:.3s}
   .svc-card .go svg{width:19px;height:19px}
   .svc-card:hover .go{opacity:1;transform:none}
-  .svc-card.g1::before{background:linear-gradient(150deg,#2b3b40,#0e4a4b)}
-  .svc-card.g2::before{background:linear-gradient(150deg,#E4552B,#b53414)}
-  .svc-card.g3::before{background:linear-gradient(150deg,#E8A32C,#b5761a)}
-  .svc-card.g4::before{background:linear-gradient(150deg,#3a3730,#17140F)}
+  .svc-card.g1{background:linear-gradient(150deg,#2b3b40,#0e4a4b)}
+  .svc-card.g2{background:linear-gradient(150deg,#E4552B,#b53414)}
+  .svc-card.g3{background:linear-gradient(150deg,#E8A32C,#b5761a)}
+  .svc-card.g4{background:linear-gradient(150deg,#3a3730,#17140F)}
+  .svc-card.g1::after{background:linear-gradient(160deg,rgba(14,74,75,.48) 0%,rgba(10,20,22,.86) 78%)}
+  .svc-card.g2::after{background:linear-gradient(160deg,rgba(228,85,43,.5) 0%,rgba(26,14,10,.86) 78%)}
+  .svc-card.g3::after{background:linear-gradient(160deg,rgba(232,163,44,.5) 0%,rgba(30,20,8,.86) 78%)}
+  .svc-card.g4::after{background:linear-gradient(160deg,rgba(44,56,60,.5) 0%,rgba(10,12,14,.88) 78%)}
   .svc-cta{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:16px}
   .svc-cta .q{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.01em}
   @media(max-width:760px){ .svc-grid{grid-template-columns:1fr} .svc-card{min-height:260px;padding:30px} .services{padding:72px 0} }
@@ -888,18 +893,19 @@
     var host = document.getElementById('svc-grid'); if(!host) return;
     var A = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
     var SV = [
-      { n:'Consultation',              d:'Not sure where to start? Let’s talk.' },
-      { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.' },
-      { n:'Website Design',            d:'A clean site that shows what you do.' },
-      { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.' },
-      { n:'E-commerce',                d:'An online store built to sell.' },
-      { n:'Website Redesign',          d:'Make your current site work harder.' },
-      { n:'Branding &amp; Assets',     d:'Look the part, everywhere.' },
-      { n:'Website Care &amp; Support',d:'Fast, secure and worry-free.' }
+      { n:'Consultation',              d:'Not sure where to start? Let’s talk.',            s:'kouk-consult' },
+      { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.',          s:'kouk-build' },
+      { n:'Website Design',            d:'A clean site that shows what you do.',            s:'kouk-design' },
+      { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.',   s:'kouk-dev' },
+      { n:'E-commerce',                d:'An online store built to sell.',                 s:'kouk-ecom' },
+      { n:'Website Redesign',          d:'Make your current site work harder.',            s:'kouk-redesign' },
+      { n:'Branding &amp; Assets',     d:'Look the part, everywhere.',                     s:'kouk-brand' },
+      { n:'Website Care &amp; Support',d:'Fast, secure and worry-free.',                   s:'kouk-care' }
     ];
     host.innerHTML = SV.map(function(s,i){
       var num = (i+1<10?'0':'')+(i+1);
-      return '<a class="svc-card g'+((i%4)+1)+'" href="#">'
+      var img = 'https://picsum.photos/seed/'+s.s+'/900/700';
+      return '<a class="svc-card g'+((i%4)+1)+'" href="#" style="--img:url(\''+img+'\')">'
         + '<span class="wm">'+num+'</span>'
         + '<span class="go">'+A+'</span>'
         + '<div class="nm">'+s.n+'</div>'
