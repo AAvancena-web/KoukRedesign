@@ -202,6 +202,9 @@
   .feature .fstars{color:var(--gold);letter-spacing:6px;font-size:clamp(32px,4.6vw,48px);margin-bottom:24px;line-height:1}
   .feature .fq{font-family:var(--sans);font-weight:600;font-size:clamp(24px,3.2vw,40px);line-height:1.38;color:#2f2a22;position:relative;z-index:2}
   .feature .fq mark.hl{background:none;color:var(--ink);font-weight:700}
+  .feature .fq.clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .feature .fmore{margin-top:18px;background:none;border:0;color:var(--accent);font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;position:relative;z-index:2}
+  .feature .fmore:hover{color:var(--accent-dark)}
   .feature .fby{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:34px}
   .feature .fby img,.feature .fby .av{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
   .feature .fby .av{background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
@@ -830,7 +833,8 @@
     track.innerHTML = REVIEWS.map(function(r){
       return '<div class="t-slide"><article class="feature">'
         + '<div class="fstars">★★★★★</div>'
-        + '<p class="fq">“'+hi(r)+'”</p>'
+        + '<p class="fq clamp">“'+hi(r)+'”</p>'
+        + '<button class="fmore" type="button" hidden>Read more</button>'
         + '<div class="fby">'+avatar(r,'av')+'<div><div class="nm">'+esc(r.name)+'</div><div class="rl">'+esc(r.role)+'</div></div></div>'
         + '</article></div>';
     }).join('');
@@ -839,9 +843,28 @@
     dotsHost.innerHTML = REVIEWS.map(function(_r,i){ return '<button class="t-dot'+(i===0?' active':'')+'" type="button" data-i="'+i+'" aria-label="Review '+(i+1)+'"></button>'; }).join('');
     var dots = Array.prototype.slice.call(dotsHost.querySelectorAll('.t-dot'));
 
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.feature'));
+    slides.forEach(function(f){
+      var q=f.querySelector('.fq'), b=f.querySelector('.fmore');
+      b.addEventListener('click', function(){
+        q.classList.toggle('clamp');
+        b.textContent = q.classList.contains('clamp') ? 'Read more' : 'Read less';
+      });
+    });
+    function refreshMore(){
+      slides.forEach(function(f){
+        var q=f.querySelector('.fq'), b=f.querySelector('.fmore');
+        q.classList.add('clamp'); b.textContent='Read more';
+        b.hidden = (q.scrollHeight - q.clientHeight <= 4);
+      });
+    }
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(refreshMore); } else { window.addEventListener('load', refreshMore); }
+    var _rm; window.addEventListener('resize', function(){ clearTimeout(_rm); _rm=setTimeout(refreshMore, 150); });
+
     var idx = 0;
     function go(n){
       idx = (n + REVIEWS.length) % REVIEWS.length;
+      slides.forEach(function(f){ var q=f.querySelector('.fq'), b=f.querySelector('.fmore'); q.classList.add('clamp'); if(!b.hidden) b.textContent='Read more'; });
       track.style.transform = 'translateX(-' + (idx*100) + '%)';
       dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
     }
