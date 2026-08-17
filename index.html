@@ -276,11 +276,11 @@
   .proc-grid.is-in .proc-step:nth-child(2) .num{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 12px 26px -10px rgba(228,85,43,.7);transition-delay:.65s}
   .proc-grid.is-in .proc-step:nth-child(3) .num{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 12px 26px -10px rgba(228,85,43,.7);transition-delay:1.15s}
   .proc-grid.is-in .proc-step:nth-child(4) .num{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 12px 26px -10px rgba(228,85,43,.7);transition-delay:1.65s}
-  .proc-step .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 30px 60px -50px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
-  .proc-step .card:hover{transform:translateY(-6px);box-shadow:0 40px 72px -44px rgba(23,20,15,.55)}
-  .proc-step .card h3{font-family:var(--display);font-size:19px;margin-bottom:10px;letter-spacing:-.01em}
-  .proc-step .card p{font-size:15px;line-height:1.6;color:var(--body);margin-bottom:14px}
-  .proc-step .card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
+  .proc-step .proc-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 30px 60px -50px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
+  .proc-step .proc-card:hover{transform:translateY(-6px);box-shadow:0 40px 72px -44px rgba(23,20,15,.55)}
+  .proc-step .proc-card h3{font-family:var(--display);font-size:19px;margin-bottom:10px;letter-spacing:-.01em}
+  .proc-step .proc-card p{font-size:15px;line-height:1.6;color:var(--body);margin-bottom:14px}
+  .proc-step .proc-card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
   @media(prefers-reduced-motion:reduce){ .proc-grid::after{transition:none} .proc-grid .proc-step .num{transition:none} }
   @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:32px} .proc-grid::before,.proc-grid::after{display:none} }
   @media(max-width:560px){ .proc-grid{grid-template-columns:1fr} .process{padding:72px 0} }
@@ -558,7 +558,7 @@
     <div class="proc-grid">
       <div class="proc-step">
         <div class="num">1</div>
-        <div class="card">
+        <div class="proc-card">
           <h3>Discovery</h3>
           <p>Every business has its own fingerprint. We sit down, work out what you're actually after, and propose something that fits.</p>
           <div class="meta">Scope &amp; price in writing</div>
@@ -566,7 +566,7 @@
       </div>
       <div class="proc-step">
         <div class="num">2</div>
-        <div class="card">
+        <div class="proc-card">
           <h3>Design</h3>
           <p>Wireframes first, then a proper design. You see and sign off every screen before a line of code is written.</p>
           <div class="meta">You approve before we build</div>
@@ -574,7 +574,7 @@
       </div>
       <div class="proc-step">
         <div class="num">3</div>
-        <div class="card">
+        <div class="proc-card">
           <h3>Build &amp; launch</h3>
           <p>Engineered for speed and search, content loaded, tested on real devices. Then it goes live.</p>
           <div class="meta">Regular progress you can see</div>
@@ -582,7 +582,7 @@
       </div>
       <div class="proc-step">
         <div class="num">4</div>
-        <div class="card">
+        <div class="proc-card">
           <h3>Support &amp; grow</h3>
           <p>We stay on. Support tickets, feature requests, improvements. And no, there are no dumb questions here.</p>
           <div class="meta">We're still here after launch</div>
