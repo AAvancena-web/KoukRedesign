@@ -207,6 +207,19 @@
   .feature .fby .av{background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
   .feature .fby .nm{font-weight:800;font-size:18px;color:var(--ink)}
   .feature .fby .rl{color:var(--body);font-size:14px}
+  /* testimonial slider */
+  .t-slider{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px}
+  .t-viewport{overflow:hidden}
+  .t-track{display:flex;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .t-slide{flex:0 0 100%;display:flex;align-items:stretch}
+  .t-slide .feature{width:100%;margin-bottom:0}
+  .t-arrow{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none;transition:background .2s,border-color .2s,color .2s}
+  .t-arrow:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .t-arrow svg{width:20px;height:20px}
+  .t-dots{display:flex;justify-content:center;gap:10px;margin-top:28px}
+  .t-dot{width:9px;height:9px;border-radius:50%;background:rgba(23,20,15,.18);border:0;padding:0;cursor:pointer;transition:.25s}
+  .t-dot.active{background:var(--accent);width:26px;border-radius:100px}
+  @media(max-width:560px){ .t-slider{gap:8px} .t-arrow{width:42px;height:42px} }
   .tgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
   .tgrid3 .tcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 34px 60px -50px rgba(23,20,15,.5);display:flex;flex-direction:column;align-items:center;text-align:center;gap:15px;height:100%}
   .tgrid3 .tstars{color:var(--gold);letter-spacing:2px;font-size:15px}
@@ -448,12 +461,12 @@
       <span class="t-eyebrow" style="justify-content:center">Kind words</span>
       <h2>Straight from our clients</h2>
     </div>
-    <article class="feature">
-      <div class="fstars">★★★★★</div>
-      <p class="fq" id="fq"></p>
-      <div class="fby" id="fby"></div>
-    </article>
-    <div class="tgrid3" id="tgrid"></div>
+    <div class="t-slider">
+      <button class="t-arrow" id="t-prev" type="button" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="t-viewport"><div class="t-track" id="t-track"></div></div>
+      <button class="t-arrow" id="t-next" type="button" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="t-dots" id="t-dots"></div>
   </div>
 </section>
 
@@ -812,52 +825,40 @@
     function hi(t){ var s=esc(t.quote); (t.highlight||[]).forEach(function(p){ var e=esc(p); s=s.split(e).join('<mark class="hl">'+e+'</mark>'); }); return s; }
     function avatar(t, cls){ return t.photo ? '<img src="'+t.photo+'" alt="'+esc(t.name)+'" loading="lazy">' : '<div class="'+cls+'">'+esc(t.initials)+'</div>'; }
 
-    var fq=document.getElementById('fq'); if(!fq) return;
-    fq.innerHTML = '“' + hi(FEATURE) + '”';
-    document.getElementById('fby').innerHTML = avatar(FEATURE,'av')
-      + '<div><div class="nm">'+esc(FEATURE.name)+'</div><div class="rl">'+esc(FEATURE.role)+'</div></div>';
-
-    var grid = document.getElementById('tgrid');
-    grid.innerHTML = REST.map(function(t){
-      var isRef = t.name === 'Craig P.';
-      return '<article class="tcard"'+(isRef?' data-ref':'')+'>'
-        +'<div class="tstars">★★★★★</div>'
-        +'<p class="tquote">“'+hi(t)+'”</p>'
-        +'<button class="tmore" type="button" hidden>Read more</button>'
-        +'<div class="tby">'+avatar(t,'av')+'<div><div class="nm">'+esc(t.name)+'</div><div class="rl">'+esc(t.role)+'</div></div></div>'
-        +'</article>';
+    var REVIEWS = [FEATURE].concat(REST); // featured Shaun first, then the rest
+    var track = document.getElementById('t-track'); if(!track) return;
+    track.innerHTML = REVIEWS.map(function(r){
+      return '<div class="t-slide"><article class="feature">'
+        + '<div class="fstars">★★★★★</div>'
+        + '<p class="fq">“'+hi(r)+'”</p>'
+        + '<div class="fby">'+avatar(r,'av')+'<div><div class="nm">'+esc(r.name)+'</div><div class="rl">'+esc(r.role)+'</div></div></div>'
+        + '</article></div>';
     }).join('');
 
-    function fitToRef(){
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.tcard'));
-      cards.forEach(function(c){
-        var q=c.querySelector('.tquote'), b=c.querySelector('.tmore');
-        q.classList.remove('clamp'); q.style.webkitLineClamp='';
-        c.classList.remove('is-open'); if(b){ b.hidden=true; b.textContent='Read more'; }
-      });
-      var refQ = grid.querySelector('.tcard[data-ref] .tquote');
-      if(!refQ) return;
-      var lh = parseFloat(getComputedStyle(refQ).lineHeight) || 24;
-      var refLines = Math.max(2, Math.round(refQ.clientHeight / lh));
-      cards.forEach(function(c){
-        if(c.hasAttribute('data-ref')) return;
-        var q=c.querySelector('.tquote'), b=c.querySelector('.tmore');
-        q.classList.add('clamp');
-        q.style.webkitLineClamp = String(refLines);
-        if(q.scrollHeight - q.clientHeight > 4 && b){
-          b.hidden=false;
-          b.onclick=function(){
-            var open=c.classList.toggle('is-open');
-            q.style.webkitLineClamp = open ? 'unset' : String(refLines);
-            b.textContent = open ? 'Read less' : 'Read more';
-          };
-        }
-      });
+    var dotsHost = document.getElementById('t-dots');
+    dotsHost.innerHTML = REVIEWS.map(function(_r,i){ return '<button class="t-dot'+(i===0?' active':'')+'" type="button" data-i="'+i+'" aria-label="Review '+(i+1)+'"></button>'; }).join('');
+    var dots = Array.prototype.slice.call(dotsHost.querySelectorAll('.t-dot'));
+
+    var idx = 0;
+    function go(n){
+      idx = (n + REVIEWS.length) % REVIEWS.length;
+      track.style.transform = 'translateX(-' + (idx*100) + '%)';
+      dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
     }
-    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fitToRef); }
-    else if(document.readyState==='complete'){ fitToRef(); }
-    else { window.addEventListener('load', fitToRef); }
-    var _rt; window.addEventListener('resize', function(){ clearTimeout(_rt); _rt=setTimeout(fitToRef, 150); });
+    document.getElementById('t-prev').addEventListener('click', function(){ go(idx-1); });
+    document.getElementById('t-next').addEventListener('click', function(){ go(idx+1); });
+    dots.forEach(function(d){ d.addEventListener('click', function(){ go(+d.getAttribute('data-i')); }); });
+
+    var startX = null;
+    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e){
+      if(startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40){ go(dx < 0 ? idx+1 : idx-1); }
+      startX = null;
+    });
+
+    go(0);
   })();
 
   /* ---- process: animate the connecting line + numbers on scroll-in ---- */
