@@ -265,13 +265,25 @@
   .proc-head{margin:0 0 54px;text-align:center}
   .proc-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px}
   .proc-head p{color:var(--body);font-size:18px;margin-top:14px}
-  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  .proc-step{position:relative;text-align:center}
-  .proc-step .num{width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:800;font-size:22px;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 12px 26px -10px rgba(228,85,43,.7)}
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  /* connecting line behind the numbers — fills from step 1 to step 4 on scroll-in */
+  .proc-grid::before{content:"";position:absolute;top:26px;left:12.5%;right:12.5%;height:3px;border-radius:3px;background:var(--line);z-index:0}
+  .proc-grid::after{content:"";position:absolute;top:26px;left:12.5%;height:3px;width:0;border-radius:3px;background:var(--accent);z-index:0;transition:width 1.9s cubic-bezier(.4,0,.2,1) .15s}
+  .proc-grid.is-in::after{width:75%}
+  .proc-step{position:relative;text-align:center;z-index:1}
+  .proc-step .num{width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:800;font-size:22px;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 12px 26px -10px rgba(228,85,43,.7);position:relative;z-index:1}
+  .proc-grid.reveal-ready .proc-step .num{transform:scale(.4);opacity:0}
+  .proc-grid.reveal-ready.is-in .proc-step .num{animation:proc-pop .55s cubic-bezier(.2,.9,.3,1.5) forwards}
+  .proc-grid.is-in .proc-step:nth-child(1) .num{animation-delay:.15s}
+  .proc-grid.is-in .proc-step:nth-child(2) .num{animation-delay:.6s}
+  .proc-grid.is-in .proc-step:nth-child(3) .num{animation-delay:1.05s}
+  .proc-grid.is-in .proc-step:nth-child(4) .num{animation-delay:1.5s}
+  @keyframes proc-pop{to{transform:scale(1);opacity:1}}
   .proc-step h3{font-family:var(--display);font-size:19px;letter-spacing:-.01em;margin-bottom:10px}
   .proc-step p{font-size:15px;line-height:1.6;color:var(--body);margin-bottom:14px}
   .proc-step .meta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
-  @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:34px} .proc-step::before{display:none} }
+  @media(prefers-reduced-motion:reduce){ .proc-grid::after{transition:none} .proc-grid.reveal-ready .proc-step .num{transform:none;opacity:1} }
+  @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:34px} .proc-grid::before,.proc-grid::after{display:none} }
   @media(max-width:560px){ .proc-grid{grid-template-columns:1fr} .process{padding:72px 0} }
 
   /* ============ FAQ ============ */
@@ -549,25 +561,25 @@
         <div class="num">1</div>
         <h3>Discovery</h3>
         <p>Every business has its own fingerprint. We sit down, work out what you're actually after, and propose something that fits.</p>
-        <div class="meta">Week 1 · scope &amp; price in writing</div>
+        <div class="meta">Scope &amp; price in writing</div>
       </div>
       <div class="proc-step">
         <div class="num">2</div>
         <h3>Design</h3>
         <p>Wireframes first, then a proper design. You see and sign off every screen before a line of code is written.</p>
-        <div class="meta">Weeks 2–3 · you approve before we build</div>
+        <div class="meta">You approve before we build</div>
       </div>
       <div class="proc-step">
         <div class="num">3</div>
         <h3>Build &amp; launch</h3>
         <p>Engineered for speed and search, content loaded, tested on real devices. Then it goes live.</p>
-        <div class="meta">Weeks 4–8 · weekly progress you can see</div>
+        <div class="meta">Regular progress you can see</div>
       </div>
       <div class="proc-step">
         <div class="num">4</div>
         <h3>Support &amp; grow</h3>
         <p>We stay on. Support tickets, feature requests, improvements. And no, there are no dumb questions here.</p>
-        <div class="meta">Ongoing · we're still here after launch</div>
+        <div class="meta">We're still here after launch</div>
       </div>
     </div>
   </div>
@@ -870,6 +882,20 @@
     else if(document.readyState==='complete'){ fitToRef(); }
     else { window.addEventListener('load', fitToRef); }
     var _rt; window.addEventListener('resize', function(){ clearTimeout(_rt); _rt=setTimeout(fitToRef, 150); });
+  })();
+
+  /* ---- process: animate the connecting line + numbers on scroll-in ---- */
+  (function(){
+    var grid = document.querySelector('.proc-grid');
+    if(!grid) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ grid.classList.add('is-in'); return; }
+    grid.classList.add('reveal-ready');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ grid.classList.add('is-in'); io.disconnect(); } });
+      }, { threshold: 0.35 });
+      io.observe(grid);
+    } else { grid.classList.add('is-in'); }
   })();
 
   /* ---- FAQ accordion ---- */
