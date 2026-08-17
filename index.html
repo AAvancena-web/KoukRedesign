@@ -1,129 +1,456 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kouk Creatives | Web Specialists in Auckland Since 2015</title>
-<meta name="description" content="Auckland web specialists building websites that load fast, rank well and turn visitors into enquiries. WordPress, Shopify and Webflow. Request a quote today.">
+<title>Kouk Creatives — Auckland Web Design &amp; Development</title>
+<meta name="description" content="Kouk Creatives designs and builds fast, good-looking websites for New Zealand businesses. Building websites you can smile about since 2015. Request a free quote.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:ital,wght@0,300..800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17140F; --body:#6B6355; --bg:#FBF8F3; --bg-alt:#F2EBE0; --line:rgba(23,20,15,.10);
+    --accent:#E4552B; --accent-dark:#C0421D; --header:#1E2C30; --header-line:rgba(255,255,255,.10); --gold:#E8A32C;
+    --display:'Bricolage Grotesque',Georgia,serif; --sans:'Figtree',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 30px}
+  @media(min-width:1600px){ .wrap{max-width:1880px} }
+
+  /* ============ TOP BAR ============ */
+  .topbar{background:var(--header);color:#fff;font-size:15px}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:52px;gap:16px}
+  .tb-left{display:flex;align-items:center;gap:10px;font-weight:500}
+  .tb-left .stars{color:var(--gold);letter-spacing:1.5px;font-size:12px}
+  .tb-left .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.35)}
+  .tb-left b{color:#fff;font-weight:700}
+  .tb-right{display:flex;align-items:center;gap:18px}
+  .tb-contact{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#fff}
+  .tb-contact:hover{color:var(--accent)}
+  .tb-contact svg{width:15px;height:15px}
+  .tb-contact.call svg{color:#fff}
+  .tb-sep{width:1px;height:16px;background:rgba(255,255,255,.18)}
+
+  /* ============ MAIN BAR ============ */
+  .mainbar{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .mainbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;height:82px}
+  .logo{display:flex;align-items:center;flex:none}
+  .logo img{height:46px;width:auto;display:block}
+
+  .nav{display:flex;align-items:center;gap:34px}
+  .nav > a,.nav .dd-trigger{font-size:17.5px;font-weight:700;color:var(--ink);opacity:.9;white-space:nowrap;transition:color .2s,opacity .2s}
+  .nav > a:hover,.nav .dd-trigger:hover{opacity:1;color:var(--accent)}
+  .nav > a{position:relative;padding:6px 0}
+  .nav > a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--accent);transition:right .25s ease}
+  .nav > a:hover::after{right:0}
+
+  .has-dd{position:relative}
+  .dd-trigger{display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:6px 0}
+  .dd-trigger svg{width:11px;height:11px;transition:transform .25s}
+  .has-dd:hover .dd-trigger svg{transform:rotate(180deg)}
+  .dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);padding-top:14px;min-width:430px;
+      opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:30}
+  .has-dd:hover .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .dd-inner{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 26px 60px -24px rgba(23,20,15,.4);padding:12px;
+      display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .dd-inner a{display:block;padding:11px 14px;border-radius:10px;transition:background .18s}
+  .dd-inner a:hover{background:var(--bg)}
+  .dd-inner .t{font-size:14.5px;font-weight:700;color:var(--ink)}
+  .dd-inner .d{font-size:12.5px;color:var(--body);margin-top:1px}
+
+  /* ============ BUTTONS ============ */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:11px;border:0;cursor:pointer;white-space:nowrap;transition:.2s;font-family:inherit}
+  .btn svg{width:17px;height:17px}
+  .btn-primary{position:relative;background:var(--accent);color:#fff;box-shadow:0 12px 26px -10px rgba(228,85,43,.7)}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+  @property --snake-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+  .btn-primary::after,.btn-primary::before{content:"";position:absolute;inset:0;border-radius:inherit;
+    padding:2px;pointer-events:none;
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude}
+  .btn-primary::after{background:rgba(255,255,255,.22)}
+  .btn-primary::before{background:conic-gradient(from var(--snake-angle),
+      #ffffff 0deg,var(--gold) 24deg,rgba(232,163,44,.35) 70deg,transparent 110deg,transparent 360deg);
+    animation:snake-run 4.5s linear infinite}
+  @keyframes snake-run{to{--snake-angle:360deg}}
+  @media(prefers-reduced-motion:reduce){.btn-primary::before{animation:none}}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(23,20,15,.18)}
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(23,20,15,.03)}
+  .btn-lg{padding:16px 26px;font-size:16px}
+
+  /* Mobile actions */
+  .mob-actions{display:none;align-items:center;gap:10px;flex:none}
+  .mob-call{width:46px;height:46px;border:0;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;flex:none;box-shadow:0 8px 18px -8px rgba(228,85,43,.8)}
+  .mob-call:hover{background:var(--accent-dark)}
+  .mob-call svg{width:20px;height:20px}
+  .hamb{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;flex:none}
+  .hamb span{display:block;width:20px;height:2px;margin:0 auto;background:var(--ink);border-radius:2px;transition:.28s}
+  body.menu-open .hamb span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.menu-open .hamb span:nth-child(2){opacity:0}
+  body.menu-open .hamb span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ============ MOBILE MENU ============ */
+  .mobile-menu{position:fixed;left:0;right:0;top:0;z-index:120;background:var(--header);color:#fff;
+      padding:22px 24px 32px;transform:translateY(-100%);transition:transform .38s cubic-bezier(.2,.8,.2,1);
+      max-height:100vh;overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+  body.menu-open .mobile-menu{transform:translateY(0)}
+  .mm-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .mm-top img{height:40px;filter:brightness(0) invert(1)}
+  .mm-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:11px;background:none;color:#fff;font-size:22px;cursor:pointer;line-height:1}
+  .mm-links a,.mm-serv-trigger{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;font-size:19px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);width:100%;background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;font-family:inherit}
+  .mm-serv-trigger svg{width:14px;height:14px;transition:transform .25s}
+  .mm-sub{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .mm-sub.open{max-height:420px}
+  .mm-sub a{font-size:15.5px;font-weight:600;color:#BFC9C9;padding:12px 4px 12px 16px}
+  body.mm-serv-open .mm-serv-trigger svg{transform:rotate(180deg)}
+  .mm-cta{display:grid;gap:12px;margin-top:22px}
+  .btn-block{width:100%;padding:16px;font-size:16px}
+  .btn-call{background:#fff;color:var(--header)}
+  .mm-mail{margin-top:18px;text-align:center;font-size:14px;color:#BFC9C9}
+  .mm-mail a{color:#fff;font-weight:700}
+  .scrim{position:fixed;inset:0;background:rgba(15,17,22,.5);opacity:0;visibility:hidden;transition:.3s;z-index:110}
+  body.menu-open .scrim{opacity:1;visibility:visible}
+
+  /* ============ HERO (dark + moving project tiles) ============ */
+  .hero{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:70px 0 78px}
+  .hero::before{content:"";position:absolute;top:-30%;right:-6%;width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle,rgba(228,85,43,.32),transparent 62%);filter:blur(10px);pointer-events:none;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:46px 46px;mask:linear-gradient(180deg,#000,transparent 82%);-webkit-mask:linear-gradient(180deg,#000,transparent 82%)}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:stretch}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;font-weight:600;
+    letter-spacing:.06em;text-transform:uppercase;color:#ffd9a0;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:100px}
+  .eyebrow .live{width:8px;height:8px;border-radius:50%;background:#2fae64;box-shadow:0 0 0 4px rgba(47,174,100,.18)}
+  .hero h1{font-size:clamp(42px,5.2vw,72px);margin:22px 0 20px;text-transform:capitalize}
+  .hero h1 .accent{position:relative;color:#ff8a5c;white-space:nowrap}
+  .hero h1 .accent::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.20em;height:.34em;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 26' preserveAspectRatio='none'%3E%3Cpath d='M4 5 Q60 30 116 5' fill='none' stroke='%23ff8a5c' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+    transform-origin:center;animation:smile-loop 3.6s ease-in-out .25s infinite}
+  @keyframes smile-loop{
+    0%{transform:scaleX(.15);opacity:0}
+    16%{transform:scaleX(1);opacity:1}
+    74%{transform:scaleX(1);opacity:1}
+    90%,100%{transform:scaleX(.15);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.hero h1 .accent::after{animation:none}}
+  .hero .h-lede{color:#c7d0d0;font-size:19px;line-height:1.6;max-width:700px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:30px 0 34px}
+  .call-inline{display:flex;flex-direction:column;justify-content:center;line-height:1.18}
+  .call-inline .lbl{font-size:12.5px;color:#9fb0b0;font-weight:600}
+  .call-inline a{font-family:var(--display);font-weight:800;font-size:21px;color:#fff}
+  .call-inline a:hover{color:#ff8a5c}
+  .stats{display:grid;grid-template-columns:repeat(4,auto);gap:30px;border-top:1px solid rgba(255,255,255,.12);padding-top:26px}
+  .stats .n{font-family:var(--display);font-size:34px;font-weight:800;line-height:1;color:#fff}
+  .stats .l{font-size:13px;color:#9fb0b0;margin-top:5px;text-transform:capitalize}
+
+  /* moving tile marquee */
+  .mq{position:relative;overflow:hidden;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .mq-track{display:flex;align-items:stretch;height:100%;width:max-content;animation:mq 30s linear infinite}
+  .mq:hover .mq-track{animation-play-state:paused}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+
+  .card{position:relative;width:clamp(280px,44vw,660px);flex:none;margin-right:22px;height:100%;min-height:380px;border-radius:18px;overflow:hidden;
+    display:flex;align-items:flex-end;padding:26px;color:#fff;isolation:isolate;
+    box-shadow:0 34px 60px -30px rgba(0,0,0,.7)}
+  .card::before{content:"";position:absolute;inset:0;z-index:-2}
+  .card::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 36%,rgba(0,0,0,.6) 100%)}
+  .card.t1::before{background:linear-gradient(150deg,#2b3b40,#0e4a4b)}
+  .card.t2::before{background:linear-gradient(150deg,#E4552B,#b53414)}
+  .card.t3::before{background:linear-gradient(150deg,#E8A32C,#b5761a)}
+  .card.t4::before{background:linear-gradient(150deg,#4a463d,#17140F)}
+  .card .wm{position:absolute;top:-16px;right:-4px;z-index:-1;font-family:var(--display);font-weight:800;
+    font-size:150px;line-height:1;color:rgba(255,255,255,.10);pointer-events:none}
+  .card .k{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;opacity:.82}
+  .card .nm{font-family:var(--display);font-size:22px;font-weight:800;margin-top:3px}
+  .card .res{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:12.5px;font-weight:700;
+    background:rgba(255,255,255,.16);padding:5px 10px;border-radius:100px}
+  .card .res .dot{width:6px;height:6px;border-radius:50%;background:#7CE7A6}
+
+  /* ============ BRANDS MARQUEE ============ */
+  .brands{background:var(--header);padding:52px 0;overflow:hidden}
+  .brands .label{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9fb0b0;margin-bottom:24px}
+  .marquee{display:flex;width:max-content;animation:koukMarquee 90s linear infinite}
+  .marquee-run{display:flex;align-items:center;gap:60px;padding-right:60px}
+  /* dark strip: render every logo as a uniform white silhouette */
+  .marquee img{width:225px;height:75px;object-fit:contain;object-position:center;filter:brightness(0) invert(1);opacity:.82}
+  .marquee img.inv{filter:brightness(0) invert(1)}
+  @keyframes koukMarquee{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.marquee{animation:none}}
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{background:var(--bg);padding:100px 0}
+  .t-inner{padding:0 40px}
+  .t-head{text-align:center;margin:0 0 40px}
+  .t-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark);background:rgba(228,85,43,.09);border:1px solid rgba(228,85,43,.18);padding:7px 14px;border-radius:100px}
+  .t-head h2,.problem .p-intro h2,.fix-head h2,.proc-head h2,.faq-intro h2{text-transform:capitalize}
+  .sec-cta{text-align:center;margin-top:44px}
+  .t-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);letter-spacing:-.02em;margin-top:14px}
+  .feature{position:relative;overflow:hidden;background:var(--bg-alt);color:var(--ink);border:1px solid var(--line);border-radius:24px;padding:52px 56px;margin-bottom:22px}
+  .feature::before{content:"\201C";position:absolute;top:-26px;right:34px;font-family:var(--display);font-weight:800;font-size:230px;line-height:1;color:rgba(228,85,43,.10)}
+  .feature .fstars{color:var(--gold);letter-spacing:3px;font-size:19px;margin-bottom:20px}
+  .feature .fq{font-family:var(--sans);font-weight:500;font-size:clamp(22px,2.6vw,32px);line-height:1.5;color:#2f2a22;position:relative;z-index:2}
+  .feature .fq mark.hl{background:none;color:var(--ink);font-weight:700}
+  .feature .fby{display:flex;align-items:center;gap:16px;margin-top:34px}
+  .feature .fby img,.feature .fby .av{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
+  .feature .fby .av{background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
+  .feature .fby .nm{font-weight:800;font-size:18px;color:var(--ink)}
+  .feature .fby .rl{color:var(--body);font-size:14px}
+  .tgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .tgrid3 .tcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 34px 60px -50px rgba(23,20,15,.5);display:flex;flex-direction:column;gap:15px;height:100%}
+  .tgrid3 .tstars{color:var(--gold);letter-spacing:2px;font-size:15px}
+  .tgrid3 .tquote{font-size:16px;line-height:1.62;color:#3f3930}
+  .tgrid3 .tquote.clamp{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+  .tgrid3 .tmore{align-self:flex-start;background:none;border:0;color:var(--accent);font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;padding:0}
+  .tgrid3 .tmore:hover{color:var(--accent-dark)}
+  .tgrid3 .tby{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:6px}
+  .tgrid3 .tby img,.tgrid3 .tby .av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+  .tgrid3 .tby .av{background:var(--header);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px}
+  .tgrid3 .tby .nm{font-weight:800;font-size:15px}
+  .tgrid3 .tby .rl{font-size:13px;color:var(--body)}
+  .testimonials mark.hl{background:none;color:inherit;font-weight:800}
+  @media(max-width:940px){ .tgrid3{grid-template-columns:1fr} .feature{padding:40px 30px} }
+  @media(max-width:560px){ .t-inner{padding:0 18px} .testimonials{padding:72px 0} }
+
+  /* ============ PROBLEM ============ */
+  .problem{background:var(--bg);padding:100px 0;border-top:1px solid var(--line)}
+  .problem-layout{display:block}
+  .problem .p-intro{text-align:center;margin:0 0 44px}
+  .problem .p-intro h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px}
+  .problem .p-lede{font-size:18px;line-height:1.65;color:var(--body);margin-top:18px;margin-bottom:28px}
+  .problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .problem-cell{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;transition:background .35s ease;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;box-shadow:0 34px 60px -52px rgba(23,20,15,.5)}
+  .problem-cell:hover{background:var(--bg-alt)}
+  .problem-cell .figure{width:52px;height:52px;border-radius:14px;background:rgba(228,85,43,.10);color:var(--accent);display:grid;place-items:center}
+  .problem-cell .figure svg{width:26px;height:26px;display:block}
+  .problem-cell h3{font-family:var(--display);font-size:19px;color:var(--ink);letter-spacing:-.01em;line-height:1.16}
+  .problem-cell p{font-size:15px;line-height:1.6;color:var(--body)}
+  @media(max-width:1080px){ .problem-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .problem-grid{grid-template-columns:1fr} .problem{padding:72px 0} }
+
+  /* ============ THE FIX / SERVICES ============ */
+  .fix{background:var(--bg-alt);padding:100px 0}
+  .fix-head{margin:0 0 46px;text-align:center}
+  .fix-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px}
+  .fix-head p{color:var(--body);font-size:18px;line-height:1.6;margin-top:14px}
+  .fix-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .fix-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;box-shadow:0 34px 60px -52px rgba(23,20,15,.5)}
+  .fix-ic{width:52px;height:52px;border-radius:14px;background:rgba(228,85,43,.10);color:var(--accent);display:grid;place-items:center;flex:none}
+  .fix-ic svg{width:26px;height:26px}
+  .fix-card h3{font-family:var(--display);font-size:19px;color:var(--ink);letter-spacing:-.01em;line-height:1.16}
+  .fix-card p{font-size:15px;line-height:1.6;color:var(--body)}
+  .fix-card .tag{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:6px;font-weight:700;font-size:13px;color:#2f2a22}
+  .fix-card .tag svg{width:16px;height:16px;color:#2fae64;flex:none}
+  .fix-cta{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:40px}
+  .fix-cta .allserv{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--ink)}
+  .fix-cta .allserv svg{width:18px;height:18px;transition:transform .2s}
+  .fix-cta .allserv:hover{color:var(--accent)}
+  .fix-cta .allserv:hover svg{transform:translateX(4px)}
+  @media(max-width:1080px){ .fix-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .fix-grid{grid-template-columns:1fr} .fix{padding:72px 0} }
+
+  /* ============ PROCESS ============ */
+  .process{background:var(--bg);padding:100px 0;border-top:1px solid var(--line)}
+  .proc-head{margin:0 0 54px;text-align:center}
+  .proc-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px}
+  .proc-head p{color:var(--body);font-size:18px;margin-top:14px}
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .proc-step{position:relative;text-align:center}
+  .proc-step .num{width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:800;font-size:22px;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 12px 26px -10px rgba(228,85,43,.7)}
+  .proc-step h3{font-family:var(--display);font-size:19px;letter-spacing:-.01em;margin-bottom:10px}
+  .proc-step p{font-size:15px;line-height:1.6;color:var(--body);margin-bottom:14px}
+  .proc-step .meta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
+  @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:34px} .proc-step::before{display:none} }
+  @media(max-width:560px){ .proc-grid{grid-template-columns:1fr} .process{padding:72px 0} }
+
+  /* ============ FAQ ============ */
+  .faq{background:var(--bg-alt);padding:100px 0}
+  .faq-layout{display:block}
+  .faq-intro{text-align:center;margin:0 0 40px}
+  .faq-intro h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.02em;margin-top:14px}
+  .faq-intro p{color:var(--body);font-size:17px;margin-top:16px;margin-bottom:24px}
+  .faq-list{max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-q{width:100%;text-align:left;background:none;border:0;font-family:inherit;cursor:pointer;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:18px;font-weight:700;color:var(--ink);transition:color .2s}
+  .faq-q:hover{color:var(--accent)}
+  .faq-ic{width:22px;height:22px;flex:none;position:relative}
+  .faq-ic::before,.faq-ic::after{content:"";position:absolute;background:var(--accent);border-radius:2px;transition:transform .25s}
+  .faq-ic::before{top:10px;left:2px;right:2px;height:2px}
+  .faq-ic::after{left:10px;top:2px;bottom:2px;width:2px}
+  .faq-item.open .faq-ic::after{transform:scaleY(0)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 0 22px;font-size:16px;line-height:1.65;color:var(--body);max-width:62ch}
+  @media(max-width:900px){ .faq-layout{grid-template-columns:1fr;gap:30px} }
+  @media(max-width:560px){ .faq{padding:72px 0} }
+
+  /* ============ FINAL CTA / CONTACT ============ */
+  .cta{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:100px 0}
+  .cta::before{content:"";position:absolute;top:-30%;left:-8%;width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle,rgba(228,85,43,.30),transparent 62%);filter:blur(10px);pointer-events:none;z-index:0}
+  .cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .cta-copy h2{font-family:var(--display);font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;text-transform:capitalize}
+  .cta-copy h2 .accent{color:#ff8a5c}
+  .cta-copy .lede{color:#c7d0d0;font-size:18px;line-height:1.6;margin-top:18px;max-width:460px}
+  .cta-contact{margin-top:28px;display:grid;gap:12px}
+  .cta-contact a{display:inline-flex;align-items:center;gap:12px;color:#fff;font-weight:600;width:fit-content}
+  .cta-contact a:hover{color:#ff8a5c}
+  .cta-contact .ic{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:#ff8a5c;flex:none}
+  .cta-contact .ic svg{width:18px;height:18px}
+  .form-card{background:#fff;color:var(--ink);border-radius:22px;padding:32px;box-shadow:0 60px 110px -44px rgba(0,0,0,.7)}
+  .form-card h3{font-family:var(--display);font-size:23px;margin-bottom:4px}
+  .form-card .fsub{color:var(--body);font-size:14.5px;margin-bottom:20px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:#5c5446;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:.18s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(228,85,43,.12)}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field.two .field{margin:0}
+  .form-card .btn-primary{width:100%;margin-top:6px}
+  .form-card .fnote{text-align:center;font-size:12.5px;color:#9a8f7d;margin-top:12px}
+  @media(max-width:900px){ .cta .wrap{grid-template-columns:1fr;gap:40px} }
+  @media(max-width:560px){ .field.two{grid-template-columns:1fr} .cta{padding:72px 0} }
+
+  /* ============ FOOTER ============ */
+  .footer{background:#141b1e;color:#c7d0d0;padding:64px 0 34px}
+  .footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
+  .footer .flogo img{height:44px;filter:brightness(0) invert(1)}
+  .footer .ftag{margin-top:18px;font-size:14.5px;line-height:1.6;max-width:300px;color:#9fb0b0}
+  .footer h4{font-family:var(--display);font-size:15px;color:#fff;margin-bottom:16px}
+  .footer ul{list-style:none;display:grid;gap:10px}
+  .footer a{color:#c7d0d0;font-size:14.5px}
+  .footer a:hover{color:#fff}
+  .footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#9fb0b0}
+  @media(max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;gap:32px} }
+  @media(max-width:560px){ .footer-grid{grid-template-columns:1fr} }
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:1080px){ .nav{gap:24px} .nav > a,.nav .dd-trigger{font-size:15px} }
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .hero .h-lede{max-width:none}
+    .mq{order:2}
+  }
+  @media(max-width:940px){
+    .topbar{display:none}
+    .nav,.right{display:none}
+    .mob-actions{display:flex}
+    .mainbar .wrap{height:72px}
+    .logo img{height:42px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:20px}
+    .stats .n{font-size:28px}
+  }
+</style>
 </head>
 <body>
 
-<div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
-<div class="spotlight" id="spotlight"></div>
-
-<!-- ============================ HEADER ============================ -->
-<header class="site-header" id="siteHeader">
-  <div class="header-row">
-    <a href="#" class="logo">
-      <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives">
-    </a>
-
-    <nav class="nav" id="mainNav">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <div class="has-menu" id="servicesMenu">
-        <a href="#" class="menu-trigger">Services <span class="caret">&#9660;</span></a>
-        <div class="dropdown">
-          <div class="dropdown-inner">
-            <div class="dropdown-grid">
-              <a href="#"><div class="title">Website Design</div><div class="desc">New sites, built to convert</div></a>
-              <a href="#"><div class="title">Website Redesign</div><div class="desc">Fix what you already have</div></a>
-              <a href="#"><div class="title">WordPress Development</div><div class="desc">Flexible, self-managed builds</div></a>
-              <a href="#"><div class="title">Shopify Development</div><div class="desc">Selling online, properly</div></a>
-              <a href="#"><div class="title">Website Maintenance</div><div class="desc">Updates, backups, support</div></a>
-              <a href="#"><div class="title">SEO</div><div class="desc">Get found by the right people</div></a>
-              <a href="#"><div class="title">Domain / Hosting</div><div class="desc">Fast, secure, hands-off</div></a>
-              <a href="#"><div class="title">Logo / Digital Assets</div><div class="desc">Identity, brochures, mock ups</div></a>
-            </div>
-          </div>
-        </div>
+<header class="site-header">
+  <div class="topbar"><div class="wrap">
+    <div class="tb-left"><span class="stars">★★★★★</span><span>Rated <b>5.0</b> on Google</span><span class="dot"></span><span>Trusted by <b>40+</b> New Zealand businesses since <b>2015</b></span></div>
+    <div class="tb-right">
+      <a class="tb-contact call" href="tel:0800182088"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>0800 18 20 88</a>
+      <span class="tb-sep"></span>
+      <a class="tb-contact" href="mailto:hello@kouk.co.nz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>hello@kouk.co.nz</a>
+    </div>
+  </div></div>
+  <div class="mainbar"><div class="wrap">
+    <a class="logo" href="#"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></a>
+    <nav class="nav">
+      <a href="#">Home</a><a href="#">About</a>
+      <div class="has-dd"><span class="dd-trigger">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dd"><div class="dd-inner">
+          <a href="#"><div class="t">Website Design</div><div class="d">New sites, built to convert</div></a>
+          <a href="#"><div class="t">Website Redesign</div><div class="d">Fix what you already have</div></a>
+          <a href="#"><div class="t">WordPress</div><div class="d">Flexible, self-managed builds</div></a>
+          <a href="#"><div class="t">Shopify</div><div class="d">Selling online, properly</div></a>
+          <a href="#"><div class="t">SEO &amp; Growth</div><div class="d">Get found by the right people</div></a>
+          <a href="#"><div class="t">Branding &amp; Assets</div><div class="d">Logos, brochures, mock-ups</div></a>
+        </div></div>
       </div>
-      <a href="#">Projects</a>
-      <a href="#">Case Studies</a>
-      <a href="#">Pricing</a>
-      <a href="#">Blog</a>
-      <a href="#">FAQs</a>
+      <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
     </nav>
-
-    <a href="#" class="header-cta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-      <span>0800 18 20 88</span>
-    </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+    <div class="right"><a class="btn btn-primary" href="#">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+    <div class="mob-actions"><a class="mob-call" href="tel:0800182088" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></a><button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div></div>
 </header>
 
-<!-- ============================ HERO ============================ -->
-<section class="hero" id="top">
-  <canvas id="heroCanvas"></canvas>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
-  <div class="hero-veil"></div>
-
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="badge">
-        <span class="dot"><span></span><span></span></span>
-        <span class="label">Auckland &middot; est. 2015 &middot; taking on projects</span>
-      </div>
-
-      <h1>
-        <span class="line"><span>Building websites</span></span>
-        <span class="line"><span>you can <span class="smile">smile</span> about</span></span>
-      </h1>
-
-      <p class="hero-lede">Beautiful is the baseline. We build sites that load in under two seconds, read perfectly on a phone, rank where your customers are looking, and make the next step impossible to miss. Ten years, forty-plus New Zealand businesses.</p>
-
-      <div class="hero-actions">
-        <a href="#" class="btn-primary"><span class="btn-label">Request a quote</span><span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="#" class="btn-ghost"><span>Or call us now</span><span class="num">0800 18 20 88</span></a>
-      </div>
+<!-- ============ HERO ============ -->
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <span class="eyebrow"><span class="live"></span> Auckland web design &amp; development</span>
+    <h1>Building websites you can <span class="accent">smile</span> about</h1>
+    <p class="h-lede">Beautiful is the baseline. We build sites that load in under two seconds, read perfectly on a phone, rank where your customers are looking, and make the next step impossible to miss.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-lg" href="#">Request a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <div class="call-inline"><span class="lbl">Or call us now</span><a href="tel:0800182088">0800 18 20 88</a></div>
     </div>
-
-    <div class="stat-grid">
-      <div class="stat"><div class="value" data-count="10" data-suffix="+">0+</div><div class="label">years in business</div></div>
-      <div class="stat"><div class="value" data-count="40" data-suffix="+">0+</div><div class="label">NZ clients</div></div>
-      <div class="stat"><div class="value" data-count="120" data-suffix="+">0+</div><div class="label">completed websites</div></div>
-      <div class="stat stat--accent"><div class="value">5.0</div><div class="label">Google rating</div></div>
+    <div class="stats">
+      <div class="s"><div class="n">10+</div><div class="l">years in business</div></div>
+      <div class="s"><div class="n">40+</div><div class="l">NZ clients</div></div>
+      <div class="s"><div class="n">120+</div><div class="l">completed websites</div></div>
+      <div class="s"><div class="n">5.0</div><div class="l">Google rating</div></div>
     </div>
+  </div>
+
+  <div class="mq">
+    <div class="mq-track">
+      <!-- set 1 -->
+      <a class="card t1" href="#"><span class="wm">T</span><div class="meta"><div class="k">Hospitality</div><div class="nm">Truffle Lovers</div><span class="res"><span class="dot"></span> +42% online orders</span></div></a>
+      <a class="card t2" href="#"><span class="wm">E</span><div class="meta"><div class="k">Non-profit</div><div class="nm">Eyes4Everest</div><span class="res"><span class="dot"></span> 3× more sign-ups</span></div></a>
+      <a class="card t3" href="#"><span class="wm">A</span><div class="meta"><div class="k">Trades</div><div class="nm">AMP New Zealand</div><span class="res"><span class="dot"></span> +38% enquiries</span></div></a>
+      <a class="card t4" href="#"><span class="wm">S</span><div class="meta"><div class="k">Retail</div><div class="nm">Serpenti</div><span class="res"><span class="dot"></span> Store live in 3 wks</span></div></a>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <a class="card t1" href="#" aria-hidden="true"><span class="wm">T</span><div class="meta"><div class="k">Hospitality</div><div class="nm">Truffle Lovers</div><span class="res"><span class="dot"></span> +42% online orders</span></div></a>
+      <a class="card t2" href="#" aria-hidden="true"><span class="wm">E</span><div class="meta"><div class="k">Non-profit</div><div class="nm">Eyes4Everest</div><span class="res"><span class="dot"></span> 3× more sign-ups</span></div></a>
+      <a class="card t3" href="#" aria-hidden="true"><span class="wm">A</span><div class="meta"><div class="k">Trades</div><div class="nm">AMP New Zealand</div><span class="res"><span class="dot"></span> +38% enquiries</span></div></a>
+      <a class="card t4" href="#" aria-hidden="true"><span class="wm">S</span><div class="meta"><div class="k">Retail</div><div class="nm">Serpenti</div><span class="res"><span class="dot"></span> Store live in 3 wks</span></div></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials">
+  <div class="t-inner">
+    <div class="t-head">
+      <span class="t-eyebrow" style="justify-content:center">Kind words</span>
+      <h2>Straight from our clients</h2>
+    </div>
+    <article class="feature">
+      <div class="fstars">★★★★★</div>
+      <p class="fq" id="fq"></p>
+      <div class="fby" id="fby"></div>
+    </article>
+    <div class="tgrid3" id="tgrid"></div>
   </div>
 </section>
 
-<!-- ============================ LOGO MARQUEE ============================ -->
-<section class="marquee-section" id="brands">
-  <div class="marquee-label">Trusted with their digital front door</div>
-  <div class="marquee" id="marquee"></div>
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <div class="wrap"><div class="label">Brands we've worked with</div></div>
+  <div class="marquee" id="brands"></div>
 </section>
 
-<!-- ============================ REVIEWS ============================ -->
-<section class="section section--tight" id="reviews">
+<!-- ============ PROBLEM ============ -->
+<section class="problem">
   <div class="wrap">
-    <div class="review-head reveal">
-      <div class="kicker">KIND WORDS</div>
-      <h2>The best part of the job is hearing back</h2>
-      <p class="section-lede">Real words from the people we've built for &mdash; and the reason we keep doing this.</p>
-    </div>
-
-    <div class="review-grid" id="reviewGrid"></div>
-  </div>
-</section>
-
-<!-- ============================ PROBLEM ============================ -->
-<section class="section" id="problem">
-  <div class="wrap reveal">
     <div class="problem-layout">
-      <div>
-        <div class="kicker">THE PROBLEM</div>
+      <div class="p-intro">
+        <span class="t-eyebrow">The problem</span>
         <h2>Your website is your online business card.</h2>
-        <p class="section-lede">For most businesses, the website is the first impression &mdash; and where a customer decides to stay or move on. Here are four common reasons they move on, and every one is fixable.</p>
-        <a href="#" class="btn-primary problem-cta"><span class="btn-label">Request a quote</span><span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="p-lede">For most businesses, the website is the first impression — and where a customer decides to stay or move on. Here are four common reasons they move on, and every one is fixable.</p>
       </div>
       <div class="problem-grid">
         <div class="problem-cell">
@@ -139,7 +466,7 @@
         <div class="problem-cell">
           <div class="figure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
           <h3>People can't find you on Google</h3>
-          <p>Without the right setup &mdash; structure, speed and metadata &mdash; your business never shows up when customers search for it.</p>
+          <p>Without the right setup — structure, speed and metadata — your business never shows up when customers search for it.</p>
         </div>
         <div class="problem-cell">
           <div class="figure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.5 18 2.6-7.9 7.9-2.6z"/></svg></div>
@@ -147,194 +474,418 @@
           <p>A hidden phone number or a long form gives interested visitors no easy way to get in touch, so they don't.</p>
         </div>
       </div>
+      <div class="sec-cta"><a class="btn btn-primary btn-lg" href="#contact">Request a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CASE STUDIES ============================ -->
-<section class="section section--tight" id="work">
+<!-- ============ THE FIX / SERVICES ============ -->
+<section class="fix">
   <div class="wrap">
-    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:56px;margin-bottom:52px;flex-wrap:wrap;">
-      <div>
-        <div class="kicker">SELECTED WORK</div>
-        <h2>Proof, not promises</h2>
-      </div>
-      <a href="#" class="eyebrow" style="border-bottom:1px solid var(--line);padding-bottom:4px;">Start yours &rarr;</a>
+    <div class="fix-head">
+      <span class="t-eyebrow">Our services</span>
+      <h2>What we do</h2>
+      <p>From first build to ongoing growth — everything you need to get your business winning online, under one roof.</p>
     </div>
-
-    <div class="case-list">
-      <div class="case-solo reveal">
-        <div class="case-solo-head">
-          <div class="case-kicker">E-COMMERCE &middot; WORDPRESS &rarr; SHOPIFY</div>
-          <h3>Truffle Lovers NZ</h3>
-          <p>We moved Truffle Lovers from a heavy WordPress / WooCommerce store to a fast, clean Shopify build &mdash; same brand, a sharper design, and a smoother path to checkout. Drag the slider to see the difference.</p>
-        </div>
-
-        <!-- Before / after comparison. Replace the BEFORE panel and the AFTER
-             <img> with real full-page screenshots when they're ready. -->
-        <div class="ba" id="baTruffle" style="--pos:55%">
-          <div class="ba-after">
-            <img src="https://trufflelovers.co.nz/cdn/shop/files/banner-1-seasonal-notext_2427623e-4dd2-4fc8-a070-55ba893f5844.png?v=1784798658&amp;width=1600" alt="Truffle Lovers NZ — new Shopify site">
-          </div>
-          <div class="ba-before"><span>Old site &middot; WordPress / WooCommerce<br><em>add screenshot here</em></span></div>
-          <div class="ba-line"><span class="ba-grip" aria-hidden="true"></span></div>
-          <span class="ba-label ba-label--before">Before</span>
-          <span class="ba-label ba-label--after">After</span>
-        </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="6.5" x2="7" y2="6.5"/></svg></div>
+        <h3>Website Design</h3>
+        <p>Brand-new websites designed around your goals and built to turn visitors into enquiries.</p>
       </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></div>
+        <h3>Website Redesign</h3>
+        <p>A fresh, faster, better-converting version of the site you already have.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>WordPress</h3>
+        <p>Flexible WordPress builds your team can update and grow without touching code.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>Shopify</h3>
+        <p>Online stores built on Shopify — clean, fast and genuinely easy to manage.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>SEO &amp; Growth</h3>
+        <p>Get found by the right people with clean SEO foundations and ongoing growth work.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M3 12h3M18 12h3M4.9 19.1l2.1-2.1M16.9 7.1l2.1-2.1"/></svg></div>
+        <h3>Branding &amp; Assets</h3>
+        <p>Logos, brochures and brand assets that make you look the part everywhere.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Website Care &amp; Support</h3>
+        <p>Ongoing updates, backups and support so your site stays fast, secure and worry-free.</p>
+      </div>
+      <div class="fix-card">
+        <div class="fix-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M8 9l2 2-2 2M13 13h3"/></svg></div>
+        <h3>Web Apps &amp; Integrations</h3>
+        <p>Custom functionality, mobile apps and integrations that do the heavy lifting for you.</p>
+      </div>
+    </div>
+    <div class="fix-cta">
+      <a class="btn btn-primary btn-lg" href="#">Request a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="allserv" href="#">See all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ============================ SHOWCASE ============================ -->
-<section class="section section--tight" id="showcase">
+<!-- ============ PROCESS ============ -->
+<section class="process">
   <div class="wrap">
-    <div class="showcase-head reveal">
-      <div>
-        <div class="kicker">THE SHOWCASE</div>
-        <h2>Built on whatever suits you best</h2>
-        <p class="section-lede" style="text-align:center;">We're platform-agnostic on purpose. WordPress, Shopify or Webflow. We pick the one that fits your team and your budget, not the one we feel like using.</p>
-      </div>
-      <div>
-        <div class="showcase-count" data-count="120" data-suffix="+">0+</div>
-        <div class="eyebrow">completed websites since 2015</div>
-      </div>
+    <div class="proc-head">
+      <span class="t-eyebrow">How it works</span>
+      <h2>From first chat to launch — and beyond</h2>
+      <p>A clear, calm process with no surprises. You see and approve every step along the way.</p>
     </div>
-
-    <div class="tabs reveal" id="tabs"></div>
-    <div class="showcase-grid" id="showcaseGrid"></div>
-
-    <div class="showcase-note">
-      <div>Not sure which platform is right for you? <strong>That's the first thing we work out together.</strong></div>
-      <a href="#" class="pill-cta">Book an initial consultation &rarr;</a>
+    <div class="proc-grid">
+      <div class="proc-step">
+        <div class="num">1</div>
+        <h3>Discovery</h3>
+        <p>Every business has its own fingerprint. We sit down, work out what you're actually after, and propose something that fits.</p>
+        <div class="meta">Week 1 · scope &amp; price in writing</div>
+      </div>
+      <div class="proc-step">
+        <div class="num">2</div>
+        <h3>Design</h3>
+        <p>Wireframes first, then a proper design. You see and sign off every screen before a line of code is written.</p>
+        <div class="meta">Weeks 2–3 · you approve before we build</div>
+      </div>
+      <div class="proc-step">
+        <div class="num">3</div>
+        <h3>Build &amp; launch</h3>
+        <p>Engineered for speed and search, content loaded, tested on real devices. Then it goes live.</p>
+        <div class="meta">Weeks 4–8 · weekly progress you can see</div>
+      </div>
+      <div class="proc-step">
+        <div class="num">4</div>
+        <h3>Support &amp; grow</h3>
+        <p>We stay on. Support tickets, feature requests, improvements. And no, there are no dumb questions here.</p>
+        <div class="meta">Ongoing · we're still here after launch</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CAPABILITY ============================ -->
-<section class="section capability" id="capability">
+<!-- ============ FAQ ============ -->
+<section class="faq">
   <div class="wrap">
-    <div class="reveal">
-      <div class="kicker">CAPABILITY</div>
-      <h2>Everything under one roof</h2>
-      <p class="section-lede" style="margin-bottom:48px;">Eight services, one team, one point of contact. Take the lot or take the one thing that is holding you back.</p>
-    </div>
-    <div class="cap-grid" id="capGrid"></div>
-  </div>
-</section>
-
-<!-- ============================ PROCESS ============================ -->
-<section class="section" id="process">
-  <div class="wrap process-layout">
-    <div class="process-aside">
-      <div class="kicker">HOW IT WORKS</div>
-      <h2>Four steps. No mystery.</h2>
-      <p class="section-lede">Scope and price agreed in writing before anyone touches a keyboard. Weekly progress you can actually see. And we're still here after launch.</p>
-      <div class="process-figure">
-        <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65c15d25c2ef3b5343d2eced_Process%20Image%20Brand%20Lab%20Webflow%20Template.jpg" alt="Kouk Creatives working session">
-        <div class="scan"></div>
+    <div class="faq-layout">
+      <div class="faq-intro">
+        <span class="t-eyebrow">FAQ</span>
+        <h2>Questions, answered</h2>
+        <p>Everything you might want to know before getting started. Still unsure about something? Just ask — we're happy to help.</p>
       </div>
-    </div>
-    <div class="steps" id="steps"></div>
-  </div>
-</section>
-
-<!-- ============================ FAQ ============================ -->
-<section class="section section--tight" id="faq">
-  <div class="wrap faq-layout">
-    <div class="faq-aside reveal">
-      <div class="kicker">BEFORE YOU ASK</div>
-      <h2>The questions we get first</h2>
-      <p class="section-lede">Still got one? Call <a href="#">0800 18 20 88</a> and talk to a human.</p>
-    </div>
-    <div class="faq-list reveal" id="faqList"></div>
-  </div>
-</section>
-
-<!-- ============================ QUOTE ============================ -->
-<section class="section quote-section" id="quote">
-  <div class="quote-glow"></div>
-  <div class="wrap quote-layout">
-    <div class="reveal">
-      <div class="kicker">LET'S TALK</div>
-      <h2>Tell us what you're after</h2>
-      <p class="section-lede" style="font-size:20px;margin-bottom:42px;">Thirty seconds. No sales sequence, no chasing. Just a straight reply from Simon, usually the same day.</p>
-      <div class="ticks">
-        <div><span class="mark">&check;</span> Fixed scope and price, agreed before we start</div>
-        <div><span class="mark">&check;</span> Weekly progress you can actually see</div>
-        <div><span class="mark">&check;</span> Support and improvement after launch</div>
-      </div>
-      <hr class="footer-rule" style="margin:44px 0 30px;">
-      <div class="contact-row">
-        <div>
-          <div class="eyebrow">Call</div>
-          <a href="#" class="big">0800 18 20 88</a>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q" type="button">How long does a website take? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>Most builds run six to ten weeks from kick-off, depending on page count and how quickly content comes through. If you have a hard deadline, tell us early and we'll say honestly whether it's doable.</p></div>
         </div>
-        <div>
-          <div class="eyebrow">Email</div>
-          <a href="#" class="big">hello@kouk.co.nz</a>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What does it cost? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>Every project is scoped and quoted individually. A five-page brochure site and an e-commerce build with stock integration are very different animals. You get a fixed number in writing before we start, and it doesn't move unless you ask for something new.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can I update the site myself afterwards? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>Yes. Text, images, news and products are all editable by you without touching code. We walk your team through it, and if you'd rather we just did it, that's what our management service is for.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">We already have a site. Can you fix it instead of rebuilding? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>Often, yes. Sometimes the bones are fine and it's a speed, structure or content problem. We'll tell you straight which is cheaper for you, even when that's the smaller job.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Do you do SEO? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>Every site we build is engineered to be found: clean structure, fast loading, proper metadata, mobile-first. That's the foundation. Ongoing content and campaign work we can advise on or run for you.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What happens after launch? <span class="faq-ic"></span></button>
+          <div class="faq-a"><p>We stay on. Support tickets, feature requests, content loading, debugging — all handled through our support channels. There's always room to grow a site, and we'd rather be the ones helping you do it.</p></div>
         </div>
       </div>
-    </div>
-
-    <div class="form-card reveal" id="formCard">
-      <form class="form-body" id="quoteForm" novalidate>
-        <div class="field">
-          <span class="field-label">What do you need?</span>
-          <div class="chips" id="needChips"></div>
-        </div>
-        <div class="field-pair" style="margin-top:20px;">
-          <label class="field"><span class="field-label">Name</span><input type="text" name="name" placeholder="Jane Ngata"></label>
-          <label class="field"><span class="field-label">Business</span><input type="text" name="business" placeholder="Ngata &amp; Co"></label>
-        </div>
-        <label class="field"><span class="field-label">Email</span><input type="email" name="email" placeholder="jane@yourbusiness.co.nz"></label>
-        <label class="field"><span class="field-label">Anything else, optional</span><textarea name="message" rows="3" placeholder="A sentence or two is plenty."></textarea></label>
-        <button type="submit" class="submit">Send my enquiry &rarr;</button>
-        <p class="fineprint">We'll never sell your details. Ever.</p>
-      </form>
-      <div class="form-success">
-        <div class="tick">&check;</div>
-        <h3>Sweet as, got it</h3>
-        <p>Simon will be in touch shortly. In a hurry? Give us a bell on 0800 18 20 88.</p>
-        <a href="#" id="resetForm" style="display:inline-block;margin-top:26px;font-size:16px;font-weight:600;">Send another</a>
-      </div>
+      <div class="sec-cta"><a class="btn btn-primary btn-lg" href="#contact">Request a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<!-- ============================ SECTION RAIL ============================ -->
-<nav class="rail" id="rail" aria-label="Section navigation"></nav>
+<!-- ============ FINAL CTA / CONTACT ============ -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-copy">
+      <span class="eyebrow"><span class="live"></span> Let's get started</span>
+      <h2>Let's build something you can <span class="accent">smile</span> about</h2>
+      <p class="lede">Tell us about your project and we'll come back with a clear plan and a fixed-price quote — usually within one working day.</p>
+      <div class="cta-contact">
+        <a href="tel:0800182088"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></span> 0800 18 20 88</a>
+        <a href="mailto:hello@kouk.co.nz"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></span> hello@kouk.co.nz</a>
+      </div>
+    </div>
+    <form class="form-card" onsubmit="return false">
+      <h3>Request a free quote</h3>
+      <p class="fsub">No obligation — we'll reply within 1 working day.</p>
+      <div class="field two">
+        <div class="field"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@business.co.nz"></div>
+      </div>
+      <div class="field two">
+        <div class="field"><label>Phone</label><input type="tel" placeholder="021 234 5678"></div>
+        <div class="field"><label>Business name</label><input type="text" placeholder="Your business"></div>
+      </div>
+      <div class="field"><label>What do you need?</label>
+        <select>
+          <option value="" disabled selected>Select an option…</option>
+          <option>New website</option><option>Redesign</option><option>E-commerce</option>
+          <option>Branding</option><option>Ongoing support</option><option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field"><label>Message</label><textarea rows="3" placeholder="Tell us a little about your project…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Send my request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <p class="fnote">Prefer to talk? Call 0800 18 20 88</p>
+    </form>
+  </div>
+</section>
 
-<!-- ============================ FOOTER ============================ -->
-<footer class="site-footer">
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65c171715ab1f7c34207643f_Asset%206.svg" alt="Kouk Creatives">
-        <p class="footer-about">Web specialists in Auckland. Getting New Zealand businesses found, and getting them enquiries, since 2015.</p>
-        <a href="#" style="font-size:16px;font-weight:600;display:inline-block;margin-top:18px;">hello@kouk.co.nz</a>
+        <div class="flogo"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></div>
+        <p class="ftag">Auckland web design &amp; development. Building websites you can smile about since 2015.</p>
       </div>
-      <div class="footer-col">
-        <div class="head">Main</div>
-        <a href="#">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Projects</a><a href="#">Contact</a>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Website Design</a></li>
+          <li><a href="#">Website Redesign</a></li>
+          <li><a href="#">WordPress</a></li>
+          <li><a href="#">Shopify</a></li>
+          <li><a href="#">SEO &amp; Growth</a></li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <div class="head">Clients</div>
-        <a href="#">Raise a support ticket</a><a href="#">Request a feature</a><a href="#">Invoice enquiry</a><a href="#">Report a bug</a>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <div class="head">Resources</div>
-        <a href="#">Terms &amp; conditions</a><a href="#">Privacy policy</a><a href="#">Insurance cover</a><a href="#">LinkedIn</a>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:0800182088">0800 18 20 88</a></li>
+          <li><a href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a></li>
+          <li>Auckland, New Zealand</li>
+        </ul>
       </div>
     </div>
-    <hr class="footer-rule">
-    <div class="footer-base">
-      <div>&copy; 2026 KOUK CREATIVES LTD &middot; AUCKLAND, NEW ZEALAND</div>
-      <a href="#">0800 18 20 88</a>
+    <div class="footer-bottom">
+      <span>© 2026 Kouk Creatives. All rights reserved.</span>
+      <span>Made with care in Auckland, New Zealand</span>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- ---------- MOBILE MENU ---------- -->
+<div class="scrim" id="scrim"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-top">
+    <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives">
+    <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mm-links">
+    <a href="#">Home</a><a href="#">About</a>
+    <button class="mm-serv-trigger" id="mmServ">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-sub" id="mmSub">
+      <a href="#">Website Design</a><a href="#">Website Redesign</a><a href="#">WordPress</a><a href="#">Shopify</a><a href="#">SEO &amp; Growth</a><a href="#">Branding &amp; Assets</a>
+    </div>
+    <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
+  </div>
+  <div class="mm-cta">
+    <a class="btn btn-primary btn-block" href="#">Request a Quote &rarr;</a>
+    <a class="btn btn-call btn-block" href="tel:0800182088"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>Call 0800 18 20 88</a>
+  </div>
+  <div class="mm-mail">Prefer email? <a href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a></div>
+</div>
+
+<script>
+  var body=document.body;
+  function toggle(open){ body.classList.toggle('menu-open',open); }
+  document.querySelectorAll('.hamb').forEach(function(h){ h.addEventListener('click',function(){ toggle(!body.classList.contains('menu-open')); }); });
+  document.getElementById('mmClose').addEventListener('click',function(){ toggle(false); });
+  document.getElementById('scrim').addEventListener('click',function(){ toggle(false); });
+  document.getElementById('mmServ').addEventListener('click',function(){
+    body.classList.toggle('mm-serv-open');
+    document.getElementById('mmSub').classList.toggle('open');
+  });
+  document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
+
+  /* ---- brands logo marquee ---- */
+  (function(){
+    var host = document.getElementById('brands');
+    if(!host) return;
+    var CDN = 'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/';
+    var LOGOS = [
+      { alt:'Serpenti Investigations', src:'https://cdn.prod.website-files.com/68102b47f03abf5dd072dafe/68177f0cd51c9aa75a2572c5_Serpenti%20LOGO%20WHITE%20TRANS-p-500.png', inv:true },
+      { alt:'NZ Institute of Private Investigators', src:'https://cdn.prod.website-files.com/68a27cb44ec6ceb822938742/68a9c8bad05fb7bf868aea7c_New-Zealand-Institute-of-Private-Investigators-Logo-whitepartial.png', inv:true },
+      { alt:'Kouki Photography', src:'https://cdn.prod.website-files.com/68e7b96779856210aac0f8f5/691c62ecb37a8e647de60fb2_logo-kouki-dark-p-500.png' },
+      { alt:'Whys Logistics', src:'https://cdn.prod.website-files.com/6994daec178f296465098938/69952b6b200d7499cd0e1e49_Whys-Logistics-Logo-1500px.webp' },
+      { alt:'Kiwiana Tours', src:'https://kiwianatours.com/wp-content/uploads/2025/01/kiwiana-logo-white-transparent-background.png', inv:true },
+      { alt:'Truffle Lovers', src:'https://trufflelovers.co.nz/cdn/shop/files/sabatino-logo-transparent.png?v=1784800050&width=240' },
+      { alt:'DIY Auckland', src:'https://diyauckland.co.nz/cdn/shop/files/main-logo-side_4x_6bef3cee-92af-417b-911f-397a823e6ec8_250x@2x.png?v=1756257629' },
+      { alt:'TGIF', src:'https://tgif.co.nz/wp-content/uploads/2026/05/cropped-TG-LOGO-TRANSPARENT-500x211.png', inv:true },
+      { alt:'Blast Worx', src:CDN+'670670b9d6ca687e741bfc9d_blastworx-black-p-500.png' },
+      { alt:'Nice Fuels', src:CDN+'66c730b75195922d0f8d3690_client-logos_0004s_0001_nicefuel--black-p-500.png' },
+      { alt:'Chemicorp', src:CDN+'66c7314caa841b1d0e5996da_client-logos_0009s_0001_chemicorp--black-p-500.png' },
+      { alt:'Parnell Cricket Club', src:CDN+'66c735ac2412b6088a38288f_pcc-black-p-500.png' },
+      { alt:'Ensemble', src:CDN+'66c7368ac5a65747c5be6ad5_ensemble-black-p-500.png' },
+      { alt:'Eyes4Everest', src:CDN+'66c731970de12bcb5b7b7122_client-logos_0012s_0001_eyes4everest-black-p-500.png' },
+      { alt:'Suncorp', src:CDN+'66c731ea95d2a1310d499d4a_client-logos_0015s_0001_suncorp-black.png' },
+      { alt:'Storm', src:CDN+'67b70a90e381b49cb95da67d_storm-black.png' },
+      { alt:'Rotary', src:CDN+'66c731b09fefee49ef43518f_client-logos_0013s_0001_rotary-black.png' },
+      { alt:'Vero', src:CDN+'66c73162811592e7fff10ff5_client-logos_0010s_0001_vero-black.png' },
+      { alt:'WPS', src:CDN+'66c730e53fb8b29557b51a06_client-logos_0006s_0001_wps-black.png' },
+      { alt:'AL', src:CDN+'66c730f2aaeb424972476795_client-logos_0007s_0001_al-black.png' },
+      { alt:'AMP', src:CDN+'66c7310686d6822f3c08b7d4_client-logos_0008s_0001_amp--black.png' },
+      { alt:'TCS', src:CDN+'66c73185d3d4f83b877dda1a_client-logos_0011s_0001_tcs-black.png' },
+      { alt:'iDigital', src:CDN+'66c731d735ee4071a2cbdea0_client-logos_0014s_0000_idigital-black.png' },
+      { alt:'Good Honest', src:CDN+'66c7305519cbc1078bfc0b24_client-logos_0000s_0001_goodhonest-black.png' },
+      { alt:'Make Mind', src:CDN+'66c730891bf03cc922025f04_client-logos_0002s_0001_makemind-black.png' },
+      { alt:'Eyes2Learn', src:CDN+'66c73098d6ec042a68da152d_client-logos_0003s_0001_eyes2learn--black.png' },
+      { alt:'Bee Society', src:CDN+'66c73076c5a66b289a796d94_client-logos_0001s_0001_beesociety-black.png' },
+      { alt:'Gordon and Ryan', src:'https://gordonandryan.co.nz/wp-content/uploads/2026/01/logo-horizontal@2x-1.png' }
+    ];
+    function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    var run = LOGOS.map(function(l){ return '<img'+(l.inv?' class="inv"':'')+' src="'+l.src+'" alt="'+esc(l.alt)+'" loading="lazy">'; }).join('');
+    host.innerHTML = '<div class="marquee-run">'+run+'</div><div class="marquee-run" aria-hidden="true">'+run+'</div>';
+  })();
+
+  /* ---- count-up on the stat numbers ---- */
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nums = Array.prototype.slice.call(document.querySelectorAll('.stats .n'));
+    if(!nums.length) return;
+    var data = nums.map(function(el){
+      var t = el.textContent.trim();
+      var m = t.match(/([\d.]+)/);
+      var raw = m ? m[1] : '0';
+      var dec = raw.indexOf('.') > -1 ? raw.split('.')[1].length : 0;
+      return { el: el, val: parseFloat(raw), dec: dec, suffix: t.replace(/[\d.]+/, '') };
+    });
+    if(reduce) return;
+    data.forEach(function(d){ d.el.textContent = (0).toFixed(d.dec) + d.suffix; });
+    function run(){
+      var start = null, dur = 1500;
+      function frame(ts){
+        if(start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        data.forEach(function(d){ d.el.textContent = (d.val * e).toFixed(d.dec) + d.suffix; });
+        if(p < 1) requestAnimationFrame(frame);
+        else data.forEach(function(d){ d.el.textContent = d.val.toFixed(d.dec) + d.suffix; });
+      }
+      requestAnimationFrame(frame);
+    }
+    var host = document.querySelector('.stats');
+    if('IntersectionObserver' in window && host){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ run(); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(host);
+    } else { run(); }
+  })();
+
+  /* ---- testimonials: feature + 3 columns matched to Craig P.'s height ---- */
+  (function(){
+    var FEATURE = { quote:'When communicating with Simon, you can feel the energy and passion the team brings to the project. His vision is forward thinking.',
+      name:'Shaun Chang', role:'Founder, Eyes4Everest', initials:'SC',
+      photo:'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg',
+      highlight:['energy and passion','forward thinking'] };
+    var REST = [
+      { quote:'We’ve had a great experience working with the team on our Truffle Lovers website. This wasn’t simply building a new website, it involved migrating our entire existing site from WordPress/WooCommerce to Shopify, so there was a lot of work involved throughout the process. The team has been extremely knowledgeable, professional and responsive, and they made what could have been a complicated migration feel very manageable. They were always happy to answer our questions, make changes and guide us through the process. We’re really happy with how the new site has turned out, especially the clean design, improved functionality and overall shopping experience. A huge thank you to the team for all the hard work and support. Highly recommended!',
+        name:'Johnny Cheung', role:'Truffle Lovers NZ', initials:'JC', photo:'',
+        highlight:['extremely knowledgeable, professional and responsive','made what could have been a complicated migration feel very manageable','Highly recommended'] },
+      { quote:'Kouk Creatives was instrumental in the creation and support of our Mobile App and also the support and remediation of our Digital experience. I was most impressed with three attitudes from Simon. The first being his focus on the needs of the customer, which was transparent and total, ensuring no surprises. Secondly the ability to create and present new conversations in how the application could provide the best outcome, both visually and user friendliness. This was very refreshing and honest. Thirdly was the work turnaround, which was done within the time and cost stated parameters. The support of our projects and staff was of a very high standard and was appreciated. No fuss, no nonsense and does what he says.',
+        name:'Sid Holmes', role:'AMP New Zealand', initials:'SH', photo:'',
+        highlight:['most impressed','transparent and total','ensuring no surprises','very high standard','No fuss, no nonsense'] },
+      { quote:'The new website is wonderful! Thanks so much with all the hard work creating a whole new look and feel, updated content, new photos, improved functionality etc. Really impressive and another signal to the local community and general public that we are ahead of the rest. Outstanding!',
+        name:'Craig P.', role:'Parnell Cricket Club', initials:'CP', photo:'',
+        highlight:['wonderful','ahead of the rest','Outstanding'] }
+    ];
+    function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function hi(t){ var s=esc(t.quote); (t.highlight||[]).forEach(function(p){ var e=esc(p); s=s.split(e).join('<mark class="hl">'+e+'</mark>'); }); return s; }
+    function avatar(t, cls){ return t.photo ? '<img src="'+t.photo+'" alt="'+esc(t.name)+'" loading="lazy">' : '<div class="'+cls+'">'+esc(t.initials)+'</div>'; }
+
+    var fq=document.getElementById('fq'); if(!fq) return;
+    fq.innerHTML = hi(FEATURE);
+    document.getElementById('fby').innerHTML = avatar(FEATURE,'av')
+      + '<div><div class="nm">'+esc(FEATURE.name)+'</div><div class="rl">'+esc(FEATURE.role)+'</div></div>';
+
+    var grid = document.getElementById('tgrid');
+    grid.innerHTML = REST.map(function(t){
+      var isRef = t.name === 'Craig P.';
+      return '<article class="tcard"'+(isRef?' data-ref':'')+'>'
+        +'<div class="tstars">★★★★★</div>'
+        +'<p class="tquote">'+hi(t)+'</p>'
+        +'<button class="tmore" type="button" hidden>Read more</button>'
+        +'<div class="tby">'+avatar(t,'av')+'<div><div class="nm">'+esc(t.name)+'</div><div class="rl">'+esc(t.role)+'</div></div></div>'
+        +'</article>';
+    }).join('');
+
+    function fitToRef(){
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.tcard'));
+      cards.forEach(function(c){
+        var q=c.querySelector('.tquote'), b=c.querySelector('.tmore');
+        q.classList.remove('clamp'); q.style.webkitLineClamp='';
+        c.classList.remove('is-open'); if(b){ b.hidden=true; b.textContent='Read more'; }
+      });
+      var refQ = grid.querySelector('.tcard[data-ref] .tquote');
+      if(!refQ) return;
+      var lh = parseFloat(getComputedStyle(refQ).lineHeight) || 24;
+      var refLines = Math.max(2, Math.round(refQ.clientHeight / lh));
+      cards.forEach(function(c){
+        if(c.hasAttribute('data-ref')) return;
+        var q=c.querySelector('.tquote'), b=c.querySelector('.tmore');
+        q.classList.add('clamp');
+        q.style.webkitLineClamp = String(refLines);
+        if(q.scrollHeight - q.clientHeight > 4 && b){
+          b.hidden=false;
+          b.onclick=function(){
+            var open=c.classList.toggle('is-open');
+            q.style.webkitLineClamp = open ? 'unset' : String(refLines);
+            b.textContent = open ? 'Read less' : 'Read more';
+          };
+        }
+      });
+    }
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fitToRef); }
+    else if(document.readyState==='complete'){ fitToRef(); }
+    else { window.addEventListener('load', fitToRef); }
+    var _rt; window.addEventListener('resize', function(){ clearTimeout(_rt); _rt=setTimeout(fitToRef, 150); });
+  })();
+
+  /* ---- FAQ accordion ---- */
+  (function(){
+    var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+    function setH(item){
+      var a=item.querySelector('.faq-a');
+      a.style.maxHeight = item.classList.contains('open') ? a.scrollHeight+'px' : '0';
+    }
+    items.forEach(function(item){
+      var q=item.querySelector('.faq-q');
+      q.addEventListener('click',function(){ item.classList.toggle('open'); setH(item); });
+      setH(item);
+    });
+    var _ft; window.addEventListener('resize',function(){ clearTimeout(_ft); _ft=setTimeout(function(){ items.forEach(setH); },150); });
+  })();
+</script>
 </body>
 </html>
