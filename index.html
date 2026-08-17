@@ -245,25 +245,20 @@
   .svc-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px;text-transform:capitalize}
   .svc-head p{color:var(--body);font-size:18px;line-height:1.6;margin-top:14px}
   .svc-list{border-top:1px solid rgba(23,20,15,.14)}
-  .svc-row{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:28px;padding:30px 24px;border-bottom:1px solid rgba(23,20,15,.14);color:var(--ink);transition:background .4s cubic-bezier(.2,.8,.2,1),color .35s,padding .35s}
-  .svc-num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent-dark);transition:color .35s}
-  .svc-name{font-family:var(--display);font-weight:700;font-size:clamp(23px,2.9vw,36px);letter-spacing:-.02em;line-height:1.04}
-  .svc-desc{font-size:15px;line-height:1.55;color:var(--body);margin-top:8px;max-width:66ch;transition:color .35s}
-  .svc-go{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(23,20,15,.18);display:grid;place-items:center;color:var(--ink);flex:none;transition:background .35s,border-color .35s,color .35s}
-  .svc-go svg{width:19px;height:19px;transition:transform .35s}
-  .svc-row:hover{background:var(--accent);color:#fff;padding-left:34px;padding-right:34px}
-  .svc-row:hover .svc-num{color:rgba(255,255,255,.75)}
-  .svc-row:hover .svc-desc{color:rgba(255,255,255,.92)}
-  .svc-row:hover .svc-go{background:#fff;border-color:#fff;color:var(--accent)}
-  .svc-row:hover .svc-go svg{transform:translateX(3px)}
+  .svc-row{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:24px;padding:26px 8px;border-bottom:1px solid rgba(23,20,15,.14);color:var(--ink);transition:padding .35s cubic-bezier(.2,.8,.2,1)}
+  .svc-num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent-dark)}
+  .svc-name{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,40px);letter-spacing:-.02em;line-height:1.02;transition:color .25s}
+  .svc-desc{max-height:0;overflow:hidden;opacity:0;font-size:16px;line-height:1.6;color:var(--body);max-width:64ch;transition:max-height .4s ease,opacity .35s ease,margin .4s ease}
+  .svc-go{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(23,20,15,.18);display:grid;place-items:center;color:var(--ink);flex:none;transition:background .3s,border-color .3s,color .3s,transform .3s}
+  .svc-go svg{width:19px;height:19px}
+  .svc-row:hover{padding-left:20px}
+  .svc-row:hover .svc-name{color:var(--accent)}
+  .svc-row:hover .svc-desc{max-height:96px;opacity:1;margin-top:12px}
+  .svc-row:hover .svc-go{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateX(3px)}
   .svc-cta{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:16px}
   .svc-cta .q{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.01em}
-  @media(max-width:700px){
-    .svc-row{grid-template-columns:auto 1fr;gap:16px;padding:22px 14px}
-    .svc-row:hover{padding-left:14px;padding-right:14px}
-    .svc-go{display:none}
-    .services{padding:72px 0}
-  }
+  @media(hover:none){ .svc-desc{max-height:none;opacity:1;margin-top:10px} }
+  @media(max-width:700px){ .svc-name{font-size:26px} .services{padding:72px 0} .svc-row{grid-template-columns:auto 1fr auto;gap:16px} }
 
   /* ============ PROCESS ============ */
   .process{background:var(--bg);padding:100px 0;border-top:1px solid var(--line)}
