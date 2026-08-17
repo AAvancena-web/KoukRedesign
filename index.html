@@ -845,7 +845,7 @@
     function avatar(t, cls){ return t.photo ? '<img src="'+t.photo+'" alt="'+esc(t.name)+'" loading="lazy">' : '<div class="'+cls+'">'+esc(t.initials)+'</div>'; }
 
     var fq=document.getElementById('fq'); if(!fq) return;
-    fq.innerHTML = hi(FEATURE);
+    fq.innerHTML = '“' + hi(FEATURE) + '”';
     document.getElementById('fby').innerHTML = avatar(FEATURE,'av')
       + '<div><div class="nm">'+esc(FEATURE.name)+'</div><div class="rl">'+esc(FEATURE.role)+'</div></div>';
 
@@ -854,7 +854,7 @@
       var isRef = t.name === 'Craig P.';
       return '<article class="tcard"'+(isRef?' data-ref':'')+'>'
         +'<div class="tstars">★★★★★</div>'
-        +'<p class="tquote">'+hi(t)+'</p>'
+        +'<p class="tquote">“'+hi(t)+'”</p>'
         +'<button class="tmore" type="button" hidden>Read more</button>'
         +'<div class="tby">'+avatar(t,'av')+'<div><div class="nm">'+esc(t.name)+'</div><div class="rl">'+esc(t.role)+'</div></div></div>'
         +'</article>';
