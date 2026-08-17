@@ -244,21 +244,25 @@
   .svc-head{text-align:center;margin:0 0 40px}
   .svc-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px;text-transform:capitalize}
   .svc-head p{color:var(--body);font-size:18px;line-height:1.6;margin-top:14px}
-  .svc-list{border-top:1px solid rgba(23,20,15,.14)}
-  .svc-row{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:24px;padding:26px 8px;border-bottom:1px solid rgba(23,20,15,.14);color:var(--ink);transition:padding .35s cubic-bezier(.2,.8,.2,1)}
-  .svc-num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent-dark)}
-  .svc-name{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,40px);letter-spacing:-.02em;line-height:1.02;transition:color .25s}
-  .svc-desc{max-height:0;overflow:hidden;opacity:0;font-size:16px;line-height:1.6;color:var(--body);max-width:64ch;transition:max-height .4s ease,opacity .35s ease,margin .4s ease}
-  .svc-go{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(23,20,15,.18);display:grid;place-items:center;color:var(--ink);flex:none;transition:background .3s,border-color .3s,color .3s,transform .3s}
-  .svc-go svg{width:19px;height:19px}
-  .svc-row:hover{padding-left:20px}
-  .svc-row:hover .svc-name{color:var(--accent)}
-  .svc-row:hover .svc-desc{max-height:96px;opacity:1;margin-top:12px}
-  .svc-row:hover .svc-go{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateX(3px)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .svc-card{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:#fff;box-shadow:0 44px 74px -46px rgba(23,20,15,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+  .svc-card::before{content:"";position:absolute;inset:0;z-index:-2}
+  .svc-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 26%,rgba(0,0,0,.62) 100%)}
+  .svc-card:hover{transform:translateY(-8px);box-shadow:0 60px 92px -44px rgba(23,20,15,.7)}
+  .svc-card .wm{position:absolute;top:-18px;right:8px;z-index:-1;font-family:var(--display);font-weight:800;font-size:180px;line-height:1;color:rgba(255,255,255,.11);pointer-events:none}
+  .svc-card .k{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:10px}
+  .svc-card .nm{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.025em;line-height:.98}
+  .svc-card .desc{font-size:16px;line-height:1.45;color:rgba(255,255,255,.85);margin-top:10px}
+  .svc-card .go{position:absolute;top:26px;right:26px;z-index:2;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;opacity:0;transform:translateY(-8px) rotate(-25deg);transition:.3s}
+  .svc-card .go svg{width:19px;height:19px}
+  .svc-card:hover .go{opacity:1;transform:none}
+  .svc-card.g1::before{background:linear-gradient(150deg,#2b3b40,#0e4a4b)}
+  .svc-card.g2::before{background:linear-gradient(150deg,#E4552B,#b53414)}
+  .svc-card.g3::before{background:linear-gradient(150deg,#E8A32C,#b5761a)}
+  .svc-card.g4::before{background:linear-gradient(150deg,#3a3730,#17140F)}
   .svc-cta{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:16px}
   .svc-cta .q{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.01em}
-  @media(hover:none){ .svc-desc{max-height:none;opacity:1;margin-top:10px} }
-  @media(max-width:700px){ .svc-name{font-size:26px} .services{padding:72px 0} .svc-row{grid-template-columns:auto 1fr auto;gap:16px} }
+  @media(max-width:760px){ .svc-grid{grid-template-columns:1fr} .svc-card{min-height:260px;padding:30px} .services{padding:72px 0} }
 
   /* ============ PROCESS ============ */
   .process{background:var(--bg);padding:100px 0;border-top:1px solid var(--line)}
@@ -498,48 +502,7 @@
       <h2>What we do</h2>
       <p>Everything you need to win online — explore each service to see how we can help.</p>
     </div>
-    <div class="svc-list">
-      <a class="svc-row" href="#">
-        <span class="svc-num">01</span>
-        <div class="svc-mid"><h3 class="svc-name">Consultation</h3><p class="svc-desc">Not sure where to start or how to build your brand online? We'll map out the right plan for your business — no jargon, no pressure.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">02</span>
-        <div class="svc-mid"><h3 class="svc-name">Build A Site From Scratch</h3><p class="svc-desc">Starting from nothing? We handle it all — domain, hosting, email and a brand-new website — so you're online the right way from day one.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">03</span>
-        <div class="svc-mid"><h3 class="svc-name">Website Design</h3><p class="svc-desc">A clean, informative website that presents your brand beautifully and tells people exactly what you do.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">04</span>
-        <div class="svc-mid"><h3 class="svc-name">Web Development</h3><p class="svc-desc">Websites with the extra functionality you need — bookings, memberships, dashboards and more, built to work flawlessly.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">05</span>
-        <div class="svc-mid"><h3 class="svc-name">E-commerce</h3><p class="svc-desc">Want to sell online? Stores that are simple to run and built to sell, from product pages to a smooth, secure checkout.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">06</span>
-        <div class="svc-mid"><h3 class="svc-name">Website Redesign</h3><p class="svc-desc">Already have a site? We'll make it faster, better-looking and far better at turning visitors into customers.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">07</span>
-        <div class="svc-mid"><h3 class="svc-name">Branding &amp; Assets</h3><p class="svc-desc">Logos, brochures and brand assets that make you look the part across every channel.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a class="svc-row" href="#">
-        <span class="svc-num">08</span>
-        <div class="svc-mid"><h3 class="svc-name">Website Care &amp; Support</h3><p class="svc-desc">Ongoing updates, backups, security and improvements so your site stays fast and worry-free.</p></div>
-        <span class="svc-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-    </div>
+    <div class="svc-grid" id="svc-grid"></div>
     <div class="svc-cta">
       <span class="q">Not sure where to start?</span>
       <a class="btn btn-primary btn-lg" href="#contact">Book an initial consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -918,6 +881,31 @@
       setH(item);
     });
     var _ft; window.addEventListener('resize',function(){ clearTimeout(_ft); _ft=setTimeout(function(){ items.forEach(setH); },150); });
+  })();
+
+  /* ---- services: big gradient cards ---- */
+  (function(){
+    var host = document.getElementById('svc-grid'); if(!host) return;
+    var A = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+    var SV = [
+      { n:'Consultation',              d:'Not sure where to start? Let’s talk.' },
+      { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.' },
+      { n:'Website Design',            d:'A clean site that shows what you do.' },
+      { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.' },
+      { n:'E-commerce',                d:'An online store built to sell.' },
+      { n:'Website Redesign',          d:'Make your current site work harder.' },
+      { n:'Branding &amp; Assets',     d:'Look the part, everywhere.' },
+      { n:'Website Care &amp; Support',d:'Fast, secure and worry-free.' }
+    ];
+    host.innerHTML = SV.map(function(s,i){
+      var num = (i+1<10?'0':'')+(i+1);
+      return '<a class="svc-card g'+((i%4)+1)+'" href="#">'
+        + '<span class="wm">'+num+'</span>'
+        + '<span class="go">'+A+'</span>'
+        + '<div class="nm">'+s.n+'</div>'
+        + '<div class="desc">'+s.d+'</div>'
+        + '</a>';
+    }).join('');
   })();
 </script>
 </body>
