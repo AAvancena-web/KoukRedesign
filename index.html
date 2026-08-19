@@ -425,17 +425,17 @@
       <a href="index.html" class="current">Home</a><a href="about.html">About</a>
       <div class="has-dd"><span class="dd-trigger">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         <div class="dd"><div class="dd-inner">
-          <a href="index.html#services"><div class="t">Consultation</div><div class="d">Not sure where to start</div></a>
-          <a href="index.html#services"><div class="t">Build From Scratch</div><div class="d">Domain, hosting, website</div></a>
-          <a href="index.html#services"><div class="t">Website Design</div><div class="d">Your brand, online</div></a>
-          <a href="index.html#services"><div class="t">Web Development</div><div class="d">Sites with extra features</div></a>
-          <a href="index.html#services"><div class="t">E-commerce</div><div class="d">Built to sell online</div></a>
+          <a href="consultation.html"><div class="t">Consultation</div><div class="d">Not sure where to start</div></a>
+          <a href="build-from-scratch.html"><div class="t">Build From Scratch</div><div class="d">Domain, hosting, website</div></a>
+          <a href="website-design.html"><div class="t">Website Design</div><div class="d">Your brand, online</div></a>
+          <a href="web-development.html"><div class="t">Web Development</div><div class="d">Sites with extra features</div></a>
+          <a href="ecommerce.html"><div class="t">E-commerce</div><div class="d">Built to sell online</div></a>
           <a href="website-redesign.html"><div class="t">Website Redesign</div><div class="d">Make your site work harder</div></a>
-          <a href="index.html#services"><div class="t">Branding &amp; Assets</div><div class="d">Look the part, everywhere</div></a>
-          <a href="index.html#services"><div class="t">Care &amp; Support</div><div class="d">Fast, secure, worry-free</div></a>
+          <a href="branding-assets.html"><div class="t">Branding &amp; Assets</div><div class="d">Look the part, everywhere</div></a>
+          <a href="website-care.html"><div class="t">Care &amp; Support</div><div class="d">Fast, secure, worry-free</div></a>
         </div></div>
       </div>
-      <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
+      <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">FAQs</a><a href="#">Blog</a><a href="index.html#contact">Contact</a>
     </nav>
     <div class="right"><a class="btn btn-primary" href="index.html#contact">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     <div class="mob-actions"><a class="mob-call" href="tel:0800182088" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></a><button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
@@ -727,10 +727,8 @@
   <div class="mm-links">
     <a href="index.html">Home</a><a href="about.html">About</a>
     <button class="mm-serv-trigger" id="mmServ">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-    <div class="mm-sub" id="mmSub">
-      <a href="index.html#services">Consultation</a><a href="index.html#services">Build From Scratch</a><a href="index.html#services">Website Design</a><a href="index.html#services">Web Development</a><a href="index.html#services">E-commerce</a><a href="website-redesign.html">Website Redesign</a><a href="index.html#services">Branding &amp; Assets</a><a href="index.html#services">Care &amp; Support</a>
-    </div>
-    <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
+    <div class="mm-sub" id="mmSub"><a href="consultation.html">Consultation</a><a href="build-from-scratch.html">Build From Scratch</a><a href="website-design.html">Website Design</a><a href="web-development.html">Web Development</a><a href="ecommerce.html">E-commerce</a><a href="website-redesign.html">Website Redesign</a><a href="branding-assets.html">Branding &amp; Assets</a><a href="website-care.html">Care &amp; Support</a></div>
+    <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">FAQs</a><a href="#">Blog</a><a href="index.html#contact">Contact</a>
   </div>
   <div class="mm-cta">
     <a class="btn btn-primary btn-block" href="index.html#contact">Request a Quote &rarr;</a>
@@ -936,14 +934,14 @@
     var host = document.getElementById('svc-grid'); if(!host) return;
     var A = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
     var SV = [
-      { n:'Consultation',              d:'Not sure where to start? Let’s talk.',            s:'kouk-consult', img:'assets/consultation.jpg' },
-      { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.',          s:'kouk-build', img:'assets/build-from-scratch.jpg' },
-      { n:'Website Design',            d:'A clean site that shows what you do.',            s:'kouk-design', img:'assets/website-design.jpg' },
-      { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.',   s:'kouk-dev', img:'assets/web-development.jpg' },
-      { n:'E-commerce',                d:'An online store built to sell.',                 s:'kouk-ecom', img:'assets/ecommerce.jpg' },
+      { n:'Consultation',              d:'Not sure where to start? Let’s talk.',            s:'kouk-consult', img:'assets/consultation.jpg', url:'consultation.html' },
+      { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.',          s:'kouk-build', img:'assets/build-from-scratch.jpg', url:'build-from-scratch.html' },
+      { n:'Website Design',            d:'A clean site that shows what you do.',            s:'kouk-design', img:'assets/website-design.jpg', url:'website-design.html' },
+      { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.',   s:'kouk-dev', img:'assets/web-development.jpg', url:'web-development.html' },
+      { n:'E-commerce',                d:'An online store built to sell.',                 s:'kouk-ecom', img:'assets/ecommerce.jpg', url:'ecommerce.html' },
       { n:'Website Redesign',          d:'Make your current site work harder.',            s:'kouk-redesign', img:'assets/website-redesign.jpg', url:'website-redesign.html' },
-      { n:'Branding &amp; Assets',     d:'Look the part, everywhere.',                     s:'kouk-brand', img:'assets/branding-assets.jpg' },
-      { n:'Website Care &amp; Support',d:'Fast, secure and worry-free.',                   s:'kouk-care', img:'assets/website-care.jpg' }
+      { n:'Branding &amp; Assets',     d:'Look the part, everywhere.',                     s:'kouk-brand', img:'assets/branding-assets.jpg', url:'branding-assets.html' },
+      { n:'Website Care &amp; Support',d:'Fast, secure and worry-free.',                   s:'kouk-care', img:'assets/website-care.jpg', url:'website-care.html' }
     ];
     host.innerHTML = SV.map(function(s,i){
       var num = (i+1<10?'0':'')+(i+1);
