@@ -934,7 +934,7 @@
     var host = document.getElementById('svc-grid'); if(!host) return;
     var A = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
     var SV = [
-      { n:'Consultation',              d:'Not sure where to start? Let’s talk.',            s:'kouk-consult' },
+      { n:'Consultation',              d:'Not sure where to start? Let’s talk.',            s:'kouk-consult', img:'assets/consultation.jpg' },
       { n:'Build A Site From Scratch', d:'Domain, hosting, website — all sorted.',          s:'kouk-build' },
       { n:'Website Design',            d:'A clean site that shows what you do.',            s:'kouk-design' },
       { n:'Web Development',           d:'Bookings, memberships, dashboards &amp; more.',   s:'kouk-dev' },
@@ -945,7 +945,7 @@
     ];
     host.innerHTML = SV.map(function(s,i){
       var num = (i+1<10?'0':'')+(i+1);
-      var img = 'https://picsum.photos/seed/'+s.s+'/900/700';
+      var img = s.img || ('https://picsum.photos/seed/'+s.s+'/900/700');
       return '<a class="svc-card g'+((i%4)+1)+'" href="#" style="--img:url(\''+img+'\')">'
         + '<span class="wm">'+num+'</span>'
         + '<span class="go">'+A+'</span>'
