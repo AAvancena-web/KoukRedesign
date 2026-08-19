@@ -98,14 +98,20 @@
   .abt-hero{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:88px 0 84px}
   .abt-hero::before{content:"";position:absolute;top:-30%;right:-6%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(228,85,43,.30),transparent 62%);filter:blur(10px);pointer-events:none}
   .abt-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;mask:linear-gradient(180deg,#000,transparent 82%);-webkit-mask:linear-gradient(180deg,#000,transparent 82%)}
-  .abt-hero .wrap{position:relative;z-index:2}
-  .abt-hero h1{font-size:clamp(42px,6.4vw,86px);margin:24px 0 22px;letter-spacing:-.03em}
+  .abt-hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.5fr .68fr;gap:60px;align-items:center}
+  .abt-hero h1{font-size:clamp(42px,6vw,82px);margin:24px 0 22px;letter-spacing:-.03em}
   .abt-hero h1 .grey{color:#8fa0a0}
-  .abt-hero .sub{color:#c7d0d0;font-size:clamp(18px,2vw,23px);line-height:1.55;max-width:720px}
-  .abt-stats{display:grid;grid-template-columns:repeat(4,auto);gap:40px;margin-top:52px;border-top:1px solid rgba(255,255,255,.12);padding-top:30px;width:fit-content}
-  .abt-stats .n{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,44px);color:#fff;line-height:1}
-  .abt-stats .n .st{color:var(--gold);font-size:.7em}
-  .abt-stats .l{font-size:14px;color:#9fb0b0;margin-top:6px;max-width:16ch}
+  .abt-hero .sub{color:#c7d0d0;font-size:clamp(18px,1.8vw,22px);line-height:1.55;max-width:560px}
+  .abt-stats{display:flex;flex-direction:column}
+  .abt-stats .stat{padding:20px 0}
+  .abt-stats .stat + .stat{border-top:1px solid rgba(255,255,255,.12)}
+  .abt-stats .n{font-family:var(--display);font-weight:800;font-size:clamp(30px,2.6vw,44px);color:#fff;line-height:1}
+  .abt-stats .n .plus{color:var(--accent)}
+  .abt-stats .l{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#8ea0a0;margin-top:9px}
+  .abt-stats .rating{display:flex;align-items:center;gap:9px;font-size:15px}
+  .abt-stats .rating .rstars{color:var(--gold);letter-spacing:1.5px}
+  .abt-stats .rating b{color:#fff;font-weight:800}
+  .abt-stats .rating .rmut{color:#9fb0b0}
 
   /* ===== WORK GALLERY ===== */
   .work{position:relative;z-index:3;margin-top:-54px;padding-bottom:16px}
@@ -198,12 +204,15 @@
     .mainbar .wrap{height:72px}
     .work-grid,.val-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
   }
+  @media(max-width:940px){
+    .abt-hero .wrap{grid-template-columns:1fr;gap:34px}
+    .abt-stats{max-width:420px}
+  }
   @media(max-width:860px){
     .story-grid{grid-template-columns:1fr;gap:36px}
     .story-media{max-width:520px}
   }
   @media(max-width:760px){
-    .abt-stats{grid-template-columns:1fr 1fr;gap:24px 30px}
     .work-grid,.val-grid,.team-grid{grid-template-columns:1fr}
     .work{margin-top:34px}
     .abt-hero,.story,.values,.team,.abt-cta{padding-top:72px;padding-bottom:72px}
@@ -251,14 +260,16 @@
 <!-- ===== HERO ===== -->
 <section class="abt-hero">
   <div class="wrap">
-    <span class="eyebrow-d">About Kouk Creatives</span>
-    <h1>Based in <span class="grey">Tāmaki Makaurau</span>, Aotearoa.</h1>
-    <p class="sub">A small, senior studio making brands, websites and digital products for New Zealand businesses — the same people from first call to launch.</p>
+    <div class="abt-hero-copy">
+      <span class="eyebrow-d">About Kouk Creatives</span>
+      <h1><span class="grey">Based in</span> Tāmaki Makaurau, Aotearoa.</h1>
+      <p class="sub">A small, senior studio making brands, websites and digital products for New Zealand businesses — the same five people from first call to launch.</p>
+    </div>
     <div class="abt-stats">
-      <div><div class="n">2015</div><div class="l">Studio founded</div></div>
-      <div><div class="n" data-count="40" data-suffix="+">40+</div><div class="l">Kiwi businesses backed</div></div>
-      <div><div class="n">1 day</div><div class="l">To a fixed-price quote</div></div>
-      <div><div class="n">5.0<span class="st">★</span></div><div class="l">Rating on Google</div></div>
+      <div class="stat"><div class="n">2015</div><div class="l">Studio founded</div></div>
+      <div class="stat"><div class="n">40<span class="plus">+</span></div><div class="l">Kiwi businesses backed</div></div>
+      <div class="stat"><div class="n">1 day</div><div class="l">To a fixed-price quote</div></div>
+      <div class="stat rating"><span class="rstars">★★★★★</span> <b>5.0</b> <span class="rmut">on Google</span></div>
     </div>
   </div>
 </section>
