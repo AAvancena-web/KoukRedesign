@@ -139,7 +139,9 @@
   .abt-review .wrap{max-width:1000px}
   .abt-review .rq{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.8vw,50px);line-height:1.14;letter-spacing:-.02em;color:var(--ink);margin:22px 0 30px;text-wrap:pretty}
   .abt-review .rq-by{display:flex;align-items:center;gap:14px}
-  .abt-review .rq-av{width:54px;height:54px;border-radius:50%;flex:none;background:var(--bg);border:1px solid var(--line);background-image:repeating-linear-gradient(135deg,rgba(23,20,15,.06) 0 1px,transparent 1px 8px)}
+  .abt-review .rq-av{width:54px;height:54px;border-radius:50%;flex:none;object-fit:cover;background:var(--bg);border:1px solid var(--line)}
+  .abt-review .rq-av-ph{background-image:repeating-linear-gradient(135deg,rgba(23,20,15,.06) 0 1px,transparent 1px 8px)}
+  .abt-review .rq strong{font-weight:800;color:var(--accent)}
   .abt-review .rq-nm{font-weight:800;font-size:15px}
   .abt-review .rq-rl{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--body);margin-top:3px}
 
@@ -304,11 +306,11 @@
 
 <!-- ===== REVIEW ===== -->
 <section class="abt-review"><div class="wrap">
-  <span class="t-eyebrow">Placeholder quote — swap for a real one</span>
-  <blockquote class="rq">“They asked better questions than anyone else we spoke to, quoted a fixed price, and shipped it when they said they would.”</blockquote>
+  <span class="t-eyebrow">What our clients say</span>
+  <blockquote class="rq">“When communicating with Simon, you can feel the <strong>energy and passion</strong> the team brings to the project. His vision is <strong>forward thinking</strong>.”</blockquote>
   <div class="rq-by">
-    <span class="rq-av"></span>
-    <div><div class="rq-nm">Client name</div><div class="rq-rl">Role · Company</div></div>
+    <img class="rq-av" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg" alt="Shaun Chang" onerror="this.removeAttribute('src');this.classList.add('rq-av-ph')">
+    <div><div class="rq-nm">Shaun Chang</div><div class="rq-rl">Founder · Eyes4Everest</div></div>
   </div>
 </div></section>
 
