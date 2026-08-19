@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Kouk Creatives — Auckland Web Design &amp; Development</title>
+<meta name="description" content="Meet Kouk Creatives — an Auckland web design and development studio building meaningful brands and websites since 2015. Our story, our values, and our team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17140F; --body:#6B6355; --bg:#FBF8F3; --bg-alt:#F2EBE0; --line:rgba(23,20,15,.10);
+    --accent:#E4552B; --accent-dark:#C0421D; --header:#1E2C30; --gold:#E8A32C;
+    --display:'Bricolage Grotesque',Georgia,serif; --sans:'Figtree',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 30px}
+  @media(min-width:1600px){ .wrap{max-width:1880px} }
+
+  /* ===== TOP BAR ===== */
+  .topbar{background:var(--header);color:#fff;font-size:15px}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:52px;gap:16px}
+  .tb-left{display:flex;align-items:center;gap:10px;font-weight:500}
+  .tb-left .stars{color:var(--gold);letter-spacing:1.5px;font-size:12px}
+  .tb-left .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.35)}
+  .tb-left b{color:#fff;font-weight:700}
+  .tb-right{display:flex;align-items:center;gap:18px}
+  .tb-contact{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#fff}
+  .tb-contact:hover{color:var(--accent)}
+  .tb-contact svg{width:15px;height:15px}
+  .tb-sep{width:1px;height:16px;background:rgba(255,255,255,.18)}
+
+  /* ===== MAIN BAR ===== */
+  .mainbar{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .mainbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;height:82px}
+  .logo{display:flex;align-items:center;flex:none}
+  .logo img{height:46px;width:auto;display:block}
+  .nav{display:flex;align-items:center;gap:34px}
+  .nav > a,.nav .dd-trigger{font-size:17.5px;font-weight:700;color:var(--ink);opacity:.9;white-space:nowrap;transition:color .2s,opacity .2s}
+  .nav > a:hover,.nav .dd-trigger:hover,.nav > a.current{opacity:1;color:var(--accent)}
+  .nav > a{position:relative;padding:6px 0}
+  .nav > a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--accent);transition:right .25s ease}
+  .nav > a:hover::after,.nav > a.current::after{right:0}
+  .has-dd{position:relative}
+  .dd-trigger{display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:6px 0}
+  .dd-trigger svg{width:11px;height:11px;transition:transform .25s}
+  .has-dd:hover .dd-trigger svg{transform:rotate(180deg)}
+  .dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);padding-top:14px;min-width:440px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:30}
+  .has-dd:hover .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .dd-inner{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 26px 60px -24px rgba(23,20,15,.4);padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .dd-inner a{display:block;padding:11px 14px;border-radius:10px;transition:background .18s}
+  .dd-inner a:hover{background:var(--bg)}
+  .dd-inner .t{font-size:14.5px;font-weight:700;color:var(--ink)}
+  .dd-inner .d{font-size:12.5px;color:var(--body);margin-top:1px}
+
+  /* ===== BUTTONS ===== */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:11px;border:0;cursor:pointer;white-space:nowrap;transition:.2s;font-family:inherit}
+  .btn svg{width:17px;height:17px}
+  .btn-primary{position:relative;background:var(--accent);color:#fff;box-shadow:0 12px 26px -10px rgba(228,85,43,.7)}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+  @property --snake-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+  .btn-primary::after,.btn-primary::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;pointer-events:none;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .btn-primary::after{background:rgba(255,255,255,.22)}
+  .btn-primary::before{background:conic-gradient(from var(--snake-angle),#ffffff 0deg,var(--gold) 24deg,rgba(232,163,44,.35) 70deg,transparent 110deg,transparent 360deg);animation:snake-run 4.5s linear infinite}
+  @keyframes snake-run{to{--snake-angle:360deg}}
+  @media(prefers-reduced-motion:reduce){.btn-primary::before{animation:none}}
+  .btn-lg{padding:16px 26px;font-size:16px}
+
+  /* ===== MOBILE NAV ===== */
+  .mob-actions{display:none;align-items:center;gap:10px;flex:none}
+  .mob-call{width:46px;height:46px;border:0;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;flex:none;box-shadow:0 8px 18px -8px rgba(228,85,43,.8)}
+  .mob-call svg{width:20px;height:20px}
+  .hamb{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;flex:none}
+  .hamb span{display:block;width:20px;height:2px;margin:0 auto;background:var(--ink);border-radius:2px;transition:.28s}
+  body.menu-open .hamb span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.menu-open .hamb span:nth-child(2){opacity:0}
+  body.menu-open .hamb span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{position:fixed;left:0;right:0;top:0;z-index:120;background:var(--header);color:#fff;padding:22px 24px 32px;transform:translateY(-100%);transition:transform .38s cubic-bezier(.2,.8,.2,1);max-height:100vh;overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+  body.menu-open .mobile-menu{transform:translateY(0)}
+  .mm-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .mm-top img{height:40px;filter:brightness(0) invert(1)}
+  .mm-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:11px;background:none;color:#fff;font-size:22px;cursor:pointer;line-height:1}
+  .mm-links a{display:flex;align-items:center;padding:15px 4px;font-size:19px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mm-cta{display:grid;gap:12px;margin-top:22px}
+  .btn-block{width:100%;padding:16px;font-size:16px}
+  .scrim{position:fixed;inset:0;background:rgba(15,17,22,.5);opacity:0;visibility:hidden;transition:.3s;z-index:110}
+  body.menu-open .scrim{opacity:1;visibility:visible}
+
+  /* ===== eyebrows ===== */
+  .t-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark);background:rgba(228,85,43,.09);border:1px solid rgba(228,85,43,.18);padding:7px 14px;border-radius:100px}
+  .eyebrow-d{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#ffd9a0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:100px}
+
+  /* ===== ABOUT HERO ===== */
+  .abt-hero{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:88px 0 84px}
+  .abt-hero::before{content:"";position:absolute;top:-30%;right:-6%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(228,85,43,.30),transparent 62%);filter:blur(10px);pointer-events:none}
+  .abt-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;mask:linear-gradient(180deg,#000,transparent 82%);-webkit-mask:linear-gradient(180deg,#000,transparent 82%)}
+  .abt-hero .wrap{position:relative;z-index:2}
+  .abt-hero h1{font-size:clamp(42px,6.4vw,86px);margin:24px 0 22px;letter-spacing:-.03em}
+  .abt-hero h1 .grey{color:#8fa0a0}
+  .abt-hero .sub{color:#c7d0d0;font-size:clamp(18px,2vw,23px);line-height:1.55;max-width:680px}
+  .abt-stats{display:grid;grid-template-columns:repeat(3,auto);gap:44px;margin-top:52px;border-top:1px solid rgba(255,255,255,.12);padding-top:30px;width:fit-content}
+  .abt-stats .n{font-family:var(--display);font-weight:800;font-size:clamp(34px,4vw,52px);color:#fff;line-height:1}
+  .abt-stats .l{font-size:14px;color:#9fb0b0;margin-top:6px;max-width:16ch}
+
+  /* ===== STORY ===== */
+  .story{padding:100px 0;background:var(--bg)}
+  .story .wrap{max-width:960px}
+  .story h2{font-size:clamp(30px,3.6vw,46px);margin:16px 0 24px;text-transform:capitalize}
+  .story p{font-size:clamp(17px,1.5vw,20px);line-height:1.7;color:#3f3930;margin-bottom:20px}
+  .story p:last-child{margin-bottom:0}
+
+  /* ===== VALUES ===== */
+  .values{padding:100px 0;background:var(--bg-alt)}
+  .sec-head{text-align:center;margin:0 0 46px}
+  .sec-head h2{font-size:clamp(30px,3.4vw,44px);margin-top:14px;text-transform:capitalize}
+  .sec-head p{color:var(--body);font-size:18px;margin-top:12px}
+  .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .val-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px 34px;min-height:300px;display:flex;flex-direction:column;box-shadow:0 34px 60px -52px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
+  .val-card:hover{transform:translateY(-6px);box-shadow:0 46px 74px -46px rgba(23,20,15,.55)}
+  .val-card .num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent-dark);margin-bottom:20px}
+  .val-card h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2vw,30px);letter-spacing:-.02em;margin-bottom:14px}
+  .val-card p{font-size:16px;line-height:1.6;color:var(--body);margin-top:auto}
+
+  /* ===== TEAM ===== */
+  .team{padding:100px 0;background:var(--bg)}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .member .ph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;display:block;background:var(--bg-alt);filter:grayscale(1)}
+  .member .nm{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-top:18px}
+  .member .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-dark);margin-top:5px}
+  .member .bio{font-size:14.5px;line-height:1.6;color:var(--body);margin-top:12px}
+
+  /* ===== CTA ===== */
+  .abt-cta{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:96px 0;text-align:center}
+  .abt-cta::before{content:"";position:absolute;top:-30%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(228,85,43,.3),transparent 62%);filter:blur(10px);pointer-events:none}
+  .abt-cta .wrap{position:relative;z-index:2}
+  .abt-cta h2{font-size:clamp(32px,4vw,54px);letter-spacing:-.02em;text-transform:capitalize}
+  .abt-cta h2 .accent{color:#ff8a5c}
+  .abt-cta p{color:#c7d0d0;font-size:18px;margin:18px auto 30px;max-width:520px}
+
+  /* ===== FOOTER ===== */
+  .footer{background:#141b1e;color:#c7d0d0;padding:64px 0 34px}
+  .footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
+  .footer .flogo img{height:44px;filter:brightness(0) invert(1)}
+  .footer .ftag{margin-top:18px;font-size:14.5px;line-height:1.6;max-width:300px;color:#9fb0b0}
+  .footer h4{font-family:var(--display);font-size:15px;color:#fff;margin-bottom:16px}
+  .footer ul{list-style:none;display:grid;gap:10px}
+  .footer a{color:#c7d0d0;font-size:14.5px}
+  .footer a:hover{color:#fff}
+  .footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#9fb0b0}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1080px){ .nav{gap:24px} .nav > a,.nav .dd-trigger{font-size:15px} }
+  @media(max-width:940px){
+    .topbar{display:none}
+    .nav,.right-cta{display:none}
+    .mob-actions{display:flex}
+    .mainbar .wrap{height:72px}
+    .val-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:760px){
+    .abt-stats{grid-template-columns:1fr;gap:22px}
+    .val-grid,.team-grid{grid-template-columns:1fr}
+    .abt-hero,.story,.values,.team,.abt-cta{padding-top:72px;padding-bottom:72px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+  }
+  @media(max-width:560px){ .wrap{padding:0 18px} .footer-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="topbar"><div class="wrap">
+    <div class="tb-left"><span class="stars">★★★★★</span><span>Rated <b>5.0</b> on Google</span><span class="dot"></span><span>Trusted by <b>40+</b> New Zealand businesses since <b>2015</b></span></div>
+    <div class="tb-right">
+      <a class="tb-contact call" href="tel:0800182088"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>0800 18 20 88</a>
+      <span class="tb-sep"></span>
+      <a class="tb-contact" href="mailto:hello@kouk.co.nz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>hello@kouk.co.nz</a>
+    </div>
+  </div></div>
+  <div class="mainbar"><div class="wrap">
+    <a class="logo" href="index.html"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="current">About</a>
+      <div class="has-dd"><span class="dd-trigger">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <div class="dd"><div class="dd-inner">
+          <a href="index.html#services"><div class="t">Consultation</div><div class="d">Not sure where to start</div></a>
+          <a href="index.html#services"><div class="t">Build From Scratch</div><div class="d">Domain, hosting, website</div></a>
+          <a href="index.html#services"><div class="t">Website Design</div><div class="d">Your brand, online</div></a>
+          <a href="index.html#services"><div class="t">Web Development</div><div class="d">Sites with extra features</div></a>
+          <a href="index.html#services"><div class="t">E-commerce</div><div class="d">Built to sell online</div></a>
+          <a href="index.html#services"><div class="t">Website Redesign</div><div class="d">Make your site work harder</div></a>
+          <a href="index.html#services"><div class="t">Branding &amp; Assets</div><div class="d">Look the part, everywhere</div></a>
+          <a href="index.html#services"><div class="t">Care &amp; Support</div><div class="d">Fast, secure, worry-free</div></a>
+        </div></div>
+      </div>
+      <a href="index.html#work">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="right-cta"><a class="btn btn-primary" href="index.html#contact">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+    <div class="mob-actions"><a class="mob-call" href="tel:0800182088" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></a><button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div></div>
+</header>
+
+<!-- ===== ABOUT HERO ===== -->
+<section class="abt-hero">
+  <div class="wrap">
+    <span class="eyebrow-d">About Kouk Creatives</span>
+    <h1>Based in <span class="grey">Tāmaki Makaurau</span>, Aotearoa.</h1>
+    <p class="sub">We've been creating meaningful brands, websites and digital products for New Zealand businesses since 2015.</p>
+    <div class="abt-stats">
+      <div><div class="n">2015</div><div class="l">Founding year</div></div>
+      <div><div class="n" data-count="40" data-suffix="+">40+</div><div class="l">Clients and growing</div></div>
+      <div><div class="n">100%</div><div class="l">Projects completed &amp; satisfied</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section class="story">
+  <div class="wrap">
+    <span class="t-eyebrow">Our story</span>
+    <h2>A studio built on craft and care</h2>
+    <p>Kouk Creatives is an Auckland-based web design and development studio. Since 2015 we've partnered with more than forty Kiwi businesses — from ambitious start-ups to established brands — turning early-stage ideas into websites and digital tools people actually love to use.</p>
+    <p>We're a small, senior team that blends design, engineering and strategy under one roof. That means no hand-offs between agencies, no jargon, and no surprises — just clear thinking, honest advice and work we're genuinely proud to put our name on.</p>
+    <p>Above all, we care about the people behind every project. Nothing beats seeing a client grow in confidence as their idea becomes something real, working hard for their business day and night.</p>
+  </div>
+</section>
+
+<!-- ===== VALUES ===== -->
+<section class="values">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="t-eyebrow">What we stand for</span>
+      <h2>Values that keep us going</h2>
+    </div>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="num">01</div>
+        <h3>Honesty</h3>
+        <p>We stay true to what we do, and take the time to understand our clients — so we get it right the first time.</p>
+      </div>
+      <div class="val-card">
+        <div class="num">02</div>
+        <h3>Innovation</h3>
+        <p>We're always learning and staying ahead, so we can keep delivering great results as the web evolves.</p>
+      </div>
+      <div class="val-card">
+        <div class="num">03</div>
+        <h3>Deliver Exceptionally</h3>
+        <p>We see websites and digital assets as an art. We want to create work you'll be genuinely proud to own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="t-eyebrow">The people</span>
+      <h2>Meet the team</h2>
+      <p>Senior, hands-on and based right here in Auckland.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/65e07d6312c42b2f3e54fd17_simon-profile-bw-p-800.jpg" alt="Simon Kouk">
+        <div class="nm">Simon Kouk</div>
+        <div class="role">Founder · Head of Operations</div>
+        <p class="bio">A creative entrepreneur and systems thinker with 25+ years in design and 12+ in web. Simon bridges strategy, design and code — and leads with a community-first heart.</p>
+      </div>
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/65e07d88d45488617bd1923a_david-profile-bw-p-800.jpg" alt="David Fraser">
+        <div class="nm">David Fraser</div>
+        <div class="role">Senior Digital Designer</div>
+        <p class="bio">With Kouk since 2015, David crafts digital assets, leads web audits and champions accessibility — with a deep love for Auckland's landscapes.</p>
+      </div>
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/66c724909bd9fa9a56ab74ce_faizev-profile-bw-p-800.jpg" alt="Faizev Hussein">
+        <div class="nm">Faizev Hussein</div>
+        <div class="role">Technical Lead</div>
+        <p class="bio">Lays the technical foundations for every project, with experience across NZ's top organisations. Always exploring emerging tech.</p>
+      </div>
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/67b70858fd2d315c72a63acd_arnold-profile-bw-p-800.jpg" alt="Arnold Avanceña">
+        <div class="nm">Arnold Avanceña</div>
+        <div class="role">Senior Web Developer</div>
+        <p class="bio">A full-stack developer with a decade of experience and a sharp eye for detail. Lives by "once you stop learning, you start dying."</p>
+      </div>
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/66c72446c0a238c1cd2eac6c_michael-profile-bw-p-800.jpg" alt="Michael Kouk">
+        <div class="nm">Michael Kouk</div>
+        <div class="role">Head of Photography</div>
+        <p class="bio">Captures New Zealand's most memorable moments, from weddings to corporate events — with a keen eye (and an unbeatable arcade game).</p>
+      </div>
+      <div class="member">
+        <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/66c3d99e47c0fa7e49887404_aslan-p-800.jpg" alt="Aslan">
+        <div class="nm">Aslan</div>
+        <div class="role">Security Personnel</div>
+        <p class="bio">The top dog keeping the office safe. Vets every visitor with a thorough sniff test and a wag of approval. Off duty: a sunny spot by the window.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="abt-cta">
+  <div class="wrap">
+    <span class="eyebrow-d">Let's get started</span>
+    <h2 style="margin-top:16px">Let's build something you can <span class="accent">smile</span> about</h2>
+    <p>Tell us about your project and we'll come back with a clear plan and a fixed-price quote — usually within one working day.</p>
+    <a class="btn btn-primary btn-lg" href="index.html#contact">Book an initial consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="flogo"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></div>
+        <p class="ftag">Auckland web design &amp; development. Building websites you can smile about since 2015.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#work">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:0800182088">0800 18 20 88</a></li>
+          <li><a href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a></li>
+          <li>Auckland, New Zealand</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://nz.linkedin.com/company/kouk-creatives-ltd" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kouk Creatives. All rights reserved.</span>
+      <span>Made with care in Auckland, New Zealand</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="scrim" id="scrim"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-top">
+    <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives">
+    <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mm-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#work">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="mm-cta">
+    <a class="btn btn-primary btn-block" href="index.html#contact">Request a Quote &rarr;</a>
+  </div>
+</div>
+
+<script>
+  var body=document.body;
+  function toggle(open){ body.classList.toggle('menu-open',open); }
+  document.getElementById('hamb').addEventListener('click',function(){ toggle(!body.classList.contains('menu-open')); });
+  document.getElementById('mmClose').addEventListener('click',function(){ toggle(false); });
+  document.getElementById('scrim').addEventListener('click',function(){ toggle(false); });
+  document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
+
+  /* count-up on the stats */
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var nums = Array.prototype.slice.call(document.querySelectorAll('.abt-stats .n[data-count]'));
+    if(!nums.length) return;
+    nums.forEach(function(el){ el.textContent = '0' + (el.getAttribute('data-suffix')||''); });
+    function run(){
+      var start=null, dur=1400;
+      function frame(ts){
+        if(start===null) start=ts;
+        var p=Math.min((ts-start)/dur,1), e=1-Math.pow(1-p,3);
+        nums.forEach(function(el){
+          var val=parseInt(el.getAttribute('data-count'),10);
+          el.textContent = Math.round(val*e) + (el.getAttribute('data-suffix')||'');
+        });
+        if(p<1) requestAnimationFrame(frame);
+        else nums.forEach(function(el){ el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix')||''); });
+      }
+      requestAnimationFrame(frame);
+    }
+    var host=document.querySelector('.abt-stats');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(); io.disconnect(); } }); }, {threshold:.4});
+      io.observe(host);
+    } else { run(); }
+  })();
+</script>
+</body>
+</html>
