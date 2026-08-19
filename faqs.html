@@ -245,6 +245,12 @@
     .hero-media .badge{left:8px}
   }
   @media(max-width:560px){ .wrap{padding:0 18px} .footer-grid{grid-template-columns:1fr} }
+
+.faq-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 50px;max-width:940px}
+.faq-nav a{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);padding:8px 15px;border-radius:100px;transition:.2s}
+.faq-nav a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.faq-cat{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;margin:52px 0 4px;padding-top:28px;border-top:2px solid var(--ink);scroll-margin-top:110px}
+.faq-cat:first-of-type{margin-top:0;padding-top:0;border-top:0}
 </style>
 <style>
 .page-hero{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:20px 0 84px;text-align:center}
@@ -301,7 +307,19 @@
   <div class="cta-row"><a class="btn btn-primary btn-lg" href="contact.html">Get a fixed-price quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a class="btn btn-ghost btn-lg" href="tel:0800182088"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>Or call us now</a></div>
 </div></section>
 <section class="faq"><div class="wrap">
+  <div class="faq-nav">
+    <a href="#faq-general">General</a>
+    <a href="#faq-consultation">Consultation</a>
+    <a href="#faq-build">Build A Site From Scratch</a>
+    <a href="#faq-design">Website Design</a>
+    <a href="#faq-development">Web Development</a>
+    <a href="#faq-ecommerce">E-commerce</a>
+    <a href="#faq-redesign">Website Redesign</a>
+    <a href="#faq-branding">Branding &amp; Assets</a>
+    <a href="#faq-care">Website Care &amp; Support</a>
+  </div>
   <div class="faq-wrap">
+    <h2 class="faq-cat" id="faq-general">General</h2>
     <div class="faq-item">
       <button class="faq-q">Where are you based?</button>
       <div class="faq-a"><p>We’re an Auckland-based studio and have worked with businesses right across New Zealand since 2015. Most work happens remotely, and we’re always happy to meet in person locally.</p></div>
@@ -341,6 +359,174 @@
     <div class="faq-item">
       <button class="faq-q">How do we get started?</button>
       <div class="faq-a"><p>Get in touch for a free, no-obligation consultation. We’ll talk through your goals and send a fixed-price quote if it’s a fit.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-consultation">Consultation</h2>
+    <div class="faq-item">
+      <button class="faq-q">Is the consultation really free?</button>
+      <div class="faq-a"><p>Yes. The first conversation is free and there’s no obligation to book anything afterwards.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need to prepare anything?</button>
+      <div class="faq-a"><p>Not really. Just come with a rough idea of your goals. Any examples of sites you like are a bonus.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will you try to upsell me?</button>
+      <div class="faq-a"><p>No. We recommend what actually fits your goals and budget — even if that’s the smaller option.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can we meet in person?</button>
+      <div class="faq-a"><p>Absolutely — we’re Auckland-based. Phone or video works just as well if that’s easier for you.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What happens after?</button>
+      <div class="faq-a"><p>If you’d like to go ahead, we send a fixed-price quote, usually within one working day. If not, no worries at all.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-build">Build A Site From Scratch</h2>
+    <div class="faq-item">
+      <button class="faq-q">I don’t have a domain or hosting — can you sort that?</button>
+      <div class="faq-a"><p>Yes. We handle the whole lot — registering your domain and setting up hosting — so you don’t have to touch a thing.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much does a new website cost?</button>
+      <div class="faq-a"><p>Every build is fixed-price and quoted up front, based on what you need. You’ll usually have a quote within one working day.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How long until it’s live?</button>
+      <div class="faq-a"><p>Most new sites take around 3–6 weeks, depending on size and how quickly the content comes together.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need to write all the content?</button>
+      <div class="faq-a"><p>Not alone. We’ll guide you on what’s needed and can help shape it so it reads well and ranks.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I add more later?</button>
+      <div class="faq-a"><p>Definitely. We build so you can start with the essentials and add pages or features as you grow.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-design">Website Design</h2>
+    <div class="faq-item">
+      <button class="faq-q">Do you use templates?</button>
+      <div class="faq-a"><p>No. Every design is custom, built around your brand — not a theme thousands of other sites already use.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you match my existing branding?</button>
+      <div class="faq-a"><p>Yes. We design around your current brand, and can refresh or extend it if it needs a lift.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will I see the design before it’s built?</button>
+      <div class="faq-a"><p>Always. You’ll review and give feedback on the design before a single line of code is written.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you build the site too?</button>
+      <div class="faq-a"><p>Yes — design and development are both done in-house, so nothing gets lost in a hand-off.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much does design cost?</button>
+      <div class="faq-a"><p>It’s part of a fixed-price project quote, tailored to how many pages and how much detail you need.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-development">Web Development</h2>
+    <div class="faq-item">
+      <button class="faq-q">Can you add features to my existing site?</button>
+      <div class="faq-a"><p>Often, yes. We’ll look at how it’s built and let you know the best way to add what you need.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What can you actually build?</button>
+      <div class="faq-a"><p>Bookings, payments, memberships, dashboards, custom forms, integrations — if it runs on the web, we can usually build it.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will my team be able to manage it?</button>
+      <div class="faq-a"><p>Yes. We build friendly back-ends and show your team exactly how to use them.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is it secure?</button>
+      <div class="faq-a"><p>Security is built in from the start — secure hosting, best-practice code and ongoing updates.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How is this priced?</button>
+      <div class="faq-a"><p>Like everything we do: fixed-price, quoted up front once we understand what you need.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-ecommerce">E-commerce</h2>
+    <div class="faq-item">
+      <button class="faq-q">Which platform do you use?</button>
+      <div class="faq-a"><p>We choose the platform that best fits your products and how you like to work, then set it all up for you.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you move my existing store?</button>
+      <div class="faq-a"><p>Yes. We can migrate your products, customers and orders across with minimal fuss.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How are payments and shipping handled?</button>
+      <div class="faq-a"><p>We set up secure payments and real-time shipping rates, with GST handled correctly for New Zealand.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I manage products myself?</button>
+      <div class="faq-a"><p>Absolutely. You’ll get a simple dashboard and a walkthrough so you’re in full control.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What does an online store cost?</button>
+      <div class="faq-a"><p>It’s fixed-price and quoted up front, based on your product range and the features you need.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-redesign">Website Redesign</h2>
+    <div class="faq-item">
+      <button class="faq-q">Will I lose my Google rankings?</button>
+      <div class="faq-a"><p>No. We map every old page to its new home with redirects and keep your SEO intact through the move. Most clients see their rankings hold steady — and often improve — after a faster, cleaner site goes live.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you keep my existing content?</button>
+      <div class="faq-a"><p>Yes. We migrate your current content and improve it where it helps. You won’t be starting from a blank page unless you want to.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How long does a redesign take?</button>
+      <div class="faq-a"><p>Most redesigns take around 3–6 weeks depending on the size of the site and how quickly content and feedback come through. You’ll get a clear timeline alongside your quote.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will I be able to edit the site myself?</button>
+      <div class="faq-a"><p>Yes. We build on a friendly CMS and show you how to make everyday changes. Anything bigger, we’re only a message away.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much does a redesign cost?</button>
+      <div class="faq-a"><p>Every project is fixed-price and quoted up front — usually within one working day of our first chat — so there are no hourly surprises at the end.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-branding">Branding &amp; Assets</h2>
+    <div class="faq-item">
+      <button class="faq-q">I only need a logo — can you help?</button>
+      <div class="faq-a"><p>Yes. We can do a standalone logo, or a full identity — whatever fits where you’re at.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you refresh my existing brand?</button>
+      <div class="faq-a"><p>Definitely. We can modernise what you have while keeping the parts that already work.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will I get all the files?</button>
+      <div class="faq-a"><p>Yes. You’ll receive every format you need for web and print, plus simple guidelines.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you do print as well as digital?</button>
+      <div class="faq-a"><p>We do both — from social templates to business cards, brochures and signage.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much does branding cost?</button>
+      <div class="faq-a"><p>It’s fixed-price and quoted up front, based on how much you need.</p></div>
+    </div>
+    <h2 class="faq-cat" id="faq-care">Website Care &amp; Support</h2>
+    <div class="faq-item">
+      <button class="faq-q">Do you support sites you didn’t build?</button>
+      <div class="faq-a"><p>Often, yes. We’ll review your site first to make sure we can look after it properly.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What’s actually included?</button>
+      <div class="faq-a"><p>Hosting, updates, backups, security monitoring and small content changes — with a real person to call.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How fast do you respond?</button>
+      <div class="faq-a"><p>Quickly. You deal with the team who know your site, not a faceless ticket queue.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I cancel anytime?</button>
+      <div class="faq-a"><p>Yes. Care plans are month-to-month — no lock-in contracts.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much is a care plan?</button>
+      <div class="faq-a"><p>It’s a simple fixed monthly fee, based on your site’s size and what you need covered.</p></div>
     </div>
   </div>
 </div></section>
