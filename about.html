@@ -134,16 +134,30 @@
   .story-text .tagline{font-family:var(--display);font-weight:800;font-size:clamp(19px,1.6vw,23px);color:var(--accent);letter-spacing:-.01em;margin-top:8px}
   .story-media{position:relative}
   .story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;background:var(--bg-alt);box-shadow:0 44px 74px -40px rgba(23,20,15,.5)}
-  /* review band (after the story paragraph) */
-  .abt-review{background:var(--bg-alt);padding:96px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .abt-review .wrap{max-width:1000px}
-  .abt-review .rq{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.8vw,50px);line-height:1.14;letter-spacing:-.02em;color:var(--ink);margin:22px 0 30px;text-wrap:pretty}
-  .abt-review .rq-by{display:flex;align-items:center;gap:14px}
-  .abt-review .rq-av{width:54px;height:54px;border-radius:50%;flex:none;object-fit:cover;background:var(--bg);border:1px solid var(--line)}
-  .abt-review .rq-av-ph{background-image:repeating-linear-gradient(135deg,rgba(23,20,15,.06) 0 1px,transparent 1px 8px)}
-  .abt-review .rq strong{font-weight:800;color:var(--accent)}
-  .abt-review .rq-nm{font-weight:800;font-size:15px}
-  .abt-review .rq-rl{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--body);margin-top:3px}
+  /* review band (after the story paragraph) — matches homepage feature testimonial */
+  .abt-review{padding:96px 0}
+  .abt-review .wrap{max-width:1080px}
+  .feature{position:relative;overflow:hidden;background:var(--header);color:#fff;border:1px solid rgba(255,255,255,.10);border-radius:24px;padding:56px 56px;text-align:center;box-shadow:0 44px 84px -50px rgba(23,20,15,.7)}
+  .feature::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 50% -10%,rgba(228,85,43,.16),transparent 60%)}
+  .feature::before{content:"\201C";position:absolute;top:-30px;right:34px;font-family:var(--display);font-weight:800;font-size:240px;line-height:1;color:rgba(228,85,43,.22);z-index:1}
+  .feature>*{position:relative;z-index:2}
+  .feature .fstars{color:var(--gold);letter-spacing:6px;font-size:clamp(32px,4.6vw,48px);margin-bottom:24px;line-height:1}
+  .feature .fq{font-family:var(--sans);font-size:clamp(24px,3.2vw,40px);line-height:1.38;color:rgba(255,255,255,.92)}
+  .feature .fq strong{color:#fff;font-weight:800}
+  .feature .fby{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:34px}
+  .feature .fby img,.feature .fby .av{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+  .feature .fby .av{background:var(--accent);border:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
+  .feature .fby .nm{font-weight:800;font-size:18px;color:#fff}
+  .feature .fby .rl{color:rgba(255,255,255,.62);font-size:14px}
+  @media(max-width:640px){
+    .feature{padding:32px 22px;border-radius:20px}
+    .feature::before{font-size:120px;top:-14px;right:14px}
+    .feature .fstars{font-size:26px;letter-spacing:4px;margin-bottom:16px}
+    .feature .fq{font-size:19px;line-height:1.5}
+    .feature .fby{gap:12px;margin-top:24px}
+    .feature .fby img,.feature .fby .av{width:50px;height:50px}
+    .feature .fby .nm{font-size:16px}
+  }
 
   /* ===== SECTION HEAD ===== */
   .sec-head{text-align:center;margin:0 0 46px}
@@ -306,12 +320,14 @@
 
 <!-- ===== REVIEW ===== -->
 <section class="abt-review"><div class="wrap">
-  <span class="t-eyebrow">What our clients say</span>
-  <blockquote class="rq">“When communicating with Simon, you can feel the <strong>energy and passion</strong> the team brings to the project. His vision is <strong>forward thinking</strong>.”</blockquote>
-  <div class="rq-by">
-    <img class="rq-av" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg" alt="Shaun Chang" onerror="this.removeAttribute('src');this.classList.add('rq-av-ph')">
-    <div><div class="rq-nm">Shaun Chang</div><div class="rq-rl">Founder · Eyes4Everest</div></div>
-  </div>
+  <article class="feature">
+    <div class="fstars">★★★★★</div>
+    <p class="fq">“When communicating with Simon, you can feel the <strong>energy and passion</strong> the team brings to the project. His vision is <strong>forward thinking</strong>.”</p>
+    <div class="fby">
+      <img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg" alt="Shaun Chang" onerror="this.outerHTML='&lt;span class=&quot;av&quot;&gt;SC&lt;/span&gt;'">
+      <div style="text-align:left"><div class="nm">Shaun Chang</div><div class="rl">Founder · Eyes4Everest</div></div>
+    </div>
+  </article>
 </div></section>
 
 <!-- ===== VALUES ===== -->
