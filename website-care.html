@@ -245,6 +245,28 @@
     .hero-media .badge{left:8px}
   }
   @media(max-width:560px){ .wrap{padding:0 18px} .footer-grid{grid-template-columns:1fr} }
+
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#ffd9a0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:100px}
+  .eyebrow .live{width:8px;height:8px;border-radius:50%;background:#2fae64;box-shadow:0 0 0 4px rgba(47,174,100,.18)}
+  .cta{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:100px 0}
+  .cta::before{content:"";position:absolute;top:-30%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(228,85,43,.30),transparent 62%);filter:blur(10px);pointer-events:none;z-index:0}
+  .cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .cta-copy h2{font-family:var(--display);font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;text-transform:capitalize}
+  .cta-copy h2 .accent{color:#ff8a5c}
+  .cta-copy .lede{color:#c7d0d0;font-size:18px;line-height:1.6;margin:18px 0 30px;max-width:460px}
+  .form-card{background:#fff;color:var(--ink);border-radius:22px;padding:32px;box-shadow:0 60px 110px -44px rgba(0,0,0,.7)}
+  .form-card h3{font-family:var(--display);font-size:23px;margin-bottom:4px}
+  .form-card .fsub{color:var(--body);font-size:14.5px;margin-bottom:20px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:#5c5446;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:.18s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(228,85,43,.12)}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field.two .field{margin:0}
+  .form-card .btn-primary{width:100%;margin-top:6px}
+  .form-card .fnote{text-align:center;font-size:12.5px;color:#9a8f7d;margin-top:12px}
+  @media(max-width:900px){ .cta .wrap{grid-template-columns:1fr;gap:40px} }
+  @media(max-width:560px){ .cta .field.two{grid-template-columns:1fr} .cta{padding:72px 0} }
 </style>
 </head>
 <body>
@@ -439,12 +461,36 @@
 </div></section>
 
 <!-- CTA -->
-<section class="svc-cta">
+<section class="cta">
   <div class="wrap">
-    <span class="eyebrow-d">Let’s keep you running</span>
-    <h2>Let’s keep your site <span class="accent">in great shape</span></h2>
-    <p>Tell us about your site and we’ll recommend the right care plan. Fixed monthly price, no lock-in.</p>
-    <a class="btn btn-primary btn-lg" href="contact.html">Book an initial consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <div class="cta-copy">
+      <span class="eyebrow"><span class="live"></span> Let’s keep you running</span>
+      <h2>Let’s keep your site <span class="accent">in great shape</span></h2>
+      <p class="lede">Tell us about your site and we’ll recommend the right care plan. Fixed monthly price, no lock-in.</p>
+      <a class="btn btn-primary btn-lg" href="contact.html">Book an initial consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <form class="form-card" onsubmit="return false">
+      <h3>Request a free quote</h3>
+      <p class="fsub">No obligation — we'll reply within 1 working day.</p>
+      <div class="field two">
+        <div class="field"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@business.co.nz"></div>
+      </div>
+      <div class="field two">
+        <div class="field"><label>Phone</label><input type="tel" placeholder="021 234 5678"></div>
+        <div class="field"><label>Business name</label><input type="text" placeholder="Your business"></div>
+      </div>
+      <div class="field"><label>What do you need?</label>
+        <select>
+          <option value="" disabled selected>Select an option…</option>
+          <option>New website</option><option>Redesign</option><option>E-commerce</option>
+          <option>Branding</option><option>Ongoing support</option><option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field"><label>Message</label><textarea rows="3" placeholder="Tell us a little about your project…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Send my request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <p class="fnote">Prefer to talk? Call 0800 18 20 88</p>
+    </form>
   </div>
 </section>
 
