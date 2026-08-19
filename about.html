@@ -127,7 +127,6 @@
 
   /* ===== STORY (image + paragraph, aligned) ===== */
   .story{padding:104px 0 96px;background:var(--bg)}
-  .story .wrap{max-width:1200px}
   .story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
   .story-text h2{font-size:clamp(30px,3.4vw,46px);margin:16px 0 24px;text-transform:capitalize;max-width:18ch}
   .story-text .lead{font-size:clamp(19px,1.6vw,23px);line-height:1.55;color:var(--ink);font-weight:500;margin-bottom:22px}
@@ -135,10 +134,14 @@
   .story-text .tagline{font-family:var(--display);font-weight:800;font-size:clamp(19px,1.6vw,23px);color:var(--accent);letter-spacing:-.01em;margin-top:8px}
   .story-media{position:relative}
   .story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;background:var(--bg-alt);box-shadow:0 44px 74px -40px rgba(23,20,15,.5)}
-  .story-quote{position:relative;z-index:2;margin:-46px 24px 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 30px 60px -34px rgba(23,20,15,.45)}
-  .story-quote blockquote{font-size:16px;line-height:1.55;color:#2f2a22;font-weight:500}
-  .story-quote figcaption{margin-top:12px;font-size:13.5px;color:var(--body)}
-  .story-quote figcaption b{color:var(--ink)}
+  /* review band (after the story paragraph) */
+  .abt-review{background:var(--bg-alt);padding:96px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .abt-review .wrap{max-width:1000px}
+  .abt-review .rq{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.8vw,50px);line-height:1.14;letter-spacing:-.02em;color:var(--ink);margin:22px 0 30px;text-wrap:pretty}
+  .abt-review .rq-by{display:flex;align-items:center;gap:14px}
+  .abt-review .rq-av{width:54px;height:54px;border-radius:50%;flex:none;background:var(--bg);border:1px solid var(--line);background-image:repeating-linear-gradient(135deg,rgba(23,20,15,.06) 0 1px,transparent 1px 8px)}
+  .abt-review .rq-nm{font-weight:800;font-size:15px}
+  .abt-review .rq-rl{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--body);margin-top:3px}
 
   /* ===== SECTION HEAD ===== */
   .sec-head{text-align:center;margin:0 0 46px}
@@ -148,23 +151,30 @@
   /* ===== VALUES ===== */
   .values{padding:100px 0;background:var(--bg-alt)}
   .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .val-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;padding:44px 36px;min-height:320px;display:flex;flex-direction:column;box-shadow:0 34px 60px -52px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
+  .val-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 34px;box-shadow:0 34px 60px -52px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
   .val-card:hover{transform:translateY(-6px);box-shadow:0 46px 74px -46px rgba(23,20,15,.55)}
-  .val-card .gnum{position:absolute;top:-8px;right:20px;font-family:var(--display);font-weight:800;font-size:140px;line-height:1;color:rgba(228,85,43,.07);pointer-events:none}
-  .val-card h3{position:relative;z-index:2;font-family:var(--display);font-weight:800;font-size:clamp(24px,2vw,30px);letter-spacing:-.02em;margin-bottom:14px}
-  .val-card p{position:relative;z-index:2;font-size:16px;line-height:1.6;color:var(--body);margin-top:auto}
+  .val-card .gnum{position:absolute;top:20px;right:26px;font-family:var(--display);font-weight:800;font-size:clamp(84px,7vw,108px);line-height:1;color:rgba(228,85,43,.11);pointer-events:none}
+  .val-card h3{position:relative;z-index:2;font-family:var(--display);font-weight:800;font-size:clamp(25px,2.1vw,31px);letter-spacing:-.02em;line-height:1.06;margin-bottom:16px;max-width:11ch}
+  .val-card p{position:relative;z-index:2;font-size:16px;line-height:1.62;color:var(--body);max-width:40ch}
 
   /* ===== TEAM ===== */
   .team{padding:100px 0;background:var(--bg)}
-  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .team-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:40px}
+  .team-head h2{font-size:clamp(30px,3.4vw,44px);margin-top:12px;text-transform:capitalize}
+  .team-head .th-right{color:var(--body);font-size:16px;line-height:1.5;max-width:32ch;text-align:right}
+  .team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
   .member{transition:transform .3s}
   .member:hover{transform:translateY(-4px)}
-  .member .ph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;display:block;background:var(--bg-alt);filter:grayscale(1);transition:filter .45s ease}
+  .member .ph{width:100%;aspect-ratio:3/5;object-fit:cover;border-radius:14px;display:block;background:var(--bg-alt);filter:grayscale(1);transition:filter .45s ease}
   .member:hover .ph{filter:grayscale(0)}
-  .member .nm{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-top:18px}
-  .member .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-dark);margin-top:5px}
-  .member .bio{font-size:14.5px;line-height:1.6;color:var(--body);margin-top:12px}
-  .member .tagged{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--body);background:var(--bg-alt);border:1px solid var(--line);padding:3px 9px;border-radius:100px;margin-bottom:10px}
+  .member .nm{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;margin-top:16px}
+  .member .role{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-dark);margin-top:5px}
+  .member .bio{font-size:13px;line-height:1.55;color:var(--body);margin-top:10px}
+  .team-aslan{display:flex;align-items:center;gap:22px;margin-top:32px;background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;padding:20px 24px}
+  .team-aslan img{width:76px;height:76px;border-radius:12px;object-fit:cover;filter:grayscale(1);flex:none}
+  .team-aslan .tagged{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--body);background:#fff;border:1px solid var(--line);padding:3px 9px;border-radius:100px}
+  .team-aslan .an-nm{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;margin-top:7px}
+  .team-aslan .an-bio{font-size:13.5px;line-height:1.55;color:var(--body);margin-top:6px;max-width:78ch}
 
   /* ===== CTA ===== */
   .abt-cta{position:relative;overflow:hidden;background:var(--header);color:#fff;padding:96px 0;text-align:center}
@@ -197,14 +207,13 @@
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:1080px){ .nav{gap:24px} .nav > a,.nav .dd-trigger{font-size:15px} }
+  @media(max-width:1100px){ .team-grid{grid-template-columns:repeat(3,1fr);gap:20px} }
   @media(max-width:940px){
     .topbar{display:none}
     .nav,.right-cta{display:none}
     .mob-actions{display:flex}
     .mainbar .wrap{height:72px}
-    .work-grid,.val-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media(max-width:940px){
+    .val-grid{grid-template-columns:repeat(2,1fr)}
     .abt-hero .wrap{grid-template-columns:1fr;gap:34px}
     .abt-stats{max-width:420px}
   }
@@ -213,11 +222,13 @@
     .story-media{max-width:520px}
   }
   @media(max-width:760px){
-    .work-grid,.val-grid,.team-grid{grid-template-columns:1fr}
-    .work{margin-top:34px}
-    .abt-hero,.story,.values,.team,.abt-cta{padding-top:72px;padding-bottom:72px}
+    .val-grid{grid-template-columns:1fr}
+    .abt-hero,.story,.abt-review,.values,.team,.abt-cta{padding-top:72px;padding-bottom:72px}
     .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
   }
+  @media(max-width:700px){ .team-head{flex-direction:column;align-items:flex-start;gap:14px} .team-head .th-right{text-align:left;max-width:none} }
+  @media(max-width:640px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:520px){ .team-aslan{flex-direction:column;align-items:flex-start} }
   @media(max-width:560px){ .wrap{padding:0 18px} .footer-grid{grid-template-columns:1fr} }
 </style>
 </head>
@@ -274,15 +285,6 @@
   </div>
 </section>
 
-<!-- ===== WORK ===== -->
-<section class="work"><div class="wrap">
-  <div class="work-grid reveal-group">
-    <a class="work-card" href="index.html#work"><div class="thumb"><img loading="lazy" src="https://picsum.photos/seed/kouk-case-1/900/560" alt="Client project"></div><div class="nm">Client name</div><div class="rl">One line on what changed for them — the number, the launch, the result.</div><span class="cs">View case study →</span></a>
-    <a class="work-card" href="index.html#work"><div class="thumb"><img loading="lazy" src="https://picsum.photos/seed/kouk-case-2/900/560" alt="Client project"></div><div class="nm">Client name</div><div class="rl">One line on what changed for them — the number, the launch, the result.</div><span class="cs">View case study →</span></a>
-    <a class="work-card" href="index.html#work"><div class="thumb"><img loading="lazy" src="https://picsum.photos/seed/kouk-case-3/900/560" alt="Client project"></div><div class="nm">Client name</div><div class="rl">One line on what changed for them — the number, the launch, the result.</div><span class="cs">View case study →</span></a>
-  </div>
-</div></section>
-
 <!-- ===== STORY (image + paragraph, aligned) ===== -->
 <section class="story"><div class="wrap">
   <div class="story-grid">
@@ -296,11 +298,17 @@
     </div>
     <div class="story-media">
       <img loading="lazy" src="https://picsum.photos/seed/kouk-studio/900/700" alt="The Kouk Creatives studio in Auckland">
-      <figure class="story-quote">
-        <blockquote>“They asked better questions than anyone else we spoke to, quoted a fixed price, and shipped it when they said they would.”</blockquote>
-        <figcaption><b>Client name</b> · Role, Company</figcaption>
-      </figure>
     </div>
+  </div>
+</div></section>
+
+<!-- ===== REVIEW ===== -->
+<section class="abt-review"><div class="wrap">
+  <span class="t-eyebrow">Placeholder quote — swap for a real one</span>
+  <blockquote class="rq">“They asked better questions than anyone else we spoke to, quoted a fixed price, and shipped it when they said they would.”</blockquote>
+  <div class="rq-by">
+    <span class="rq-av"></span>
+    <div><div class="rq-nm">Client name</div><div class="rq-rl">Role · Company</div></div>
   </div>
 </div></section>
 
@@ -332,10 +340,9 @@
 
 <!-- ===== TEAM ===== -->
 <section class="team"><div class="wrap">
-  <div class="sec-head">
-    <span class="t-eyebrow">The people</span>
-    <h2>Meet the team</h2>
-    <p>Senior specialists, all based in Auckland. You'll work with them directly.</p>
+  <div class="team-head">
+    <div><span class="t-eyebrow">The people</span><h2>Meet the team</h2></div>
+    <p class="th-right">Five senior specialists, all based in Auckland. You'll work with them directly.</p>
   </div>
   <div class="team-grid reveal-group">
     <div class="member">
@@ -368,12 +375,13 @@
       <div class="role">Head of Photography</div>
       <p class="bio">Shoots the imagery that makes the sites work — from weddings to corporate events, with a keen eye for a moment.</p>
     </div>
-    <div class="member">
-      <img class="ph" loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/66c3d99e47c0fa7e49887404_aslan-p-800.jpg" alt="Aslan">
+  </div>
+  <div class="team-aslan">
+    <img loading="lazy" src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec9b/66c3d99e47c0fa7e49887404_aslan-p-800.jpg" alt="Aslan">
+    <div>
       <span class="tagged">Not staff</span>
-      <div class="nm">Aslan</div>
-      <div class="role">Security Personnel</div>
-      <p class="bio">The top dog keeping the office safe. Vets every visitor with a thorough sniff test and a wag of approval. Off duty: a sunny spot by the window.</p>
+      <div class="an-nm">Aslan · Security Personnel</div>
+      <p class="an-bio">The top dog keeping the office safe. Vets every visitor with a thorough sniff test and a wag of approval. Off duty: a sunny spot by the window.</p>
     </div>
   </div>
 </div></section>
