@@ -45,10 +45,10 @@
 
   .nav{display:flex;align-items:center;gap:34px}
   .nav > a,.nav .dd-trigger{font-size:17.5px;font-weight:700;color:var(--ink);opacity:.9;white-space:nowrap;transition:color .2s,opacity .2s}
-  .nav > a:hover,.nav .dd-trigger:hover{opacity:1;color:var(--accent)}
+  .nav > a:hover,.nav .dd-trigger:hover,.nav > a.current,.has-dd.current .dd-trigger{opacity:1;color:var(--accent)}
   .nav > a{position:relative;padding:6px 0}
   .nav > a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--accent);transition:right .25s ease}
-  .nav > a:hover::after{right:0}
+  .nav > a:hover::after,.nav > a.current::after{right:0}
 
   .has-dd{position:relative}
   .dd-trigger{display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:6px 0}
@@ -420,22 +420,24 @@
     </div>
   </div></div>
   <div class="mainbar"><div class="wrap">
-    <a class="logo" href="#"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></a>
+    <a class="logo" href="index.html"><img src="https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/65e08ba70a83e6a8a08e15b5_Asset%204.svg" alt="Kouk Creatives"></a>
     <nav class="nav">
-      <a href="#">Home</a><a href="about.html">About</a>
+      <a href="index.html" class="current">Home</a><a href="about.html">About</a>
       <div class="has-dd"><span class="dd-trigger">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         <div class="dd"><div class="dd-inner">
-          <a href="#"><div class="t">Website Design</div><div class="d">New sites, built to convert</div></a>
-          <a href="#"><div class="t">Website Redesign</div><div class="d">Fix what you already have</div></a>
-          <a href="#"><div class="t">WordPress</div><div class="d">Flexible, self-managed builds</div></a>
-          <a href="#"><div class="t">Shopify</div><div class="d">Selling online, properly</div></a>
-          <a href="#"><div class="t">SEO &amp; Growth</div><div class="d">Get found by the right people</div></a>
-          <a href="#"><div class="t">Branding &amp; Assets</div><div class="d">Logos, brochures, mock-ups</div></a>
+          <a href="index.html#services"><div class="t">Consultation</div><div class="d">Not sure where to start</div></a>
+          <a href="index.html#services"><div class="t">Build From Scratch</div><div class="d">Domain, hosting, website</div></a>
+          <a href="index.html#services"><div class="t">Website Design</div><div class="d">Your brand, online</div></a>
+          <a href="index.html#services"><div class="t">Web Development</div><div class="d">Sites with extra features</div></a>
+          <a href="index.html#services"><div class="t">E-commerce</div><div class="d">Built to sell online</div></a>
+          <a href="website-redesign.html"><div class="t">Website Redesign</div><div class="d">Make your site work harder</div></a>
+          <a href="index.html#services"><div class="t">Branding &amp; Assets</div><div class="d">Look the part, everywhere</div></a>
+          <a href="index.html#services"><div class="t">Care &amp; Support</div><div class="d">Fast, secure, worry-free</div></a>
         </div></div>
       </div>
       <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
     </nav>
-    <div class="right"><a class="btn btn-primary" href="#">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+    <div class="right"><a class="btn btn-primary" href="index.html#contact">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     <div class="mob-actions"><a class="mob-call" href="tel:0800182088" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></a><button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
   </div></div>
 </header>
@@ -723,15 +725,15 @@
     <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
   </div>
   <div class="mm-links">
-    <a href="#">Home</a><a href="about.html">About</a>
+    <a href="index.html">Home</a><a href="about.html">About</a>
     <button class="mm-serv-trigger" id="mmServ">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
     <div class="mm-sub" id="mmSub">
-      <a href="#">Website Design</a><a href="#">Website Redesign</a><a href="#">WordPress</a><a href="#">Shopify</a><a href="#">SEO &amp; Growth</a><a href="#">Branding &amp; Assets</a>
+      <a href="index.html#services">Consultation</a><a href="index.html#services">Build From Scratch</a><a href="index.html#services">Website Design</a><a href="index.html#services">Web Development</a><a href="index.html#services">E-commerce</a><a href="website-redesign.html">Website Redesign</a><a href="index.html#services">Branding &amp; Assets</a><a href="index.html#services">Care &amp; Support</a>
     </div>
     <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
   </div>
   <div class="mm-cta">
-    <a class="btn btn-primary btn-block" href="#">Request a Quote &rarr;</a>
+    <a class="btn btn-primary btn-block" href="index.html#contact">Request a Quote &rarr;</a>
     <a class="btn btn-call btn-block" href="tel:0800182088"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>Call 0800 18 20 88</a>
   </div>
   <div class="mm-mail">Prefer email? <a href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a></div>

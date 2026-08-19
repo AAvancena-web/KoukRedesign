@@ -84,9 +84,17 @@
   .mm-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
   .mm-top img{height:40px;filter:brightness(0) invert(1)}
   .mm-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:11px;background:none;color:#fff;font-size:22px;cursor:pointer;line-height:1}
-  .mm-links a{display:flex;align-items:center;padding:15px 4px;font-size:19px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mm-links a,.mm-serv-trigger{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;font-size:19px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);width:100%;background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;font-family:inherit}
+  .mm-serv-trigger svg{width:14px;height:14px;transition:transform .25s}
+  .mm-sub{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .mm-sub.open{max-height:460px}
+  .mm-sub a{font-size:15.5px;font-weight:600;color:#BFC9C9;padding:12px 4px 12px 16px}
+  body.mm-serv-open .mm-serv-trigger svg{transform:rotate(180deg)}
   .mm-cta{display:grid;gap:12px;margin-top:22px}
   .btn-block{width:100%;padding:16px;font-size:16px}
+  .btn-call{background:#fff;color:var(--header)}
+  .mm-mail{margin-top:18px;text-align:center;font-size:14px;color:#BFC9C9}
+  .mm-mail a{color:#fff;font-weight:700}
   .scrim{position:fixed;inset:0;background:rgba(15,17,22,.5);opacity:0;visibility:hidden;transition:.3s;z-index:110}
   body.menu-open .scrim{opacity:1;visibility:visible}
 
@@ -270,13 +278,12 @@
           <a href="index.html#services"><div class="t">Website Design</div><div class="d">Your brand, online</div></a>
           <a href="index.html#services"><div class="t">Web Development</div><div class="d">Sites with extra features</div></a>
           <a href="index.html#services"><div class="t">E-commerce</div><div class="d">Built to sell online</div></a>
-          <a href="index.html#services"><div class="t">Website Redesign</div><div class="d">Make your site work harder</div></a>
+          <a href="website-redesign.html"><div class="t">Website Redesign</div><div class="d">Make your site work harder</div></a>
           <a href="index.html#services"><div class="t">Branding &amp; Assets</div><div class="d">Look the part, everywhere</div></a>
           <a href="index.html#services"><div class="t">Care &amp; Support</div><div class="d">Fast, secure, worry-free</div></a>
         </div></div>
       </div>
-      <a href="index.html#work">Projects</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
     </nav>
     <div class="right-cta"><a class="btn btn-primary" href="index.html#contact">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     <div class="mob-actions"><a class="mob-call" href="tel:0800182088" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg></a><button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button></div>
@@ -460,15 +467,18 @@
     <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
   </div>
   <div class="mm-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#work">Projects</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <button class="mm-serv-trigger" id="mmServ">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-sub" id="mmSub">
+      <a href="index.html#services">Consultation</a><a href="index.html#services">Build From Scratch</a><a href="index.html#services">Website Design</a><a href="index.html#services">Web Development</a><a href="index.html#services">E-commerce</a><a href="website-redesign.html">Website Redesign</a><a href="index.html#services">Branding &amp; Assets</a><a href="index.html#services">Care &amp; Support</a>
+    </div>
+    <a href="#">Projects</a><a href="#">Case Studies</a><a href="#">Pricing</a><a href="#">Blog</a><a href="#">FAQs</a>
   </div>
   <div class="mm-cta">
     <a class="btn btn-primary btn-block" href="index.html#contact">Request a Quote &rarr;</a>
+    <a class="btn btn-call btn-block" href="tel:0800182088"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.94.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.27a2 2 0 0 1 2.11-.45c.91.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>Call 0800 18 20 88</a>
   </div>
+  <div class="mm-mail">Prefer email? <a href="mailto:hello@kouk.co.nz">hello@kouk.co.nz</a></div>
 </div>
 
 <script>
@@ -477,6 +487,10 @@
   document.getElementById('hamb').addEventListener('click',function(){ toggle(!body.classList.contains('menu-open')); });
   document.getElementById('mmClose').addEventListener('click',function(){ toggle(false); });
   document.getElementById('scrim').addEventListener('click',function(){ toggle(false); });
+  document.getElementById('mmServ').addEventListener('click',function(){
+    body.classList.toggle('mm-serv-open');
+    document.getElementById('mmSub').classList.toggle('open');
+  });
   document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
 
   /* reveal-on-scroll */
