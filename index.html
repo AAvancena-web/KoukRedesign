@@ -238,6 +238,23 @@
   .testimonials mark.hl{background:none;color:inherit;font-weight:800}
   @media(max-width:940px){ .tgrid3{grid-template-columns:1fr} .feature{padding:40px 30px} }
   @media(max-width:560px){ .t-inner{padding:0 18px} .testimonials{padding:72px 0} }
+  @media(max-width:640px){
+    .feature{padding:32px 22px;border-radius:20px}
+    .feature::before{font-size:120px;top:-14px;right:14px}
+    .feature .fstars{font-size:26px;letter-spacing:4px;margin-bottom:16px}
+    .feature .fq{font-size:19px;line-height:1.5}
+    .feature .fmore{font-size:14px;margin-top:14px}
+    .feature .fby{gap:12px;margin-top:24px}
+    .feature .fby img,.feature .fby .av{width:50px;height:50px}
+    .feature .fby .nm{font-size:16px}
+    /* arrows move below the review so the card gets full width */
+    .t-slider{grid-template-columns:1fr 1fr;grid-template-areas:"view view" "prev next";gap:20px 14px}
+    .t-viewport{grid-area:view}
+    #t-prev{grid-area:prev;justify-self:end}
+    #t-next{grid-area:next;justify-self:start}
+    .t-arrow{width:48px;height:48px}
+    .t-dots{margin-top:22px}
+  }
 
   /* ============ PROBLEM ============ */
   .problem{background:var(--bg);padding:100px 0;border-top:1px solid var(--line)}
