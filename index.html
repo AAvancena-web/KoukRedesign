@@ -1002,6 +1002,19 @@
     });
 
     go(0);
+
+    /* auto-advance every 10s — pause on hover / hidden tab / reduced-motion; reset on manual nav */
+    var timer=null, reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+    function start(){ if(reduce) return; stop(); timer=setInterval(function(){ go(idx+1); }, 10000); }
+    var slider = document.querySelector('.t-slider');
+    if(slider){ slider.addEventListener('mouseenter', stop); slider.addEventListener('mouseleave', start); }
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+    document.getElementById('t-prev').addEventListener('click', start);
+    document.getElementById('t-next').addEventListener('click', start);
+    dots.forEach(function(d){ d.addEventListener('click', start); });
+    track.addEventListener('touchend', start);
+    start();
   })();
 
   /* ---- process: animate the connecting line + numbers on scroll-in ---- */
