@@ -197,7 +197,7 @@
   .pcard .base{position:relative;width:calc(100% + 34px);margin-left:-17px;height:9px;
     background:linear-gradient(180deg,#e6e1d9,#bcb6ac);border-radius:1px 1px 8px 8px;box-shadow:0 16px 22px -12px rgba(0,0,0,.4)}
   .pcard .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:5px;background:#aca69c;border-radius:0 0 6px 6px}
-  .pcard .phone{position:absolute;z-index:3;right:16px;bottom:16px;width:27%}
+  .pcard .phone{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);width:26%}
   .pcard .pbody{background:linear-gradient(#141719,#0c0e10);border-radius:15px;padding:4px;
     box-shadow:0 20px 30px -14px rgba(23,20,15,.55),inset 0 0 0 1px rgba(255,255,255,.06)}
   .pcard .pscreen{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:9/19;background:#fff}
@@ -788,10 +788,14 @@
     var track = document.getElementById('mqTrack');
     if(!track) return;
     var PROJ = [
-      { nm:'Truffle Lovers',   cat:'Hospitality', res:'+42% online orders',   url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', mob:'assets/projects/truffle-lovers.webp' },
-      { nm:'Eyes4Everest',     cat:'Non-profit',  res:'3× more sign-ups',     url:'case-studies.html', g:'linear-gradient(150deg,#22343a,#0e4a4b)', h:'Every step counts.' },
-      { nm:'AMP New Zealand',  cat:'Trades',      res:'+38% enquiries',       url:'case-studies.html', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.' },
-      { nm:'Serpenti',         cat:'Retail',      res:'Store live in 3 weeks', url:'case-studies.html', g:'linear-gradient(150deg,#3a2438,#17140F)', h:'Shop the collection.' }
+      { nm:'Truffle Lovers',   cat:'Hospitality', res:'+42% online orders',   url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', mob:'assets/projects/truffle-lovers.webp',
+        bg:'radial-gradient(120% 90% at 50% -10%, #FCEFE2 0%, #F6D7BE 55%, #EAB892 100%)' },
+      { nm:'Eyes4Everest',     cat:'Non-profit',  res:'3× more sign-ups',     url:'case-studies.html', g:'linear-gradient(150deg,#22343a,#0e4a4b)', h:'Every step counts.',
+        bg:'radial-gradient(120% 90% at 50% -10%, #E9F2EE 0%, #C6E1D7 55%, #9FC9BC 100%)' },
+      { nm:'AMP New Zealand',  cat:'Trades',      res:'+38% enquiries',       url:'case-studies.html', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.',
+        bg:'radial-gradient(120% 90% at 50% -10%, #EAEFF8 0%, #CBDBF0 55%, #A7C2E6 100%)' },
+      { nm:'Serpenti',         cat:'Retail',      res:'Store live in 3 weeks', url:'case-studies.html', g:'linear-gradient(150deg,#3a2438,#17140F)', h:'Shop the collection.',
+        bg:'radial-gradient(120% 90% at 50% -10%, #F6ECF1 0%, #E4CADB 55%, #CDA6C0 100%)' }
     ];
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
     function siteMock(p, mini){
@@ -803,7 +807,7 @@
     function laptopScreen(p){ return p.shot ? '<img class="shot" src="'+p.shot+'" alt="'+esc(p.nm)+' website" loading="lazy">' : siteMock(p,false); }
     function phoneScreen(p){ return p.mob ? '<img class="shot" src="'+p.mob+'" alt="" loading="lazy">' : siteMock(p,true); }
     function card(p, dup){
-      return '<a class="pcard" href="'+p.url+'"'+(/^https?:/.test(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+'>'
+      return '<a class="pcard" href="'+p.url+'"'+(p.bg?' style="background:'+p.bg+'"':'')+(/^https?:/.test(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+'>'
         + '<div class="stage">'
         +   '<div class="laptop"><div class="lid"><div class="screen">'+laptopScreen(p)+'</div></div><div class="base"></div></div>'
         +   '<div class="phone"><div class="pbody"><div class="pscreen"><span class="notch"></span>'+phoneScreen(p)+'</div></div></div>'
