@@ -178,47 +178,65 @@
     background:rgba(255,255,255,.16);padding:5px 10px;border-radius:100px}
   .card .res .dot{width:6px;height:6px;border-radius:50%;background:#7CE7A6}
 
-  /* ---- project device-mockup cards ---- */
-  .pcard{position:relative;flex:none;width:clamp(300px,25vw,382px);height:100%;min-height:460px;margin-right:22px;
-    border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-align:left;isolation:isolate;
-    background:radial-gradient(120% 80% at 50% -8%,#FDFBF7,#F0E7D7);box-shadow:0 34px 60px -30px rgba(0,0,0,.62);
+  /* ---- hero project cards: browser / stat / review rotation ---- */
+  .k-card{position:relative;flex:none;width:clamp(300px,25vw,360px);height:100%;min-height:460px;margin-right:22px;
+    border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-align:left;box-shadow:0 34px 60px -30px rgba(0,0,0,.62);
     transition:transform .35s ease}
-  .pcard:hover{transform:translateY(-5px)}
-  .pcard .stage{position:relative;flex:1;overflow:hidden}
-  .pcard .stage::before{content:"";position:absolute;top:-18%;right:-28%;width:74%;height:74%;border-radius:50%;
-    background:radial-gradient(circle,rgba(228,85,43,.16),transparent 62%)}
-  .pcard .stage::after{content:"";position:absolute;bottom:-24%;left:-26%;width:70%;height:70%;border-radius:50%;
-    background:radial-gradient(circle,rgba(30,44,48,.12),transparent 62%)}
-  .pcard .laptop{position:relative;z-index:2;width:78%;margin:30px auto 0}
-  .pcard .lid{background:linear-gradient(#141719,#0c0e10);border-radius:11px;padding:6px 6px 7px;
-    box-shadow:0 22px 34px -16px rgba(23,20,15,.5),inset 0 0 0 1px rgba(255,255,255,.06)}
-  .pcard .screen{border-radius:4px;overflow:hidden;aspect-ratio:16/10;background:#fff}
-  .pcard .screen .shot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .pcard .base{position:relative;width:calc(100% + 34px);margin-left:-17px;height:9px;
-    background:linear-gradient(180deg,#e6e1d9,#bcb6ac);border-radius:1px 1px 8px 8px;box-shadow:0 16px 22px -12px rgba(0,0,0,.4)}
-  .pcard .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:5px;background:#aca69c;border-radius:0 0 6px 6px}
-  .pcard .phone{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);width:26%}
-  .pcard .pbody{background:linear-gradient(#141719,#0c0e10);border-radius:15px;padding:4px;
-    box-shadow:0 20px 30px -14px rgba(23,20,15,.55),inset 0 0 0 1px rgba(255,255,255,.06)}
-  .pcard .pscreen{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:9/19;background:#fff}
-  .pcard .pscreen .shot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .pcard .notch{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:34%;height:6px;background:#0c0e10;border-radius:5px;z-index:4}
-  .pcard .pmeta{background:#fff;border-top:1px solid var(--line);padding:15px 17px 17px}
-  .pcard .pk{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-dark)}
-  .pcard .pnm{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--ink);margin-top:2px}
-  .pcard .pres{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-family:var(--mono);font-size:11px;font-weight:700;
-    color:var(--accent-dark);background:rgba(228,85,43,.09);border:1px solid rgba(228,85,43,.2);padding:5px 10px;border-radius:100px}
-  .pcard .pres .pdot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-  /* placeholder mini-site for projects without a screenshot yet */
-  .psite{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;font-family:var(--sans)}
-  .psite .snav{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:#fff;border-bottom:1px solid rgba(23,20,15,.07)}
-  .psite .slogo{font-family:var(--display);font-weight:800;font-size:7.5px;color:var(--ink);letter-spacing:-.02em}
-  .psite .smenu{display:flex;gap:3px}.psite .smenu i{display:block;width:9px;height:2px;border-radius:2px;background:rgba(23,20,15,.16)}
-  .psite .shero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 10px;color:#fff}
-  .psite .seyebrow{font-size:4.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.8;margin-bottom:4px}
-  .psite .sh1{font-family:var(--display);font-weight:800;font-size:12px;line-height:1.08;max-width:78%}
-  .psite .sbtn{margin-top:7px;width:fit-content;background:var(--accent);color:#fff;font-size:5.5px;font-weight:700;padding:3px 7px;border-radius:4px}
-  .psite.mini .sh1{font-size:8.5px}.psite.mini .snav{padding:6px 6px 4px}.psite.mini .slogo{font-size:5.5px}
+  .k-card:hover{transform:translateY(-5px)}
+  .k-card .meta{background:#fff;border-top:1px solid var(--line);padding:14px 16px 16px;margin-top:auto}
+  .k-card .meta .mk{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-dark)}
+  .k-card .meta .mn{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em;color:var(--ink);margin-top:2px}
+  .k-card .meta .mr{display:inline-flex;align-items:center;gap:7px;margin-top:8px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent-dark);background:rgba(228,85,43,.09);border:1px solid rgba(228,85,43,.2);padding:5px 10px;border-radius:100px}
+  .k-card .meta .mr .d{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  /* browser card */
+  .kb{background:radial-gradient(120% 90% at 50% -10%,#EEF2F9,#CFDCEF 60%,#AFC6E8)}
+  .kb .win{margin:20px 16px 0;flex:1;background:#fff;border-radius:13px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 26px 42px -20px rgba(0,0,0,.45)}
+  .kb .bar{display:flex;align-items:center;gap:9px;padding:9px 11px;background:#f4f2ef;border-bottom:1px solid rgba(0,0,0,.06)}
+  .kb .dots{display:flex;gap:5px}.kb .dots i{width:9px;height:9px;border-radius:50%}
+  .kb .dots i:nth-child(1){background:#f0655a}.kb .dots i:nth-child(2){background:#f4bd4e}.kb .dots i:nth-child(3){background:#61c454}
+  .kb .url{flex:1;display:flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:8px;padding:5px 10px;font-family:var(--mono);font-size:10px;color:#5c5446;overflow:hidden;white-space:nowrap}
+  .kb .url svg{width:10px;height:10px;color:#5aa15a;flex:none}
+  .kb .view{flex:1;position:relative;overflow:hidden}
+  .kb .view .img{position:absolute;inset:0;background-position:top center;background-size:cover}
+  .kb .view .scrim{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(transparent,rgba(0,0,0,.34))}
+  .kb .live{position:absolute;left:10px;bottom:10px;z-index:2;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;color:#fff;background:rgba(23,20,15,.42);padding:4px 9px;border-radius:100px}
+  .kb .live .d{width:6px;height:6px;border-radius:50%;background:#7CE7A6;box-shadow:0 0 0 3px rgba(124,231,166,.25)}
+  /* stat card */
+  .ks{color:#fff;padding:30px 28px;justify-content:flex-start}
+  .ks .tex{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.1px,transparent 1.1px);background-size:15px 15px;opacity:.55;-webkit-mask:linear-gradient(180deg,#000,transparent 72%);mask:linear-gradient(180deg,#000,transparent 72%)}
+  .ks .glow{position:absolute;top:-20%;right:-16%;width:60%;height:60%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 60%)}
+  .ks>*{position:relative}
+  .ks .kk{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .ks .big{display:flex;align-items:flex-start;gap:4px;font-family:var(--display);font-weight:800;font-size:84px;line-height:.84;margin:16px 0 6px;letter-spacing:-.03em}
+  .ks .big .ar{font-size:28px;margin-top:8px}
+  .ks .lab{font-size:17px;font-weight:600;max-width:88%;line-height:1.28}
+  .ks .spark{margin-top:20px;height:36px;display:block;width:100%}
+  .ks .who{margin-top:auto;display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+  .ks .who .lg{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);display:grid;place-items:center;font-family:var(--display);font-weight:800}
+  .ks .who .sub{display:block;font-weight:500;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px}
+  /* review card */
+  .kr{background:radial-gradient(120% 90% at 50% -10%,#26383f,#141d20 70%);color:#fff;padding:26px;justify-content:flex-start;position:relative}
+  .kr .qm{position:absolute;top:2px;right:16px;font-family:var(--display);font-weight:800;font-size:110px;color:rgba(228,85,43,.15);line-height:1}
+  .kr>*{position:relative}
+  .kr .g{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+  .kr .g svg{width:16px;height:16px;flex:none}
+  .kr .stars{color:var(--gold);font-size:21px;letter-spacing:3px;margin-top:14px}
+  .kr .q{font-size:17px;line-height:1.46;margin:12px 0 18px;color:rgba(255,255,255,.95)}
+  .kr .q b{color:#fff}
+  .kr .by{display:flex;align-items:center;gap:11px;margin-top:auto}
+  .kr .av{width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:14px;flex:none}
+  .kr .bn{display:flex;align-items:center;gap:6px;font-weight:800;font-size:14px}
+  .kr .bn svg{width:13px;height:13px;color:#4a90e2;flex:none}
+  .kr .br{font-size:11.5px;color:rgba(255,255,255,.6)}
+  /* placeholder mini-site for browser cards without a screenshot yet */
+  .pst{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
+  .pst .sn{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-bottom:1px solid rgba(0,0,0,.06)}
+  .pst .sl{font-family:var(--display);font-weight:800;font-size:8px;color:var(--ink)}
+  .pst .sm{display:flex;gap:3px}.pst .sm i{display:block;width:9px;height:2px;border-radius:2px;background:rgba(0,0,0,.16)}
+  .pst .sh{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 11px;color:#fff}
+  .pst .se{font-size:5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.85;margin-bottom:4px}
+  .pst .s1{font-family:var(--display);font-weight:800;font-size:13px;line-height:1.08;max-width:76%}
+  .pst .sb{margin-top:8px;width:fit-content;background:var(--accent);color:#fff;font-size:6px;font-weight:700;padding:3px 8px;border-radius:4px}
 
   /* ============ BRANDS MARQUEE ============ */
   .brands{background:var(--header);padding:72px 0;overflow:hidden}
@@ -783,40 +801,57 @@
   });
   document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
 
-  /* ---- hero project marquee: device mockups ---- */
+  /* ---- hero project marquee: browser / stat / review rotation ---- */
   (function(){
     var track = document.getElementById('mqTrack');
     if(!track) return;
-    var PROJ = [
-      { nm:'Truffle Lovers',   cat:'Hospitality', res:'+42% online orders',   url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', mob:'assets/projects/truffle-lovers.webp',
-        bg:'radial-gradient(120% 90% at 50% -10%, #FCEFE2 0%, #F6D7BE 55%, #EAB892 100%)' },
-      { nm:'Eyes4Everest',     cat:'Non-profit',  res:'3× more sign-ups',     url:'case-studies.html', g:'linear-gradient(150deg,#22343a,#0e4a4b)', h:'Every step counts.',
-        bg:'radial-gradient(120% 90% at 50% -10%, #E9F2EE 0%, #C6E1D7 55%, #9FC9BC 100%)' },
-      { nm:'AMP New Zealand',  cat:'Trades',      res:'+38% enquiries',       url:'case-studies.html', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.',
-        bg:'radial-gradient(120% 90% at 50% -10%, #EAEFF8 0%, #CBDBF0 55%, #A7C2E6 100%)' },
-      { nm:'Serpenti',         cat:'Retail',      res:'Store live in 3 weeks', url:'case-studies.html', g:'linear-gradient(150deg,#3a2438,#17140F)', h:'Shop the collection.',
-        bg:'radial-gradient(120% 90% at 50% -10%, #F6ECF1 0%, #E4CADB 55%, #CDA6C0 100%)' }
-    ];
+    var GOOGLE='<svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1c4.1-3.8 6.6-9.4 6.6-16.1z"/><path fill="#34A853" d="M24 46c6 0 11-2 14.7-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.6 2.1-5.8 0-10.7-3.9-12.5-9.2H4.1v5.7C7.8 41.1 15.3 46 24 46z"/><path fill="#FBBC05" d="M11.5 27.9c-.5-1.3-.7-2.8-.7-4.4s.3-3 .7-4.4v-5.7H4.1C2.7 16.3 2 20 2 23.5s.7 7.2 2.1 10.1l7.4-5.7z"/><path fill="#EA4335" d="M24 10.9c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3C35 4.5 30 2.5 24 2.5 15.3 2.5 7.8 7.4 4.1 14.9l7.4 5.7C13.3 15.3 18.2 10.9 24 10.9z"/></svg>';
+    var CHECK='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></svg>';
+    var LOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
+    var SPARK='<svg class="spark" viewBox="0 0 220 40" preserveAspectRatio="none"><polyline points="0,34 34,30 66,32 100,22 134,24 168,12 200,8 220,3" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="220" cy="3" r="3.4" fill="#fff"/></svg>';
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
-    function siteMock(p, mini){
-      return '<div class="psite'+(mini?' mini':'')+'">'
-        + '<div class="snav"><span class="slogo">'+esc(p.nm)+'</span><span class="smenu"><i></i><i></i><i></i></span></div>'
-        + '<div class="shero" style="background:'+p.g+'"><span class="seyebrow">'+esc(p.cat)+'</span><span class="sh1">'+esc(p.h||p.nm)+'</span><span class="sbtn">Learn more</span></div>'
-        + '</div>';
+    function ext(u){ return /^https?:/.test(u); }
+    function open(u,dup){ return ' href="'+u+'"'+(ext(u)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':''); }
+    function siteMini(p){
+      return '<div class="pst"><div class="sn"><span class="sl">'+esc(p.nm)+'</span><span class="sm"><i></i><i></i><i></i></span></div>'
+        + '<div class="sh" style="background:'+p.g+'"><span class="se">'+esc(p.cat)+'</span><span class="s1">'+esc(p.h||p.nm)+'</span><span class="sb">Learn more</span></div></div>';
     }
-    function laptopScreen(p){ return p.shot ? '<img class="shot" src="'+p.shot+'" alt="'+esc(p.nm)+' website" loading="lazy">' : siteMock(p,false); }
-    function phoneScreen(p){ return p.mob ? '<img class="shot" src="'+p.mob+'" alt="" loading="lazy">' : siteMock(p,true); }
-    function card(p, dup){
-      return '<a class="pcard" href="'+p.url+'"'+(p.bg?' style="background:'+p.bg+'"':'')+(/^https?:/.test(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+'>'
-        + '<div class="stage">'
-        +   '<div class="laptop"><div class="lid"><div class="screen">'+laptopScreen(p)+'</div></div><div class="base"></div></div>'
-        +   '<div class="phone"><div class="pbody"><div class="pscreen"><span class="notch"></span>'+phoneScreen(p)+'</div></div></div>'
-        + '</div>'
-        + '<div class="pmeta"><div class="pk">'+esc(p.cat)+'</div><div class="pnm">'+esc(p.nm)+'</div><span class="pres"><span class="pdot"></span>'+esc(p.res)+'</span></div>'
+    function browser(p,dup){
+      var view = p.shot ? '<div class="img" style="background-image:url(\''+p.shot+'\')"></div>' : siteMini(p);
+      return '<a class="k-card kb"'+(p.cbg?' style="background:'+p.cbg+'"':'')+open(p.url,dup)+'>'
+        + '<div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">'+LOCK+esc(p.url2||p.nm)+'</span></div>'
+        +   '<div class="view">'+view+'<div class="scrim"></div><span class="live"><span class="d"></span>Live site</span></div></div>'
+        + '<div class="meta"><div class="mk">'+esc(p.cat)+'</div><div class="mn">'+esc(p.nm)+'</div><span class="mr"><span class="d"></span>'+esc(p.res)+'</span></div>'
         + '</a>';
     }
-    var html = PROJ.map(function(p){return card(p,false);}).join('') + PROJ.map(function(p){return card(p,true);}).join('');
-    track.innerHTML = html;
+    function stat(p,dup){
+      return '<a class="k-card ks" style="background:'+p.bg+'"'+open(p.url,dup)+'><span class="tex"></span><span class="glow"></span>'
+        + '<div class="kk">The result</div>'
+        + '<div class="big">'+(p.ar?'<span class="ar">'+p.ar+'</span>':'')+esc(p.big)+'</div>'
+        + '<div class="lab">'+esc(p.lab)+'</div>'+SPARK
+        + '<div class="who"><span class="lg">'+esc(p.logo)+'</span><span>'+esc(p.nm)+'<span class="sub">'+esc(p.cat)+'</span></span></div>'
+        + '</a>';
+    }
+    function review(p,dup){
+      return '<a class="k-card kr"'+open(p.url,dup)+'><span class="qm">&ldquo;</span>'
+        + '<div class="g">'+GOOGLE+'Google review</div>'
+        + '<div class="stars">★★★★★</div>'
+        + '<div class="q">'+p.q+'</div>'
+        + '<div class="by"><span class="av">'+esc(p.av)+'</span><div><div class="bn">'+esc(p.nm)+CHECK+'</div><div class="br">'+esc(p.role)+'</div></div></div>'
+        + '</a>';
+    }
+    function render(it,dup){ return it.t==='browser'?browser(it.p,dup):it.t==='stat'?stat(it.p,dup):review(it.p,dup); }
+
+    var SEQ = [
+      {t:'browser', p:{nm:'Truffle Lovers', cat:'Hospitality', res:'+42% online orders', url:'https://trufflelovers.co.nz/', url2:'trufflelovers.co.nz', shot:'assets/projects/truffle-lovers.webp', cbg:'radial-gradient(120% 90% at 50% -10%,#FCEFE2,#F6D7BE 60%,#EAB892)'}},
+      {t:'stat',    p:{nm:'Eyes4Everest', cat:'Non-profit', big:'3×', ar:'', lab:'more volunteer sign-ups', logo:'E', url:'case-studies.html', bg:'linear-gradient(150deg,#22343a,#0e4a4b)'}},
+      {t:'review',  p:{q:'They quoted a fixed price, shipped it when they said, and <b>orders are up 42%</b>.', nm:'Shaun C.', role:'Founder, Truffle Lovers', av:'SC', url:'case-studies.html'}},
+      {t:'browser', p:{nm:'AMP New Zealand', cat:'Trades', res:'+38% enquiries', url:'case-studies.html', url2:'ampnz.co.nz', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.'}},
+      {t:'stat',    p:{nm:'Truffle Lovers', cat:'Hospitality', big:'42%', ar:'▲', lab:'more online orders after launch', logo:'T', url:'case-studies.html', bg:'linear-gradient(150deg,#E4552B,#B23414)'}},
+      {t:'review',  p:{q:'From first call to launch, the same team. <b>Couldn’t recommend them more.</b>', nm:'Craig P.', role:'Parnell Cricket Club', av:'CP', url:'case-studies.html'}}
+    ];
+    function set(dup){ return SEQ.map(function(it){return render(it,dup);}).join(''); }
+    track.innerHTML = set(false) + set(true);
   })();
 
   /* ---- brands logo marquee ---- */
