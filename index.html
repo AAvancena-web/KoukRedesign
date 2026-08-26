@@ -215,19 +215,19 @@
   .ks .who .lg{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);display:grid;place-items:center;font-family:var(--display);font-weight:800}
   .ks .who .sub{display:block;font-weight:500;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px}
   /* review card */
-  .kr{background:radial-gradient(120% 90% at 50% -10%,#26383f,#141d20 70%);color:#fff;padding:26px;justify-content:flex-start;position:relative}
-  .kr .qm{position:absolute;top:2px;right:16px;font-family:var(--display);font-weight:800;font-size:110px;color:rgba(228,85,43,.15);line-height:1}
+  .kr{width:clamp(380px,44vw,640px);background:radial-gradient(120% 90% at 50% -10%,#26383f,#141d20 70%);color:#fff;padding:40px 44px;justify-content:flex-start;position:relative}
+  .kr .qm{position:absolute;top:-6px;right:30px;font-family:var(--display);font-weight:800;font-size:180px;color:rgba(228,85,43,.16);line-height:1}
   .kr>*{position:relative}
-  .kr .g{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.62)}
-  .kr .g svg{width:16px;height:16px;flex:none}
-  .kr .stars{color:var(--gold);font-size:21px;letter-spacing:3px;margin-top:14px}
-  .kr .q{font-size:17px;line-height:1.46;margin:12px 0 18px;color:rgba(255,255,255,.95)}
-  .kr .q b{color:#fff}
-  .kr .by{display:flex;align-items:center;gap:11px;margin-top:auto}
-  .kr .av{width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:14px;flex:none}
-  .kr .bn{display:flex;align-items:center;gap:6px;font-weight:800;font-size:14px}
-  .kr .bn svg{width:13px;height:13px;color:#4a90e2;flex:none}
-  .kr .br{font-size:11.5px;color:rgba(255,255,255,.6)}
+  .kr .g{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+  .kr .g svg{width:21px;height:21px;flex:none}
+  .kr .stars{color:var(--gold);font-size:34px;letter-spacing:6px;margin-top:20px}
+  .kr .q{font-size:clamp(24px,2.6vw,34px);line-height:1.34;letter-spacing:-.01em;margin:20px 0 28px;color:#fff;font-weight:500}
+  .kr .q b{color:#fff;font-weight:800}
+  .kr .by{display:flex;align-items:center;gap:13px;margin-top:auto}
+  .kr .av{width:56px;height:56px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px;flex:none}
+  .kr .bn{display:flex;align-items:center;gap:7px;font-weight:800;font-size:19px}
+  .kr .bn svg{width:17px;height:17px;color:#4a90e2;flex:none}
+  .kr .br{font-size:14px;color:rgba(255,255,255,.62);margin-top:2px}
   /* placeholder mini-site for browser cards without a screenshot yet */
   .pst{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
   .pst .sn{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-bottom:1px solid rgba(0,0,0,.06)}
@@ -844,10 +844,8 @@
 
     var SEQ = [
       {t:'browser', p:{nm:'Truffle Lovers', cat:'Hospitality', res:'+42% online orders', url:'https://trufflelovers.co.nz/', url2:'trufflelovers.co.nz', shot:'assets/projects/truffle-lovers.webp', cbg:'radial-gradient(120% 90% at 50% -10%,#FCEFE2,#F6D7BE 60%,#EAB892)'}},
-      {t:'stat',    p:{nm:'Eyes4Everest', cat:'Non-profit', big:'3×', ar:'', lab:'more volunteer sign-ups', logo:'E', url:'case-studies.html', bg:'linear-gradient(150deg,#22343a,#0e4a4b)'}},
       {t:'review',  p:{q:'They quoted a fixed price, shipped it when they said, and <b>orders are up 42%</b>.', nm:'Shaun C.', role:'Founder, Truffle Lovers', av:'SC', url:'case-studies.html'}},
       {t:'browser', p:{nm:'AMP New Zealand', cat:'Trades', res:'+38% enquiries', url:'case-studies.html', url2:'ampnz.co.nz', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.'}},
-      {t:'stat',    p:{nm:'Truffle Lovers', cat:'Hospitality', big:'42%', ar:'▲', lab:'more online orders after launch', logo:'T', url:'case-studies.html', bg:'linear-gradient(150deg,#E4552B,#B23414)'}},
       {t:'review',  p:{q:'From first call to launch, the same team. <b>Couldn’t recommend them more.</b>', nm:'Craig P.', role:'Parnell Cricket Club', av:'CP', url:'case-studies.html'}}
     ];
     function set(dup){ return SEQ.map(function(it){return render(it,dup);}).join(''); }
