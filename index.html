@@ -215,19 +215,19 @@
   .ks .who .lg{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);display:grid;place-items:center;font-family:var(--display);font-weight:800}
   .ks .who .sub{display:block;font-weight:500;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px}
   /* review card */
-  .kr{width:clamp(380px,44vw,640px);background:radial-gradient(120% 90% at 50% -10%,#26383f,#141d20 70%);color:#fff;padding:40px 44px;justify-content:flex-start;position:relative}
-  .kr .qm{position:absolute;top:-6px;right:30px;font-family:var(--display);font-weight:800;font-size:180px;color:rgba(228,85,43,.16);line-height:1}
+  .kr{background:radial-gradient(120% 90% at 50% -10%,#26383f,#141d20 70%);color:#fff;padding:30px 28px;justify-content:flex-start;position:relative}
+  .kr .qm{position:absolute;top:-8px;right:20px;font-family:var(--display);font-weight:800;font-size:150px;color:rgba(228,85,43,.16);line-height:1}
   .kr>*{position:relative}
-  .kr .g{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.66)}
-  .kr .g svg{width:21px;height:21px;flex:none}
-  .kr .stars{color:var(--gold);font-size:34px;letter-spacing:6px;margin-top:20px}
-  .kr .q{font-size:clamp(24px,2.6vw,34px);line-height:1.34;letter-spacing:-.01em;margin:20px 0 28px;color:#fff;font-weight:500}
+  .kr .g{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.64)}
+  .kr .g svg{width:19px;height:19px;flex:none}
+  .kr .stars{color:var(--gold);font-size:30px;letter-spacing:5px;margin-top:16px}
+  .kr .q{flex:1;display:flex;align-items:center;font-size:clamp(24px,2.5vw,32px);line-height:1.32;letter-spacing:-.01em;margin:18px 0 20px;color:#fff;font-weight:600}
   .kr .q b{color:#fff;font-weight:800}
-  .kr .by{display:flex;align-items:center;gap:13px;margin-top:auto}
-  .kr .av{width:56px;height:56px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px;flex:none}
-  .kr .bn{display:flex;align-items:center;gap:7px;font-weight:800;font-size:19px}
-  .kr .bn svg{width:17px;height:17px;color:#4a90e2;flex:none}
-  .kr .br{font-size:14px;color:rgba(255,255,255,.62);margin-top:2px}
+  .kr .by{display:flex;align-items:center;gap:12px}
+  .kr .av{width:52px;height:52px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px;flex:none}
+  .kr .bn{display:flex;align-items:center;gap:7px;font-weight:800;font-size:18px}
+  .kr .bn svg{width:16px;height:16px;color:#4a90e2;flex:none}
+  .kr .br{font-size:13px;color:rgba(255,255,255,.62);margin-top:2px}
   /* placeholder mini-site for browser cards without a screenshot yet */
   .pst{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
   .pst .sn{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border-bottom:1px solid rgba(0,0,0,.06)}
@@ -836,7 +836,7 @@
       return '<a class="k-card kr"'+open(p.url,dup)+'><span class="qm">&ldquo;</span>'
         + '<div class="g">'+GOOGLE+'Google review</div>'
         + '<div class="stars">★★★★★</div>'
-        + '<div class="q">'+p.q+'</div>'
+        + '<div class="q"><span>'+p.q+'</span></div>'
         + '<div class="by"><span class="av">'+esc(p.av)+'</span><div><div class="bn">'+esc(p.nm)+CHECK+'</div><div class="br">'+esc(p.role)+'</div></div></div>'
         + '</a>';
     }
