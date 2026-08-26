@@ -178,6 +178,48 @@
     background:rgba(255,255,255,.16);padding:5px 10px;border-radius:100px}
   .card .res .dot{width:6px;height:6px;border-radius:50%;background:#7CE7A6}
 
+  /* ---- project device-mockup cards ---- */
+  .pcard{position:relative;flex:none;width:clamp(300px,25vw,382px);height:100%;min-height:460px;margin-right:22px;
+    border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-align:left;isolation:isolate;
+    background:radial-gradient(120% 80% at 50% -8%,#FDFBF7,#F0E7D7);box-shadow:0 34px 60px -30px rgba(0,0,0,.62);
+    transition:transform .35s ease}
+  .pcard:hover{transform:translateY(-5px)}
+  .pcard .stage{position:relative;flex:1;overflow:hidden}
+  .pcard .stage::before{content:"";position:absolute;top:-18%;right:-28%;width:74%;height:74%;border-radius:50%;
+    background:radial-gradient(circle,rgba(228,85,43,.16),transparent 62%)}
+  .pcard .stage::after{content:"";position:absolute;bottom:-24%;left:-26%;width:70%;height:70%;border-radius:50%;
+    background:radial-gradient(circle,rgba(30,44,48,.12),transparent 62%)}
+  .pcard .laptop{position:relative;z-index:2;width:78%;margin:30px auto 0}
+  .pcard .lid{background:linear-gradient(#141719,#0c0e10);border-radius:11px;padding:6px 6px 7px;
+    box-shadow:0 22px 34px -16px rgba(23,20,15,.5),inset 0 0 0 1px rgba(255,255,255,.06)}
+  .pcard .screen{border-radius:4px;overflow:hidden;aspect-ratio:16/10;background:#fff}
+  .pcard .screen .shot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .pcard .base{position:relative;width:calc(100% + 34px);margin-left:-17px;height:9px;
+    background:linear-gradient(180deg,#e6e1d9,#bcb6ac);border-radius:1px 1px 8px 8px;box-shadow:0 16px 22px -12px rgba(0,0,0,.4)}
+  .pcard .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:5px;background:#aca69c;border-radius:0 0 6px 6px}
+  .pcard .phone{position:absolute;z-index:3;right:16px;bottom:16px;width:27%}
+  .pcard .pbody{background:linear-gradient(#141719,#0c0e10);border-radius:15px;padding:4px;
+    box-shadow:0 20px 30px -14px rgba(23,20,15,.55),inset 0 0 0 1px rgba(255,255,255,.06)}
+  .pcard .pscreen{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:9/19;background:#fff}
+  .pcard .pscreen .shot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .pcard .notch{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:34%;height:6px;background:#0c0e10;border-radius:5px;z-index:4}
+  .pcard .pmeta{background:#fff;border-top:1px solid var(--line);padding:15px 17px 17px}
+  .pcard .pk{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-dark)}
+  .pcard .pnm{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--ink);margin-top:2px}
+  .pcard .pres{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-family:var(--mono);font-size:11px;font-weight:700;
+    color:var(--accent-dark);background:rgba(228,85,43,.09);border:1px solid rgba(228,85,43,.2);padding:5px 10px;border-radius:100px}
+  .pcard .pres .pdot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  /* placeholder mini-site for projects without a screenshot yet */
+  .psite{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;font-family:var(--sans)}
+  .psite .snav{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:#fff;border-bottom:1px solid rgba(23,20,15,.07)}
+  .psite .slogo{font-family:var(--display);font-weight:800;font-size:7.5px;color:var(--ink);letter-spacing:-.02em}
+  .psite .smenu{display:flex;gap:3px}.psite .smenu i{display:block;width:9px;height:2px;border-radius:2px;background:rgba(23,20,15,.16)}
+  .psite .shero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 10px;color:#fff}
+  .psite .seyebrow{font-size:4.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.8;margin-bottom:4px}
+  .psite .sh1{font-family:var(--display);font-weight:800;font-size:12px;line-height:1.08;max-width:78%}
+  .psite .sbtn{margin-top:7px;width:fit-content;background:var(--accent);color:#fff;font-size:5.5px;font-weight:700;padding:3px 7px;border-radius:4px}
+  .psite.mini .sh1{font-size:8.5px}.psite.mini .snav{padding:6px 6px 4px}.psite.mini .slogo{font-size:5.5px}
+
   /* ============ BRANDS MARQUEE ============ */
   .brands{background:var(--header);padding:72px 0;overflow:hidden}
   .brands .label{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,44px);letter-spacing:-.02em;line-height:1.1;color:#fff;text-align:center;text-transform:capitalize;margin-bottom:42px}
@@ -461,18 +503,7 @@
   </div>
 
   <div class="mq">
-    <div class="mq-track">
-      <!-- set 1 -->
-      <a class="card t1" href="#"><span class="wm">T</span><div class="meta"><div class="k">Hospitality</div><div class="nm">Truffle Lovers</div><span class="res"><span class="dot"></span> +42% online orders</span></div></a>
-      <a class="card t2" href="#"><span class="wm">E</span><div class="meta"><div class="k">Non-profit</div><div class="nm">Eyes4Everest</div><span class="res"><span class="dot"></span> 3× more sign-ups</span></div></a>
-      <a class="card t3" href="#"><span class="wm">A</span><div class="meta"><div class="k">Trades</div><div class="nm">AMP New Zealand</div><span class="res"><span class="dot"></span> +38% enquiries</span></div></a>
-      <a class="card t4" href="#"><span class="wm">S</span><div class="meta"><div class="k">Retail</div><div class="nm">Serpenti</div><span class="res"><span class="dot"></span> Store live in 3 wks</span></div></a>
-      <!-- set 2 (duplicate for seamless loop) -->
-      <a class="card t1" href="#" aria-hidden="true"><span class="wm">T</span><div class="meta"><div class="k">Hospitality</div><div class="nm">Truffle Lovers</div><span class="res"><span class="dot"></span> +42% online orders</span></div></a>
-      <a class="card t2" href="#" aria-hidden="true"><span class="wm">E</span><div class="meta"><div class="k">Non-profit</div><div class="nm">Eyes4Everest</div><span class="res"><span class="dot"></span> 3× more sign-ups</span></div></a>
-      <a class="card t3" href="#" aria-hidden="true"><span class="wm">A</span><div class="meta"><div class="k">Trades</div><div class="nm">AMP New Zealand</div><span class="res"><span class="dot"></span> +38% enquiries</span></div></a>
-      <a class="card t4" href="#" aria-hidden="true"><span class="wm">S</span><div class="meta"><div class="k">Retail</div><div class="nm">Serpenti</div><span class="res"><span class="dot"></span> Store live in 3 wks</span></div></a>
-    </div>
+    <div class="mq-track" id="mqTrack"></div>
   </div>
 </div></section>
 
@@ -751,6 +782,38 @@
     document.getElementById('mmSub').classList.toggle('open');
   });
   document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
+
+  /* ---- hero project marquee: device mockups ---- */
+  (function(){
+    var track = document.getElementById('mqTrack');
+    if(!track) return;
+    var PROJ = [
+      { nm:'Truffle Lovers',   cat:'Hospitality', res:'+42% online orders',   url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', mob:'assets/projects/truffle-lovers.webp' },
+      { nm:'Eyes4Everest',     cat:'Non-profit',  res:'3× more sign-ups',     url:'case-studies.html', g:'linear-gradient(150deg,#22343a,#0e4a4b)', h:'Every step counts.' },
+      { nm:'AMP New Zealand',  cat:'Trades',      res:'+38% enquiries',       url:'case-studies.html', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.' },
+      { nm:'Serpenti',         cat:'Retail',      res:'Store live in 3 weeks', url:'case-studies.html', g:'linear-gradient(150deg,#3a2438,#17140F)', h:'Shop the collection.' }
+    ];
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    function siteMock(p, mini){
+      return '<div class="psite'+(mini?' mini':'')+'">'
+        + '<div class="snav"><span class="slogo">'+esc(p.nm)+'</span><span class="smenu"><i></i><i></i><i></i></span></div>'
+        + '<div class="shero" style="background:'+p.g+'"><span class="seyebrow">'+esc(p.cat)+'</span><span class="sh1">'+esc(p.h||p.nm)+'</span><span class="sbtn">Learn more</span></div>'
+        + '</div>';
+    }
+    function laptopScreen(p){ return p.shot ? '<img class="shot" src="'+p.shot+'" alt="'+esc(p.nm)+' website" loading="lazy">' : siteMock(p,false); }
+    function phoneScreen(p){ return p.mob ? '<img class="shot" src="'+p.mob+'" alt="" loading="lazy">' : siteMock(p,true); }
+    function card(p, dup){
+      return '<a class="pcard" href="'+p.url+'"'+(/^https?:/.test(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+'>'
+        + '<div class="stage">'
+        +   '<div class="laptop"><div class="lid"><div class="screen">'+laptopScreen(p)+'</div></div><div class="base"></div></div>'
+        +   '<div class="phone"><div class="pbody"><div class="pscreen"><span class="notch"></span>'+phoneScreen(p)+'</div></div></div>'
+        + '</div>'
+        + '<div class="pmeta"><div class="pk">'+esc(p.cat)+'</div><div class="pnm">'+esc(p.nm)+'</div><span class="pres"><span class="pdot"></span>'+esc(p.res)+'</span></div>'
+        + '</a>';
+    }
+    var html = PROJ.map(function(p){return card(p,false);}).join('') + PROJ.map(function(p){return card(p,true);}).join('');
+    track.innerHTML = html;
+  })();
 
   /* ---- brands logo marquee ---- */
   (function(){
