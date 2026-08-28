@@ -367,19 +367,22 @@
   .proc-head{margin:0 0 54px;text-align:center}
   .proc-head h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.09;letter-spacing:-.02em;margin-top:14px}
   .proc-head p{color:var(--body);font-size:18px;margin-top:14px}
-  /* portrait cards with big numbers */
-  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .proc-step{display:flex}
+  /* portrait cards with big numbers + connecting line */
+  .proc-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:procn}
+  .proc-grid::before{content:"";position:absolute;top:70px;left:12.5%;right:12.5%;height:3px;border-radius:3px;background:var(--line);z-index:0}
+  .proc-grid::after{content:"";position:absolute;top:70px;left:12.5%;width:0;height:3px;border-radius:3px;background:var(--accent);z-index:0;transition:width 1.8s cubic-bezier(.4,0,.2,1) .2s}
+  .proc-grid.is-in::after{width:75%}
+  .proc-step{display:flex;position:relative;z-index:1}
   .proc-step .num{display:none}
-  .proc-step .proc-card{flex:1;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 30px 30px;min-height:400px;display:flex;flex-direction:column;box-shadow:0 34px 62px -50px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s;counter-increment:procn}
+  .proc-step .proc-card{flex:1;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 30px;min-height:340px;display:flex;flex-direction:column;box-shadow:0 34px 62px -50px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s;counter-increment:procn}
   .proc-step .proc-card:hover{transform:translateY(-6px);box-shadow:0 46px 76px -44px rgba(23,20,15,.55)}
-  .proc-step .proc-card::before{content:"0" counter(procn);font-family:var(--display);font-weight:800;font-size:clamp(66px,6vw,92px);line-height:.9;letter-spacing:-.03em;color:var(--accent);display:block;margin-bottom:18px}
-  .proc-grid{counter-reset:procn}
+  .proc-step .proc-card::before{content:"0" counter(procn);font-family:var(--display);font-weight:800;font-size:clamp(66px,6vw,92px);line-height:.9;letter-spacing:-.03em;color:var(--accent);display:block;margin-bottom:20px}
   .proc-step .proc-card h3{font-family:var(--display);font-size:23px;margin-bottom:12px;letter-spacing:-.01em}
-  .proc-step .proc-card p{font-size:15.5px;line-height:1.64;color:var(--body);margin-bottom:16px}
-  .proc-step .proc-card .meta{margin-top:auto;font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
-  @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:20px} .proc-step .proc-card{min-height:340px} }
-  @media(max-width:560px){ .proc-grid{grid-template-columns:1fr} .process{padding:72px 0} .proc-step .proc-card{min-height:0} }
+  .proc-step .proc-card p{font-size:15.5px;line-height:1.64;color:var(--body);margin-bottom:12px}
+  .proc-step .proc-card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--accent-dark)}
+  @media(prefers-reduced-motion:reduce){ .proc-grid::after{transition:none} }
+  @media(max-width:900px){ .proc-grid{grid-template-columns:1fr 1fr;gap:20px} .proc-grid::before,.proc-grid::after{display:none} .proc-step .proc-card{min-height:0} }
+  @media(max-width:560px){ .proc-grid{grid-template-columns:1fr} .process{padding:72px 0} }
 
   /* ============ FAQ ============ */
   .faq{background:var(--bg-alt);padding:100px 0}
