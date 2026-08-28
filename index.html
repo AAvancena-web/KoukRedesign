@@ -152,13 +152,35 @@
   .stats .l{font-size:13px;color:#9fb0b0;margin-top:5px;text-transform:capitalize}
 
   /* moving tile marquee */
-  .mq{position:relative;overflow:hidden;
-    -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-    mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .mq-track{display:flex;align-items:stretch;height:100%;width:max-content;animation:mq 30s linear infinite}
-  .mq:hover .mq-track{animation-play-state:paused}
-  @keyframes mq{to{transform:translateX(-50%)}}
-  @media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+  .mq{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:16px;height:100%;min-height:430px;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .mrow{flex:1;overflow:hidden;position:relative;min-height:0}
+  .mrow-track{display:flex;height:100%;width:max-content}
+  .mrow.l .mrow-track{animation:mqrow 48s linear infinite}
+  .mrow.r .mrow-track{animation:mqrow 48s linear infinite reverse}
+  .mq:hover .mrow-track{animation-play-state:paused}
+  @keyframes mqrow{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.mrow-track{animation:none}}
+  .mcard{flex:none;height:100%;aspect-ratio:16/10;margin-right:16px;border-radius:13px;overflow:hidden;position:relative;
+    background:#fff;box-shadow:0 24px 44px -24px rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.1)}
+  .mcard .shot{position:absolute;inset:0;background-position:top center;background-size:cover}
+  /* landscape placeholder mini-site (until a real screenshot is supplied) */
+  .psite2{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
+  .psite2 .pn{display:flex;align-items:center;justify-content:space-between;padding:0 12px;height:26px;border-bottom:1px solid rgba(0,0,0,.06);flex:none}
+  .psite2 .pl{display:flex;align-items:center;gap:5px;font-family:var(--display);font-weight:800;font-size:10px;color:var(--ink);letter-spacing:-.02em}
+  .psite2 .pl .m{width:11px;height:11px;border-radius:3px;flex:none}
+  .psite2 .pmenu{display:flex;align-items:center;gap:8px}
+  .psite2 .pmenu i{width:17px;height:3px;border-radius:2px;background:rgba(0,0,0,.13);display:block}
+  .psite2 .pmenu .cta{width:34px;height:13px;border-radius:3px}
+  .psite2 .ph{flex:1;display:flex;min-height:0}
+  .psite2 .phl{flex:1.15;display:flex;flex-direction:column;justify-content:center;padding:0 7%}
+  .psite2 .pe{font-size:6px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .psite2 .pt{font-family:var(--display);font-weight:800;font-size:16px;line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
+  .psite2 .pln{height:3px;border-radius:2px;background:rgba(0,0,0,.1);margin-top:6px}
+  .psite2 .pln.s{width:68%}
+  .psite2 .pbt{margin-top:10px;width:fit-content;color:#fff;font-size:7px;font-weight:700;padding:5px 10px;border-radius:5px}
+  .psite2 .phr{flex:.85;background-position:center;background-size:cover}
 
   .card{position:relative;width:clamp(280px,44vw,660px);flex:none;margin-right:22px;height:100%;min-height:380px;border-radius:18px;overflow:hidden;
     display:flex;align-items:flex-end;padding:26px;color:#fff;isolation:isolate;
@@ -521,7 +543,8 @@
   </div>
 
   <div class="mq">
-    <div class="mq-track" id="mqTrack"></div>
+    <div class="mrow l"><div class="mrow-track" id="mrowA"></div></div>
+    <div class="mrow r"><div class="mrow-track" id="mrowB"></div></div>
   </div>
 </div></section>
 
@@ -801,55 +824,41 @@
   });
   document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
 
-  /* ---- hero project marquee: browser / stat / review rotation ---- */
+  /* ---- hero project marquee: two rows of site screenshots, opposite directions ---- */
   (function(){
-    var track = document.getElementById('mqTrack');
-    if(!track) return;
-    var GOOGLE='<svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1c4.1-3.8 6.6-9.4 6.6-16.1z"/><path fill="#34A853" d="M24 46c6 0 11-2 14.7-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.6 2.1-5.8 0-10.7-3.9-12.5-9.2H4.1v5.7C7.8 41.1 15.3 46 24 46z"/><path fill="#FBBC05" d="M11.5 27.9c-.5-1.3-.7-2.8-.7-4.4s.3-3 .7-4.4v-5.7H4.1C2.7 16.3 2 20 2 23.5s.7 7.2 2.1 10.1l7.4-5.7z"/><path fill="#EA4335" d="M24 10.9c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3C35 4.5 30 2.5 24 2.5 15.3 2.5 7.8 7.4 4.1 14.9l7.4 5.7C13.3 15.3 18.2 10.9 24 10.9z"/></svg>';
-    var CHECK='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></svg>';
-    var LOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
-    var SPARK='<svg class="spark" viewBox="0 0 220 40" preserveAspectRatio="none"><polyline points="0,34 34,30 66,32 100,22 134,24 168,12 200,8 220,3" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="220" cy="3" r="3.4" fill="#fff"/></svg>';
+    var rowA = document.getElementById('mrowA'), rowB = document.getElementById('mrowB');
+    if(!rowA || !rowB) return;
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
     function ext(u){ return /^https?:/.test(u); }
-    function open(u,dup){ return ' href="'+u+'"'+(ext(u)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':''); }
-    function siteMini(p){
-      return '<div class="pst"><div class="sn"><span class="sl">'+esc(p.nm)+'</span><span class="sm"><i></i><i></i><i></i></span></div>'
-        + '<div class="sh" style="background:'+p.g+'"><span class="se">'+esc(p.cat)+'</span><span class="s1">'+esc(p.h||p.nm)+'</span><span class="sb">Learn more</span></div></div>';
+    function site(p){
+      return '<div class="psite2">'
+        + '<div class="pn"><span class="pl"><span class="m" style="background:'+p.c+'"></span>'+esc(p.nm)+'</span>'
+        +   '<span class="pmenu"><i></i><i></i><i></i><span class="cta" style="background:'+p.c+'"></span></span></div>'
+        + '<div class="ph"><div class="phl"><span class="pe" style="color:'+p.c+'">'+esc(p.cat)+'</span>'
+        +   '<span class="pt">'+esc(p.h)+'</span><span class="pln"></span><span class="pln s"></span>'
+        +   '<span class="pbt" style="background:'+p.c+'">Learn more</span></div>'
+        +   '<div class="phr" style="background:'+p.g+'"></div></div></div>';
     }
-    function browser(p,dup){
-      var view = p.shot ? '<div class="img" style="background-image:url(\''+p.shot+'\')"></div>' : siteMini(p);
-      return '<a class="k-card kb"'+(p.cbg?' style="background:'+p.cbg+'"':'')+open(p.url,dup)+'>'
-        + '<div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">'+LOCK+esc(p.url2||p.nm)+'</span></div>'
-        +   '<div class="view">'+view+'<div class="scrim"></div><span class="live"><span class="d"></span>Live site</span></div></div>'
-        + '<div class="meta"><div class="mk">'+esc(p.cat)+'</div><div class="mn">'+esc(p.nm)+'</div><span class="mr"><span class="d"></span>'+esc(p.res)+'</span></div>'
-        + '</a>';
+    function card(p,dup){
+      var inner = p.shot ? '<div class="shot" style="background-image:url(\''+p.shot+'\')"></div>' : site(p);
+      return '<a class="mcard" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+' aria-label="'+esc(p.nm)+'">'+inner+'</a>';
     }
-    function stat(p,dup){
-      return '<a class="k-card ks" style="background:'+p.bg+'"'+open(p.url,dup)+'><span class="tex"></span><span class="glow"></span>'
-        + '<div class="kk">The result</div>'
-        + '<div class="big">'+(p.ar?'<span class="ar">'+p.ar+'</span>':'')+esc(p.big)+'</div>'
-        + '<div class="lab">'+esc(p.lab)+'</div>'+SPARK
-        + '<div class="who"><span class="lg">'+esc(p.logo)+'</span><span>'+esc(p.nm)+'<span class="sub">'+esc(p.cat)+'</span></span></div>'
-        + '</a>';
-    }
-    function review(p,dup){
-      return '<a class="k-card kr"'+open(p.url,dup)+'><span class="qm">&ldquo;</span>'
-        + '<div class="g">'+GOOGLE+'Google review</div>'
-        + '<div class="stars">★★★★★</div>'
-        + '<div class="q"><span>'+p.q+'</span></div>'
-        + '<div class="by"><span class="av">'+esc(p.av)+'</span><div><div class="bn">'+esc(p.nm)+CHECK+'</div><div class="br">'+esc(p.role)+'</div></div></div>'
-        + '</a>';
-    }
-    function render(it,dup){ return it.t==='browser'?browser(it.p,dup):it.t==='stat'?stat(it.p,dup):review(it.p,dup); }
+    function fill(arr){ return arr.map(function(p){return card(p,false);}).join('') + arr.map(function(p){return card(p,true);}).join(''); }
 
-    var SEQ = [
-      {t:'browser', p:{nm:'Truffle Lovers', cat:'Hospitality', res:'+42% online orders', url:'https://trufflelovers.co.nz/', url2:'trufflelovers.co.nz', shot:'assets/projects/truffle-lovers.webp', cbg:'radial-gradient(120% 90% at 50% -10%,#FCEFE2,#F6D7BE 60%,#EAB892)'}},
-      {t:'review',  p:{q:'They quoted a fixed price, shipped it when they said, and <b>orders are up 42%</b>.', nm:'Shaun C.', role:'Founder, Truffle Lovers', av:'SC', url:'case-studies.html'}},
-      {t:'browser', p:{nm:'AMP New Zealand', cat:'Trades', res:'+38% enquiries', url:'case-studies.html', url2:'ampnz.co.nz', g:'linear-gradient(150deg,#1f3a5f,#0f2038)', h:'Built to last.'}},
-      {t:'review',  p:{q:'From first call to launch, the same team. <b>Couldn’t recommend them more.</b>', nm:'Craig P.', role:'Parnell Cricket Club', av:'CP', url:'case-studies.html'}}
+    var ROWA = [
+      { nm:'Truffle Lovers', cat:'Hospitality', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp' },
+      { nm:'Eyes4Everest', cat:'Non-profit', h:'Every step counts.', c:'#0e7a6b', g:'linear-gradient(135deg,#0e4a4b,#22343a)', url:'case-studies.html' },
+      { nm:'AMP New Zealand', cat:'Financial services', h:'Advice that grows.', c:'#1f4e79', g:'linear-gradient(135deg,#1f3a5f,#0f2038)', url:'case-studies.html' },
+      { nm:'Serpenti', cat:'Retail', h:'Shop the collection.', c:'#8a4b6b', g:'linear-gradient(135deg,#3a2438,#17140F)', url:'case-studies.html' }
     ];
-    function set(dup){ return SEQ.map(function(it){return render(it,dup);}).join(''); }
-    track.innerHTML = set(false) + set(true);
+    var ROWB = [
+      { nm:'Parnell Cricket Club', cat:'Sports club', h:'Home of the club.', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', url:'case-studies.html' },
+      { nm:'Kouki Photography', cat:'Photography', h:'Moments, captured.', c:'#b5761a', g:'linear-gradient(135deg,#7a4326,#3a1e12)', url:'case-studies.html' },
+      { nm:'Coastal Cafe', cat:'Hospitality', h:'Fresh by the sea.', c:'#E4552B', g:'linear-gradient(135deg,#E4552B,#B23414)', url:'case-studies.html' },
+      { nm:'Ridgeline Builders', cat:'Construction', h:'Built to last.', c:'#46545f', g:'linear-gradient(135deg,#2b3b40,#141d20)', url:'case-studies.html' }
+    ];
+    rowA.innerHTML = fill(ROWA);
+    rowB.innerHTML = fill(ROWB);
   })();
 
   /* ---- brands logo marquee ---- */
