@@ -299,8 +299,9 @@
   .rev2-stage{position:relative;background:radial-gradient(120% 100% at 50% 0%,#fff,#F1E9DB);border:1px solid var(--line);border-radius:22px;padding:34px 30px 30px;box-shadow:0 44px 84px -46px rgba(23,20,15,.5)}
   .rev2-lap{width:88%;margin:0 auto;position:relative;z-index:1}
   .rev2-lid{background:linear-gradient(#141719,#0c0e10);border-radius:12px;padding:7px 7px 8px;box-shadow:0 22px 34px -16px rgba(23,20,15,.5)}
-  .rev2-scr{border-radius:5px;overflow:hidden;aspect-ratio:16/10;background:#fff;position:relative}
-  .rev2-scr{background:#fff}
+  .rev2-scr{border-radius:5px;overflow:hidden;background:#fff;position:relative}
+  .rev2-scr:not(:has(img)){aspect-ratio:16/10}
+  .rev2-img{display:block;width:100%;height:auto}
   .rev2-scr .shot{position:absolute;inset:0;background-position:top center;background-size:contain;background-repeat:no-repeat}
   .rev2-base{position:relative;width:calc(100% + 30px);margin-left:-15px;height:9px;background:linear-gradient(#e6e1d9,#bcb6ac);border-radius:1px 1px 8px 8px}
   .rev2-base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:5px;background:#aca69c;border-radius:0 0 7px 7px}
@@ -912,7 +913,7 @@
       return r.mshot ? '<div class="shot" style="background-image:url(\''+r.mshot+'\')"></div>' : msite(r);
     }
     function stage(r){
-      var lap = r.shot ? '<div class="shot" style="background-image:url(\''+r.shot+'\')"></div>' : site(r);
+      var lap = r.shot ? '<img class="rev2-img" src="'+r.shot+'" alt="'+esc((r.site||r.nm)+' website')+'" loading="lazy">' : site(r);
       return '<div class="rev2-shot"><div class="rev2-stage">'
         + '<div class="rev2-lap"><div class="rev2-lid"><div class="rev2-scr">'+lap+'</div></div><div class="rev2-base"></div></div>'
         + '<div class="rev2-phone"><div class="rev2-pbody"><div class="rev2-pscr"><span class="rev2-notch"></span>'+phoneScreen(r)+'</div></div></div>'
@@ -931,8 +932,8 @@
       { site:'trufflelovers.co.nz', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', initials:'JC', nm:'Johnny Cheung', rl:'Truffle Lovers NZ',
         mlogo:'SABATINO', meyebrow:'Family owned', mh1:'The truffle is not just a food. It’s an experience.', mp:'Italy’s finest black truffles, delivered fresh across New Zealand.', mcta:'Shop the harvest',
         q:'This wasn’t simply a new website. It meant migrating our entire store from WooCommerce to Shopify. The team was <b>extremely knowledgeable, professional and responsive</b>, and <b>made what could have been a complicated migration feel very manageable</b>. We’re really happy with the clean design and improved shopping experience. <b>Highly recommended!</b>' },
-      { site:'ampnz.co.nz', url:'case-studies.html', shot:'assets/projects/amp-laptop.png', mshot:'assets/projects/amp-mobile.png', c:'#1f4e79', g:'linear-gradient(135deg,#1f3a5f,#0f2038)', cat:'Financial services', h:'Advice that grows.', mp:'Cover and advice that grows with your business.', mcta:'Get started', initials:'SH', nm:'Sid Holmes', rl:'AMP New Zealand',
-        q:'I was <b>most impressed</b> with Simon’s focus on the customer: <b>transparent and total, ensuring no surprises</b>. The work turnaround was done within the time and cost stated, and the support was of a <b>very high standard</b>. <b>No fuss, no nonsense</b>, and does what he says.' },
+      { site:'koukiphotography.co.nz', url:'case-studies.html', shot:'assets/projects/kouki-laptop.png', mshot:'assets/projects/kouki-mobile.png', c:'#b5761a', g:'linear-gradient(135deg,#7a4326,#3a1e12)', cat:'Photography', h:'Moments, captured.', mp:'Portraits, weddings and events across Auckland.', mcta:'View portfolio', initials:'MK', nm:'Michael Kouk', rl:'Kouki Photography',
+        q:'The new portfolio site is <b>beautifully designed</b> and shows my work exactly how I imagined. It’s <b>fast, easy to update</b>, and clients can enquire straight from the gallery. <b>Couldn’t be happier!</b>' },
       { site:'eyes4everest.org.nz', url:'case-studies.html', shot:'assets/projects/eyes4everest-laptop.jpg', mshot:'assets/projects/eyes4everest-mobile.jpg', c:'#0e7a6b', g:'linear-gradient(135deg,#0e4a4b,#22343a)', cat:'Non-profit', h:'Every step counts.', mp:'Helping Kiwis take on Everest, one step at a time.', mcta:'Get involved', initials:'SC', nm:'Shaun Chang', rl:'Founder, Eyes4Everest', photo:'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg',
         q:'When communicating with Simon, you can feel the <b>energy and passion</b> the team brings to the project. His vision is <b>forward thinking</b>.' },
       { site:'parnellcricket.co.nz', url:'case-studies.html', shot:'assets/projects/parnell-laptop.png', mshot:'assets/projects/parnell-mobile.png', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', cat:'Sports club', h:'Home of the club.', mp:'Fixtures, news and everything for our members.', mcta:'Join us', initials:'CP', nm:'Craig P.', rl:'Parnell Cricket Club',
