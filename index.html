@@ -300,7 +300,8 @@
   .rev2-lap{width:88%;margin:0 auto;position:relative;z-index:1}
   .rev2-lid{background:linear-gradient(#141719,#0c0e10);border-radius:12px;padding:7px 7px 8px;box-shadow:0 22px 34px -16px rgba(23,20,15,.5)}
   .rev2-scr{border-radius:5px;overflow:hidden;aspect-ratio:16/10;background:#fff;position:relative}
-  .rev2-scr .shot{position:absolute;inset:0;background-position:top center;background-size:cover}
+  .rev2-scr{background:#fff}
+  .rev2-scr .shot{position:absolute;inset:0;background-position:top center;background-size:contain;background-repeat:no-repeat}
   .rev2-base{position:relative;width:calc(100% + 30px);margin-left:-15px;height:9px;background:linear-gradient(#e6e1d9,#bcb6ac);border-radius:1px 1px 8px 8px}
   .rev2-base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:5px;background:#aca69c;border-radius:0 0 7px 7px}
   .rev2-phone{position:absolute;right:5%;bottom:-4px;width:19%;z-index:2}
@@ -308,6 +309,18 @@
   .rev2-pscr{border-radius:10px;overflow:hidden;aspect-ratio:9/19;background:#fff;position:relative}
   .rev2-pscr .shot{position:absolute;inset:0;background-position:top center;background-size:cover}
   .rev2-notch{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:34%;height:5px;background:#0c0e10;border-radius:5px;z-index:3}
+  /* mobile hero shown inside the phone */
+  .msite{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
+  .msite .mtop{display:flex;align-items:center;justify-content:space-between;padding:9px 11px 7px;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);flex:none}
+  .msite .mlogo{font-family:var(--display);font-weight:800;font-size:9px;letter-spacing:.08em;color:var(--ink)}
+  .msite .mbtn3{display:grid;gap:2px}.msite .mbtn3 i{display:block;width:12px;height:2px;background:var(--ink);border-radius:2px}
+  .msite .mhero{flex:1;position:relative;background-position:center;background-size:cover;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 12px 14px;color:#fff;overflow:hidden}
+  .msite .mhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.74))}
+  .msite .mhero>*{position:relative;z-index:1}
+  .msite .meyebrow{font-size:6px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#f0c98a;margin-bottom:6px}
+  .msite .mh1{font-family:var(--display);font-weight:800;font-size:15px;line-height:1.06;letter-spacing:-.01em}
+  .msite .mp{font-size:8.5px;line-height:1.4;color:rgba(255,255,255,.86);margin-top:6px}
+  .msite .mc{margin-top:10px;width:fit-content;background:var(--accent);color:#fff;font-size:7px;font-weight:700;padding:5px 11px;border-radius:5px}
   @media(max-width:860px){
     .rev2-row,.rev2-row.flip{grid-template-columns:1fr;gap:32px}
     .rev2-row.flip .rev2-copy{order:0}
@@ -888,11 +901,18 @@
         +   '<span class="pbt" style="background:'+p.c+'">Learn more</span></div>'
         +   '<div class="phr" style="background:'+p.g+'"></div></div></div>';
     }
+    function msite(r){
+      var bg = r.shot ? "url('"+r.shot+"') center/cover" : (r.g||'#20130d');
+      return '<div class="msite"><div class="mtop"><span class="mlogo">'+esc(r.mlogo||r.nm)+'</span><span class="mbtn3"><i></i><i></i><i></i></span></div>'
+        + '<div class="mhero" style="background:'+bg+'"><span class="meyebrow">'+esc(r.meyebrow||r.cat||'')+'</span>'
+        + '<div class="mh1">'+esc(r.mh1||r.h||r.nm)+'</div>'+(r.mp?'<p class="mp">'+esc(r.mp)+'</p>':'')
+        + '<span class="mc">'+esc(r.mcta||'Learn more')+'</span></div></div>';
+    }
     function stage(r){
-      var screen = r.shot ? '<div class="shot" style="background-image:url(\''+r.shot+'\')"></div>' : site(r);
+      var lap = r.shot ? '<div class="shot" style="background-image:url(\''+r.shot+'\')"></div>' : site(r);
       return '<div class="rev2-shot"><div class="rev2-stage">'
-        + '<div class="rev2-lap"><div class="rev2-lid"><div class="rev2-scr">'+screen+'</div></div><div class="rev2-base"></div></div>'
-        + '<div class="rev2-phone"><div class="rev2-pbody"><div class="rev2-pscr"><span class="rev2-notch"></span>'+screen+'</div></div></div>'
+        + '<div class="rev2-lap"><div class="rev2-lid"><div class="rev2-scr">'+lap+'</div></div><div class="rev2-base"></div></div>'
+        + '<div class="rev2-phone"><div class="rev2-pbody"><div class="rev2-pscr"><span class="rev2-notch"></span>'+msite(r)+'</div></div></div>'
         + '</div></div>';
     }
     function avatar(r){ return r.photo ? '<img class="rev2-av" src="'+r.photo+'" alt="'+esc(r.nm)+'" loading="lazy">' : '<div class="rev2-av">'+esc(r.initials)+'</div>'; }
@@ -906,12 +926,13 @@
     }
     var REV = [
       { site:'trufflelovers.co.nz', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', initials:'JC', nm:'Johnny Cheung', rl:'Truffle Lovers NZ',
+        mlogo:'SABATINO', meyebrow:'Family owned', mh1:'The truffle is not just a food. It’s an experience.', mp:'Italy’s finest black truffles, delivered fresh across New Zealand.', mcta:'Shop the harvest',
         q:'This wasn’t simply a new website. It meant migrating our entire store from WooCommerce to Shopify. The team was <b>extremely knowledgeable, professional and responsive</b>, and <b>made what could have been a complicated migration feel very manageable</b>. We’re really happy with the clean design and improved shopping experience. <b>Highly recommended!</b>' },
-      { site:'ampnz.co.nz', url:'case-studies.html', c:'#1f4e79', g:'linear-gradient(135deg,#1f3a5f,#0f2038)', cat:'Financial services', h:'Advice that grows.', initials:'SH', nm:'Sid Holmes', rl:'AMP New Zealand',
+      { site:'ampnz.co.nz', url:'case-studies.html', c:'#1f4e79', g:'linear-gradient(135deg,#1f3a5f,#0f2038)', cat:'Financial services', h:'Advice that grows.', mp:'Cover and advice that grows with your business.', mcta:'Get started', initials:'SH', nm:'Sid Holmes', rl:'AMP New Zealand',
         q:'I was <b>most impressed</b> with Simon’s focus on the customer: <b>transparent and total, ensuring no surprises</b>. The work turnaround was done within the time and cost stated, and the support was of a <b>very high standard</b>. <b>No fuss, no nonsense</b>, and does what he says.' },
-      { site:'eyes4everest.org.nz', url:'case-studies.html', c:'#0e7a6b', g:'linear-gradient(135deg,#0e4a4b,#22343a)', cat:'Non-profit', h:'Every step counts.', initials:'SC', nm:'Shaun Chang', rl:'Founder, Eyes4Everest', photo:'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg',
+      { site:'eyes4everest.org.nz', url:'case-studies.html', c:'#0e7a6b', g:'linear-gradient(135deg,#0e4a4b,#22343a)', cat:'Non-profit', h:'Every step counts.', mp:'Helping Kiwis take on Everest, one step at a time.', mcta:'Get involved', initials:'SC', nm:'Shaun Chang', rl:'Founder, Eyes4Everest', photo:'https://cdn.prod.website-files.com/65c15d25c2ef3b5343d2ec07/661608e64e740554d20da18f_shaun%2Bmen%2Bof%2Binfluence%2Bnight.jpg',
         q:'When communicating with Simon, you can feel the <b>energy and passion</b> the team brings to the project. His vision is <b>forward thinking</b>.' },
-      { site:'parnellcricket.co.nz', url:'case-studies.html', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', cat:'Sports club', h:'Home of the club.', initials:'CP', nm:'Craig P.', rl:'Parnell Cricket Club',
+      { site:'parnellcricket.co.nz', url:'case-studies.html', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', cat:'Sports club', h:'Home of the club.', mp:'Fixtures, news and everything for our members.', mcta:'Join us', initials:'CP', nm:'Craig P.', rl:'Parnell Cricket Club',
         q:'The new website is <b>wonderful</b>! Thanks so much with all the hard work creating a whole new look and feel, updated content, new photos, improved functionality etc. Really impressive and another signal to the local community and general public that we are <b>ahead of the rest</b>. <b>Outstanding!</b>' }
     ];
     host.innerHTML = REV.map(function(r,i){
