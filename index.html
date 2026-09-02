@@ -317,8 +317,8 @@
   .rev2-base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:5px;background:#aca69c;border-radius:0 0 7px 7px}
   .rev2-phone{position:absolute;right:5%;bottom:-4px;width:19%;z-index:2}
   .rev2-pbody{background:linear-gradient(#141719,#0c0e10);border-radius:14px;padding:4px;box-shadow:0 18px 28px -14px rgba(23,20,15,.55)}
-  .rev2-pscr{border-radius:10px;overflow:hidden;aspect-ratio:9/19;background:#fff;position:relative}
-  .rev2-pscr .shot{position:absolute;inset:0;background-position:top center;background-size:cover}
+  .rev2-pscr{border-radius:10px;overflow:hidden;aspect-ratio:9/19;background:linear-gradient(180deg,#fff 0%,#F5EFE4 100%);position:relative}
+  .rev2-pscr .shot{position:absolute;inset:0;background-position:center;background-size:contain;background-repeat:no-repeat}
   .rev2-notch{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:34%;height:5px;background:#0c0e10;border-radius:5px;z-index:3}
   /* mobile hero shown inside the phone */
   .msite{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
@@ -814,15 +814,22 @@
 
     var ROWA = [
       { nm:'Truffle Lovers', cat:'Hospitality', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp' },
+      { nm:'Serpenti', cat:'Investigations', url:'case-studies.html', shot:'assets/projects/Serpenti.png' },
+      { nm:'Whys Logistics', cat:'Logistics', url:'case-studies.html', shot:'assets/projects/WhysLogistics.png' },
+      { nm:'Kouki Photography', cat:'Photography', url:'case-studies.html', shot:'assets/projects/kouki-laptop.png' },
+      { nm:'Mount4Wines', cat:'Retail', url:'case-studies.html', shot:'assets/projects/Mount4Wines.png' },
       { nm:'Eyes4Everest', cat:'Non-profit', url:'case-studies.html', shot:'assets/projects/eyes4everest-laptop.jpg' },
-      { nm:'AMP New Zealand', cat:'Financial services', url:'case-studies.html', shot:'assets/projects/amp-laptop.png' },
-      { nm:'Serpenti', cat:'Retail', h:'Shop the collection.', c:'#8a4b6b', g:'linear-gradient(135deg,#3a2438,#17140F)', url:'case-studies.html' }
+      { nm:'TGIF', cat:'Hospitality', url:'case-studies.html', shot:'assets/projects/TGIF.png' },
+      { nm:'Chemicorp', cat:'Industrial', url:'case-studies.html', shot:'assets/projects/Chemicorp.png' }
     ];
     var ROWB = [
       { nm:'Parnell Cricket Club', cat:'Sports club', url:'case-studies.html', shot:'assets/projects/parnell-laptop.png' },
-      { nm:'Kouki Photography', cat:'Photography', url:'case-studies.html', shot:'assets/projects/kouki-laptop.png' },
-      { nm:'Coastal Cafe', cat:'Hospitality', h:'Fresh by the sea.', c:'#E4552B', g:'linear-gradient(135deg,#E4552B,#B23414)', url:'case-studies.html' },
-      { nm:'Ridgeline Builders', cat:'Construction', h:'Built to last.', c:'#46545f', g:'linear-gradient(135deg,#2b3b40,#141d20)', url:'case-studies.html' }
+      { nm:'AMP New Zealand', cat:'Financial services', url:'case-studies.html', shot:'assets/projects/amp-laptop.png' },
+      { nm:'Nice Fuels', cat:'Energy', url:'case-studies.html', shot:'assets/projects/NiceFuels.png' },
+      { nm:'Sweet Secret Cake House', cat:'Bakery', url:'case-studies.html', shot:'assets/projects/SweetSecretcakeHouse.png' },
+      { nm:'Bridge Panmure', cat:'Hospitality', url:'case-studies.html', shot:'assets/projects/BridgePanmure.png' },
+      { nm:'NZIPI', cat:'Professional body', url:'case-studies.html', shot:'assets/projects/NZIPI.png' },
+      { nm:'Gordon & Ryan', cat:'Professional services', url:'case-studies.html', shot:'assets/projects/GordonAndryan.png' }
     ];
     rowA.innerHTML = fill(ROWA);
     rowB.innerHTML = fill(ROWB);
