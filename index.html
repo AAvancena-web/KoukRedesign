@@ -164,7 +164,17 @@
   @media(prefers-reduced-motion:reduce){.mrow-track{animation:none}}
   .mcard{flex:none;height:100%;aspect-ratio:16/10;margin-right:16px;border-radius:13px;overflow:hidden;position:relative;
     background:#fff;box-shadow:0 24px 44px -24px rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.1)}
-  .mcard .shot{position:absolute;inset:0;background-position:top center;background-size:contain;background-repeat:no-repeat;background-color:#fff}
+  .mcard .shot{position:absolute;inset:0;background-position:center;background-size:contain;background-repeat:no-repeat}
+  /* screenshot cards styled as a little browser window */
+  .mcard--win{display:flex;flex-direction:column;background:#fff}
+  .mcard--win .bar{flex:none;display:flex;align-items:center;gap:9px;height:30px;padding:0 13px;background:linear-gradient(#22333b,#182931)}
+  .mcard--win .dots{display:flex;gap:5px;flex:none}
+  .mcard--win .dots i{width:8px;height:8px;border-radius:50%;background:#ff5f57}
+  .mcard--win .dots i:nth-child(2){background:#febc2e}
+  .mcard--win .dots i:nth-child(3){background:#28c840}
+  .mcard--win .nm{font-family:var(--mono);font-size:11px;font-weight:600;color:#fff;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:58%}
+  .mcard--win .cat{margin-left:auto;flex:none;font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.55)}
+  .mcard--win .view{flex:1;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#F5EFE4 100%)}
   /* landscape placeholder mini-site (until a real screenshot is supplied) */
   .psite2{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
   .psite2 .pn{display:flex;align-items:center;justify-content:space-between;padding:0 12px;height:26px;border-bottom:1px solid rgba(0,0,0,.06);flex:none}
@@ -792,8 +802,13 @@
         +   '<div class="phr" style="background:'+p.g+'"></div></div></div>';
     }
     function card(p,dup){
-      var inner = p.shot ? '<div class="shot" style="background-image:url(\''+p.shot+'\')"></div>' : site(p);
-      return '<a class="mcard" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+' aria-label="'+esc(p.nm)+'">'+inner+'</a>';
+      var win = p.shot;
+      var inner = win
+        ? '<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="nm">'+esc(p.nm)+'</span>'
+            + (p.cat?'<span class="cat">'+esc(p.cat)+'</span>':'')+'</div>'
+            + '<div class="view"><div class="shot" style="background-image:url(\''+p.shot+'\')"></div></div>'
+        : site(p);
+      return '<a class="mcard'+(win?' mcard--win':'')+'" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+' aria-label="'+esc(p.nm)+'">'+inner+'</a>';
     }
     function fill(arr){ return arr.map(function(p){return card(p,false);}).join('') + arr.map(function(p){return card(p,true);}).join(''); }
 
