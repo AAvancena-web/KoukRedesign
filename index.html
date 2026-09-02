@@ -162,15 +162,19 @@
   .mq:hover .mrow-track{animation-play-state:paused}
   @keyframes mqrow{to{transform:translateX(-50%)}}
   @media(prefers-reduced-motion:reduce){.mrow-track{animation:none}}
-  .mcard{flex:none;height:100%;aspect-ratio:16/10;margin-right:16px;border-radius:13px;overflow:hidden;position:relative;
+  .mrow-track{align-items:center}
+  .mcard{flex:none;width:clamp(300px,25vw,360px);margin-right:16px;border-radius:13px;overflow:hidden;position:relative;
     background:#fff;box-shadow:0 24px 44px -24px rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.1)}
+  .mcard:not(.mcard--win){height:100%;aspect-ratio:16/10}
   .mcard .shot{position:absolute;inset:0;background-position:center;background-size:contain;background-repeat:no-repeat}
-  /* screenshot cards styled as a little browser window */
+  /* screenshot cards styled as a little browser window: image sits flush under the bar */
   .mcard--win{display:flex;flex-direction:column;background:#fff}
   .mcard--win .bar{flex:none;display:flex;align-items:center;gap:9px;height:30px;padding:0 14px;background:linear-gradient(var(--accent),var(--accent-dark))}
-  .mcard--win .nm{font-family:var(--mono);font-size:11px;font-weight:600;color:#fff;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
-  .mcard--win .cat{margin-left:auto;flex:none;font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.72)}
-  .mcard--win .view{flex:1;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#F5EFE4 100%)}
+  .mcard--win .nm{font-family:var(--mono);font-size:11px;font-weight:600;color:#fff;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .mcard--win .cat{margin-left:auto;flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:#fff;background:rgba(255,255,255,.18);padding:3px 9px;border-radius:999px}
+  .mcard--win .cat::before{content:"";width:4px;height:4px;border-radius:50%;background:#fff;flex:none}
+  .mcard--win .view{position:relative;overflow:hidden;background:#fff;font-size:0}
+  .mcard--win .wshot{display:block;width:100%;height:auto}
   /* landscape placeholder mini-site (until a real screenshot is supplied) */
   .psite2{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
   .psite2 .pn{display:flex;align-items:center;justify-content:space-between;padding:0 12px;height:26px;border-bottom:1px solid rgba(0,0,0,.06);flex:none}
@@ -803,7 +807,7 @@
       var inner = win
         ? '<div class="bar"><span class="nm">'+esc(p.nm)+'</span>'
             + (p.cat?'<span class="cat">'+esc(p.cat)+'</span>':'')+'</div>'
-            + '<div class="view"><div class="shot" style="background-image:url(\''+p.shot+'\')"></div></div>'
+            + '<div class="view"><img class="wshot" src="'+p.shot+'" alt="'+esc(p.nm+' website')+'" loading="lazy"></div>'
         : site(p);
       return '<a class="mcard'+(win?' mcard--win':'')+'" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+' aria-label="'+esc(p.nm)+'">'+inner+'</a>';
     }
