@@ -284,8 +284,9 @@
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .proj-card{display:block;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 34px 60px -52px rgba(23,20,15,.5);transition:transform .3s,box-shadow .3s}
 .proj-card:hover{transform:translateY(-6px);box-shadow:0 46px 74px -46px rgba(23,20,15,.55)}
-.proj-card .thumb{aspect-ratio:16/11;position:relative;display:grid;place-items:center;overflow:hidden}
-.proj-card .thumb .wm{font-family:var(--display);font-weight:800;font-size:84px;color:rgba(255,255,255,.92);line-height:1}
+.proj-card .thumb{aspect-ratio:16/11;position:relative;overflow:hidden;background:#f1ebe1}
+.proj-card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .45s ease}
+.proj-card:hover .thumb img{transform:scale(1.05)}
 .proj-card .cat{position:absolute;top:15px;left:15px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.28);padding:5px 11px;border-radius:100px}
 .proj-card .pbody{padding:22px 24px 26px}
 .proj-card .nm{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
@@ -339,40 +340,64 @@
 <section class="pwrap"><div class="wrap">
   <div class="proj-grid reveal-group">
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#E4552B,#B23A18)"><span class="cat">Hospitality</span><span class="wm">T</span></div>
-      <div class="pbody"><div class="nm">Truffle Lovers</div><div class="res"><span class="dot"></span>+42% online orders</div></div>
+      <div class="thumb"><span class="cat">Hospitality</span><img src="assets/projects/truffle-lovers.webp" alt="Truffle Lovers website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Truffle Lovers</div><div class="res"><span class="dot"></span>Shopify e-commerce</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#24363b,#16232a)"><span class="cat">Non-profit</span><span class="wm">E</span></div>
-      <div class="pbody"><div class="nm">Eyes4Everest</div><div class="res"><span class="dot"></span>3× more sign-ups</div></div>
+      <div class="thumb"><span class="cat">Investigations</span><img src="assets/projects/Serpenti.png" alt="Serpenti website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Serpenti</div><div class="res"><span class="dot"></span>Lead-gen website</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#E8A32C,#c07d16)"><span class="cat">Trades</span><span class="wm">A</span></div>
-      <div class="pbody"><div class="nm">AMP New Zealand</div><div class="res"><span class="dot"></span>+38% enquiries</div></div>
+      <div class="thumb"><span class="cat">Logistics</span><img src="assets/projects/WhysLogistics.png" alt="Whys Logistics website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Whys Logistics</div><div class="res"><span class="dot"></span>Corporate website</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#3a6b6b,#20403f)"><span class="cat">Retail</span><span class="wm">S</span></div>
-      <div class="pbody"><div class="nm">Serpenti</div><div class="res"><span class="dot"></span>Store live in 3 weeks</div></div>
+      <div class="thumb"><span class="cat">Photography</span><img src="assets/projects/kouki-laptop.png" alt="Kouki Photography website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Kouki Photography</div><div class="res"><span class="dot"></span>Portfolio &amp; bookings</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#7d4463,#4c2b40)"><span class="cat">Sport</span><span class="wm">P</span></div>
-      <div class="pbody"><div class="nm">Parnell Cricket Club</div><div class="res"><span class="dot"></span>A modern club home</div></div>
+      <div class="thumb"><span class="cat">Retail</span><img src="assets/projects/Mount4Wines.png" alt="Mount4Wines website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Mount4Wines</div><div class="res"><span class="dot"></span>Online wine store</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#4a6b3a,#2c4322)"><span class="cat">Creative</span><span class="wm">K</span></div>
-      <div class="pbody"><div class="nm">Kouki Photography</div><div class="res"><span class="dot"></span>A portfolio that books</div></div>
+      <div class="thumb"><span class="cat">Non-profit</span><img src="assets/projects/eyes4everest-laptop.jpg" alt="Eyes4Everest website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Eyes4Everest</div><div class="res"><span class="dot"></span>Non-profit website</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#E4552B,#B23A18)"><span class="cat">Hospitality</span><span class="wm">C</span></div>
-      <div class="pbody"><div class="nm">Coastal Cafe</div><div class="res"><span class="dot"></span>Bookings doubled</div></div>
+      <div class="thumb"><span class="cat">Hospitality</span><img src="assets/projects/TGIF.png" alt="TGIF website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">TGIF</div><div class="res"><span class="dot"></span>Hospitality website</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#24363b,#16232a)"><span class="cat">Construction</span><span class="wm">R</span></div>
-      <div class="pbody"><div class="nm">Ridgeline Builders</div><div class="res"><span class="dot"></span>Leads that convert</div></div>
+      <div class="thumb"><span class="cat">Industrial</span><img src="assets/projects/Chemicorp.png" alt="Chemicorp website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Chemicorp</div><div class="res"><span class="dot"></span>Industrial website</div></div>
     </a>
     <a class="proj-card" href="case-studies.html">
-      <div class="thumb" style="background:linear-gradient(135deg,#E8A32C,#c07d16)"><span class="cat">Retail</span><span class="wm">B</span></div>
-      <div class="pbody"><div class="nm">Bloom Florist</div><div class="res"><span class="dot"></span>Online store in a week</div></div>
+      <div class="thumb"><span class="cat">Sports club</span><img src="assets/projects/parnell-laptop.png" alt="Parnell Cricket Club website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Parnell Cricket Club</div><div class="res"><span class="dot"></span>Website redesign</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Financial services</span><img src="assets/projects/amp-laptop.png" alt="AMP New Zealand website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">AMP New Zealand</div><div class="res"><span class="dot"></span>Financial services site</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Energy</span><img src="assets/projects/NiceFuels.png" alt="Nice Fuels website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Nice Fuels</div><div class="res"><span class="dot"></span>Energy website</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Bakery</span><img src="assets/projects/SweetSecretcakeHouse.png" alt="Sweet Secret Cake House website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Sweet Secret Cake House</div><div class="res"><span class="dot"></span>Bakery website</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Hospitality</span><img src="assets/projects/BridgePanmure.png" alt="Bridge Panmure website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Bridge Panmure</div><div class="res"><span class="dot"></span>Venue website</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Professional body</span><img src="assets/projects/NZIPI.png" alt="NZIPI website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">NZIPI</div><div class="res"><span class="dot"></span>Membership website</div></div>
+    </a>
+    <a class="proj-card" href="case-studies.html">
+      <div class="thumb"><span class="cat">Professional services</span><img src="assets/projects/GordonAndryan.png" alt="Gordon &amp; Ryan website" loading="lazy"></div>
+      <div class="pbody"><div class="nm">Gordon &amp; Ryan</div><div class="res"><span class="dot"></span>Professional services site</div></div>
     </a>
   </div>
 </div></section>
