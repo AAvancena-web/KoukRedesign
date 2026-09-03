@@ -168,6 +168,14 @@
   .brands{padding:40px 0 46px;border-top:1px solid var(--line)}
   .brands .wrap{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:center}
   .brands .b-lbl{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--body);line-height:1.5}
+  /* scrolling logo marquee (like the original) */
+  #brands{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .brands .marquee{display:flex;width:max-content;animation:koukMarquee 55s linear infinite}
+  .brands:hover .marquee{animation-play-state:paused}
+  .brands .marquee-run{display:flex;align-items:center;gap:56px;padding-right:56px}
+  .brands .marquee img{width:132px;height:60px;object-fit:contain;object-position:center;filter:brightness(0);opacity:.6}
+  @keyframes koukMarquee{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.brands .marquee{animation:none}}
   #brands{display:flex;flex-wrap:wrap;align-items:center;gap:34px 44px}
   #brands img{width:112px;height:52px;object-fit:contain;object-position:center;filter:grayscale(1);opacity:.55;transition:opacity .25s}
   #brands img:hover{opacity:.95}
@@ -747,7 +755,8 @@
       { alt:'Gordon and Ryan', src:'https://gordonandryan.co.nz/wp-content/uploads/2026/01/logo-horizontal@2x-1.png' }
     ];
     function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-    host.innerHTML = LOGOS.map(function(l){ return '<img'+(l.inv?' class="inv"':'')+' src="'+l.src+'" alt="'+esc(l.alt)+'" loading="lazy">'; }).join('');
+    var run = LOGOS.map(function(l){ return '<img'+(l.inv?' class="inv"':'')+' src="'+l.src+'" alt="'+esc(l.alt)+'" loading="lazy">'; }).join('');
+    host.innerHTML = '<div class="marquee"><div class="marquee-run">'+run+'</div><div class="marquee-run" aria-hidden="true">'+run+'</div></div>';
   })();
 
   /* ---- count-up on the ledger stat numbers ---- */
