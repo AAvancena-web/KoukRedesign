@@ -138,7 +138,7 @@
   /* ============ HERO — BENTO GRID ============ */
   .bento-wrap{padding:52px 0 26px}
   .bento{display:grid;gap:16px;grid-template-columns:1.28fr 1fr 1fr;
-    grid-template-areas:"hero hero stats" "hero hero rating" "mq mq mq"}
+    grid-template-areas:"hero hero stats" "hero hero rating"}
   .b-tile{background:#fff;border:1px solid var(--line);border-radius:var(--tile-r);box-shadow:var(--tile-sh);position:relative;overflow:hidden;min-width:0}
 
   .b-hero{grid-area:hero;padding:clamp(30px,3.6vw,54px);display:flex;flex-direction:column;justify-content:center;
@@ -169,57 +169,11 @@
   .b-rating .who{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.62)}
   .b-rating .who .g{width:8px;height:8px;border-radius:50%;background:#2fae64;box-shadow:0 0 0 4px rgba(47,174,100,.18)}
 
-  .b-mq{grid-area:mq;padding:20px;display:flex;flex-direction:column;background:radial-gradient(120% 160% at 50% -20%,#fff,var(--bg-alt))}
-  .b-mq .mq-cap{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:2px 6px 16px}
-  .b-mq .mq-cap .t{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark)}
-  .b-mq .mq-cap .l{font-family:var(--mono);font-size:12px;color:var(--body)}
-
-  /* moving tile marquee (kept engine, restyled container) */
-  .mq{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;height:360px;
-    -webkit-mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-    mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-  .mrow{flex:1;overflow:hidden;position:relative;min-height:0}
-  .mrow-track{display:flex;height:100%;width:max-content;align-items:center}
-  .mrow.l .mrow-track{animation:mqrow 48s linear infinite}
-  .mrow.r .mrow-track{animation:mqrow 48s linear infinite reverse}
-  .mq:hover .mrow-track{animation-play-state:paused}
-  @keyframes mqrow{to{transform:translateX(-50%)}}
-  @media(prefers-reduced-motion:reduce){.mrow-track{animation:none}}
-  .mcard{flex:none;width:clamp(260px,22vw,320px);margin-right:16px;border-radius:16px;overflow:hidden;
-    background:linear-gradient(180deg,#fff 0%,#FAF6EF 100%);box-shadow:0 22px 44px -26px rgba(23,20,15,.5);border:1px solid var(--line)}
-  .mcard:not(.mcard--win){height:100%;aspect-ratio:16/10;position:relative}
-  .mcard .win{overflow:hidden;border-bottom:1px solid var(--line)}
-  .mcard .chrome{height:24px;display:flex;align-items:center;gap:6px;padding:0 11px;background:linear-gradient(#f5f1ea,#e8e1d5);border-bottom:1px solid rgba(23,20,15,.07)}
-  .mcard .chrome .dot{width:6px;height:6px;border-radius:50%;background:rgba(23,20,15,.15);flex:none}
-  .mcard .chrome .addr{flex:1;height:10px;margin-left:5px;border-radius:99px;background:#fff;box-shadow:inset 0 0 0 1px rgba(23,20,15,.09)}
-  .mcard .shot{overflow:hidden;background:#fff;font-size:0}
-  .mcard .shot img{width:100%;height:auto;display:block;transition:transform .55s ease}
-  .mcard:hover .shot img{transform:scale(1.05)}
-  .mcard .cap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px 13px}
-  .mcard .cap .nm{font-family:var(--display);font-weight:800;font-size:14.5px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .mcard .cap .cat{flex:none;font-family:var(--mono);font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-dark);background:rgba(228,85,43,.11);padding:4px 9px;border-radius:999px}
-  .psite2{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
-  .psite2 .pn{display:flex;align-items:center;justify-content:space-between;padding:0 12px;height:26px;border-bottom:1px solid rgba(0,0,0,.06);flex:none}
-  .psite2 .pl{display:flex;align-items:center;gap:5px;font-family:var(--display);font-weight:800;font-size:10px;color:var(--ink);letter-spacing:-.02em}
-  .psite2 .pl .m{width:11px;height:11px;border-radius:3px;flex:none}
-  .psite2 .pmenu{display:flex;align-items:center;gap:8px}
-  .psite2 .pmenu i{width:17px;height:3px;border-radius:2px;background:rgba(0,0,0,.13);display:block}
-  .psite2 .pmenu .cta{width:34px;height:13px;border-radius:3px}
-  .psite2 .ph{flex:1;display:flex;min-height:0}
-  .psite2 .phl{flex:1.15;display:flex;flex-direction:column;justify-content:center;padding:0 7%}
-  .psite2 .pe{font-size:6px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
-  .psite2 .pt{font-family:var(--display);font-weight:800;font-size:16px;line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
-  .psite2 .pln{height:3px;border-radius:2px;background:rgba(0,0,0,.1);margin-top:6px}
-  .psite2 .pln.s{width:68%}
-  .psite2 .pbt{margin-top:10px;width:fit-content;color:#fff;font-size:7px;font-weight:700;padding:5px 10px;border-radius:5px}
-  .psite2 .phr{flex:.85;background-position:center;background-size:cover}
-
   @media(max-width:980px){
-    .bento{grid-template-columns:1fr 1fr;grid-template-areas:"hero hero" "stats rating" "mq mq"}
+    .bento{grid-template-columns:1fr 1fr;grid-template-areas:"hero hero" "stats rating"}
   }
   @media(max-width:620px){
-    .bento{grid-template-columns:1fr;grid-template-areas:"hero" "stats" "rating" "mq"}
-    .mq{height:300px}
+    .bento{grid-template-columns:1fr;grid-template-areas:"hero" "stats" "rating"}
   }
   @media(max-width:440px){
     .b-hero{padding:28px 22px}
@@ -240,6 +194,47 @@
   .marquee img:hover{opacity:.9}
   @keyframes koukMarquee{to{transform:translateX(-50%)}}
   @media(prefers-reduced-motion:reduce){.marquee{animation:none}}
+
+  /* ============ PORTFOLIO — bento work gallery ============ */
+  .portfolio{background:var(--bg-alt);padding:92px 0}
+  .pf-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:16px}
+  .pf-card{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#fff;
+    box-shadow:var(--tile-sh);display:block;grid-column:span 1;grid-row:span 1}
+  .pf-card.feature{grid-column:span 2;grid-row:span 2}
+  .pf-card.wide{grid-column:span 2;grid-row:span 1}
+  .pf-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .pf-card:hover img{transform:scale(1.06)}
+  .pf-card::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(20,17,12,0) 42%,rgba(20,17,12,.74) 100%);
+    transition:opacity .3s;opacity:.92}
+  .pf-card:hover::after{opacity:1}
+  .pf-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:15px 17px;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  .pf-cap .nm{font-family:var(--display);font-weight:800;font-size:16px;color:#fff;letter-spacing:-.01em;line-height:1.16;
+    text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .pf-card.feature .pf-cap{padding:22px}
+  .pf-card.feature .pf-cap .nm{font-size:23px}
+  .pf-cat{flex:none;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:#fff;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.24);padding:5px 10px;border-radius:999px;white-space:nowrap}
+  .pf-arrow{position:absolute;top:14px;right:14px;z-index:2;width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.26);display:grid;place-items:center;color:#fff;
+    opacity:0;transform:translateY(-6px) scale(.9);transition:.3s cubic-bezier(.2,.8,.2,1)}
+  .pf-card:hover .pf-arrow{opacity:1;transform:translateY(0) scale(1)}
+  .pf-arrow svg{width:16px;height:16px}
+  .pf-foot{margin-top:44px;display:flex;justify-content:center}
+  @media(max-width:900px){
+    .pf-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  }
+  @media(max-width:560px){
+    .portfolio{padding:70px 0}
+    .pf-grid{grid-template-columns:1fr;grid-auto-rows:200px;grid-auto-flow:row}
+    .pf-card,.pf-card.feature,.pf-card.wide{grid-column:span 1;grid-row:span 1}
+    .pf-card.feature .pf-cap{padding:16px}
+    .pf-card.feature .pf-cap .nm,.pf-cap .nm{font-size:17px}
+  }
 
   /* ============ SERVICES — minimal even grid ============ */
   .services{background:var(--bg);padding:92px 0}
@@ -446,14 +441,6 @@
       <div class="who"><span class="g"></span> Real reviews below</div>
     </div>
 
-    <div class="b-tile b-mq">
-      <div class="mq-cap"><span class="t">Recent work</span><span class="l">120+ sites launched</span></div>
-      <div class="mq">
-        <div class="mrow l"><div class="mrow-track" id="mrowA"></div></div>
-        <div class="mrow r"><div class="mrow-track" id="mrowB"></div></div>
-      </div>
-    </div>
-
   </div>
 </div></section>
 
@@ -462,6 +449,19 @@
   <div class="brands-tile">
     <div class="label">Trusted by great New Zealand businesses</div>
     <div class="marquee" id="brands"></div>
+  </div>
+</div></section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="work"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Selected work</span>
+    <h2>Recent websites we've built</h2>
+    <p>A look at some of the New Zealand businesses we've helped show up online — from hospitality and retail to finance and sport.</p>
+  </div>
+  <div class="pf-grid" id="pf-grid"></div>
+  <div class="pf-foot">
+    <a class="btn btn-primary btn-lg" href="projects.html">View all projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </div></section>
 
@@ -689,52 +689,37 @@
   });
   document.querySelectorAll('.mm-links a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
 
-  /* ---- hero project marquee: two rows of site screenshots, opposite directions ---- */
+  /* ---- portfolio: bento gallery of client sites ---- */
   (function(){
-    var rowA = document.getElementById('mrowA'), rowB = document.getElementById('mrowB');
-    if(!rowA || !rowB) return;
-    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    var host = document.getElementById('pf-grid'); if(!host) return;
+    function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
     function ext(u){ return /^https?:/.test(u); }
-    function site(p){
-      return '<div class="psite2">'
-        + '<div class="pn"><span class="pl"><span class="m" style="background:'+p.c+'"></span>'+esc(p.nm)+'</span>'
-        +   '<span class="pmenu"><i></i><i></i><i></i><span class="cta" style="background:'+p.c+'"></span></span></div>'
-        + '<div class="ph"><div class="phl"><span class="pe" style="color:'+p.c+'">'+esc(p.cat)+'</span>'
-        +   '<span class="pt">'+esc(p.h)+'</span><span class="pln"></span><span class="pln s"></span>'
-        +   '<span class="pbt" style="background:'+p.c+'">Learn more</span></div>'
-        +   '<div class="phr" style="background:'+p.g+'"></div></div></div>';
-    }
-    function card(p,dup){
-      var win = p.shot;
-      var inner = win
-        ? '<div class="win"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr"></span></div>'
-            + '<div class="shot"><img src="'+p.shot+'" alt="'+esc(p.nm+' website')+'" loading="lazy"></div></div>'
-            + '<div class="cap"><span class="nm">'+esc(p.nm)+'</span>'+(p.cat?'<span class="cat">'+esc(p.cat)+'</span>':'')+'</div>'
-        : site(p);
-      return '<a class="mcard'+(win?' mcard--win':'')+'" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+(dup?' aria-hidden="true" tabindex="-1"':'')+' aria-label="'+esc(p.nm)+'">'+inner+'</a>';
-    }
-    function fill(arr){ return arr.map(function(p){return card(p,false);}).join('') + arr.map(function(p){return card(p,true);}).join(''); }
-
-    var ROWA = [
-      { nm:'Truffle Lovers', cat:'Hospitality', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp' },
-      { nm:'Serpenti', cat:'Investigations', url:'case-studies.html', shot:'assets/projects/Serpenti.png' },
-      { nm:'Whys Logistics', cat:'Logistics', url:'case-studies.html', shot:'assets/projects/WhysLogistics.png' },
-      { nm:'Kouki Photography', cat:'Photography', url:'case-studies.html', shot:'assets/projects/kouki-laptop.png' },
-      { nm:'Mount4Wines', cat:'Retail', url:'case-studies.html', shot:'assets/projects/Mount4Wines.png' },
-      { nm:'TGIF', cat:'Hospitality', url:'case-studies.html', shot:'assets/projects/TGIF.png' },
-      { nm:'Chemicorp', cat:'Industrial', url:'case-studies.html', shot:'assets/projects/Chemicorp.png' }
+    var ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
+    var P = [
+      { nm:'Truffle Lovers',          cat:'Hospitality',          url:'https://trufflelovers.co.nz/', img:'assets/projects/truffle-lovers.webp',        size:'feature' },
+      { nm:'AMP New Zealand',         cat:'Financial services',   url:'case-studies.html',            img:'assets/projects/amp-laptop.png',             size:'wide' },
+      { nm:'Serpenti',                cat:'Investigations',       url:'case-studies.html',            img:'assets/projects/Serpenti.png' },
+      { nm:'Eyes4Everest',            cat:'Non-profit',           url:'case-studies.html',            img:'assets/projects/eyes4everest-laptop.jpg' },
+      { nm:'Whys Logistics',          cat:'Logistics',            url:'case-studies.html',            img:'assets/projects/WhysLogistics.png',          size:'wide' },
+      { nm:'Mount4Wines',             cat:'Retail',               url:'case-studies.html',            img:'assets/projects/Mount4Wines.png',            size:'wide' },
+      { nm:'Kouki Photography',       cat:'Photography',          url:'case-studies.html',            img:'assets/projects/kouki-laptop.png',           size:'feature' },
+      { nm:'TGIF',                    cat:'Hospitality',          url:'case-studies.html',            img:'assets/projects/TGIF.png' },
+      { nm:'Chemicorp',               cat:'Industrial',           url:'case-studies.html',            img:'assets/projects/Chemicorp.png' },
+      { nm:'Parnell Cricket Club',    cat:'Sports club',          url:'case-studies.html',            img:'assets/projects/parnell-laptop.png' },
+      { nm:'Nice Fuels',              cat:'Energy',               url:'case-studies.html',            img:'assets/projects/NiceFuels.png' },
+      { nm:'Sweet Secret Cake House', cat:'Bakery',               url:'case-studies.html',            img:'assets/projects/SweetSecretcakeHouse.png' },
+      { nm:'Bridge Panmure',          cat:'Hospitality',          url:'case-studies.html',            img:'assets/projects/BridgePanmure.png' },
+      { nm:'NZIPI',                   cat:'Professional body',    url:'case-studies.html',            img:'assets/projects/NZIPI.png' },
+      { nm:'Gordon & Ryan',           cat:'Professional services',url:'case-studies.html',            img:'assets/projects/GordonAndryan.png' }
     ];
-    var ROWB = [
-      { nm:'Parnell Cricket Club', cat:'Sports club', url:'case-studies.html', shot:'assets/projects/parnell-laptop.png' },
-      { nm:'AMP New Zealand', cat:'Financial services', url:'case-studies.html', shot:'assets/projects/amp-laptop.png' },
-      { nm:'Nice Fuels', cat:'Energy', url:'case-studies.html', shot:'assets/projects/NiceFuels.png' },
-      { nm:'Sweet Secret Cake House', cat:'Bakery', url:'case-studies.html', shot:'assets/projects/SweetSecretcakeHouse.png' },
-      { nm:'Bridge Panmure', cat:'Hospitality', url:'case-studies.html', shot:'assets/projects/BridgePanmure.png' },
-      { nm:'NZIPI', cat:'Professional body', url:'case-studies.html', shot:'assets/projects/NZIPI.png' },
-      { nm:'Gordon & Ryan', cat:'Professional services', url:'case-studies.html', shot:'assets/projects/GordonAndryan.png' }
-    ];
-    rowA.innerHTML = fill(ROWA);
-    rowB.innerHTML = fill(ROWB);
+    host.innerHTML = P.map(function(p){
+      var cls = 'pf-card' + (p.size ? ' '+p.size : '');
+      return '<a class="'+cls+'" href="'+p.url+'"'+(ext(p.url)?' target="_blank" rel="noopener"':'')+' aria-label="'+esc(p.nm)+' — '+esc(p.cat)+'">'
+        + '<img src="'+p.img+'" alt="'+esc(p.nm)+' website" loading="lazy">'
+        + '<span class="pf-arrow">'+ARROW+'</span>'
+        + '<div class="pf-cap"><span class="nm">'+esc(p.nm)+'</span><span class="pf-cat">'+esc(p.cat)+'</span></div>'
+        + '</a>';
+    }).join('');
   })();
 
   /* ---- brands logo marquee ---- */
