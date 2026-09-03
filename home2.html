@@ -719,11 +719,28 @@
   </div>
 
   <div class="hero-feature">
-    <a class="hf-card" href="https://trufflelovers.co.nz/" target="_blank" rel="noopener" aria-label="Truffle Lovers — featured project">
-      <div class="hf-chrome"><i></i><i></i><i></i><span class="hf-addr">trufflelovers.co.nz</span><span class="hf-live"><span class="d"></span>Live</span></div>
-      <div class="hf-shot"><img src="assets/projects/truffle-lovers.webp" alt="Truffle Lovers website" loading="eager"></div>
-      <div class="hf-cap"><div><span class="hf-eye">Featured project</span><span class="hf-nm">Truffle Lovers</span></div><span class="hf-cat">Hospitality</span></div>
-    </a>
+    <form class="form-card hero-form" onsubmit="return false">
+      <span class="hf-eye">Free quote</span>
+      <h3>Tell us about your project</h3>
+      <p class="fsub">No obligation — we'll reply within 1 working day.</p>
+      <div class="field two">
+        <div class="field"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@business.co.nz"></div>
+      </div>
+      <div class="field two">
+        <div class="field"><label>Phone</label><input type="tel" placeholder="021 234 5678"></div>
+        <div class="field"><label>Business name</label><input type="text" placeholder="Your business"></div>
+      </div>
+      <div class="field"><label>What do you need?</label>
+        <select>
+          <option value="" disabled selected>Select an option…</option>
+          <option>New website</option><option>Redesign</option><option>E-commerce</option>
+          <option>Branding</option><option>Ongoing support</option><option>Not sure yet</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Send my request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <p class="fnote">Prefer to talk? Call 0800 18 20 88</p>
+    </form>
   </div>
 </div></section>
 
