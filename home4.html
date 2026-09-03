@@ -169,7 +169,7 @@
   .brands .wrap{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:center}
   .brands .b-lbl{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--body);line-height:1.5}
   /* scrolling logo marquee (like the original) */
-  #brands{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  #brands{overflow:hidden;background:#EAE7E1;border:1px solid var(--line);border-radius:14px;padding:22px 0}
   .brands .marquee{display:flex;width:max-content;animation:koukMarquee 55s linear infinite}
   .brands:hover .marquee{animation-play-state:paused}
   .brands .marquee-run{display:flex;align-items:center;gap:56px;padding-right:56px}
