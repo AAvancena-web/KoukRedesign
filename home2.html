@@ -395,7 +395,7 @@
   /* ============ FAQ ============ */
   .faq{background:var(--bg-alt);padding:100px 0}
   .faq-layout{display:block}
-  .faq-intro{text-align:center;margin:0 0 40px}
+  .faq-intro{text-align:left;margin:0 0 40px}
   .faq-intro h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.02em;margin-top:14px}
   .faq-intro p{color:var(--body);font-size:17px;margin-top:16px;margin-bottom:24px}
   .faq-list{max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
@@ -485,6 +485,9 @@
     line-height:1.02;letter-spacing:-.03em;margin-top:14px;color:var(--ink);text-transform:none;max-width:16ch}
   .ed-head .ed-sub{max-width:420px;color:var(--body);font-size:17px;line-height:1.6;margin:0}
   @media(max-width:640px){ .ed-head{margin-bottom:32px} .ed-head .ed-sub{max-width:none} }
+  /* how-it-works + FAQ: heading flush left, supporting text flush right */
+  .process .ed-head .ed-sub,.faq .ed-head .ed-sub{text-align:right}
+  @media(max-width:640px){ .process .ed-head .ed-sub,.faq .ed-head .ed-sub{text-align:left} }
 
   /* =============== HERO — asymmetric split =============== */
   .hero-split{background:var(--bg);color:var(--ink);padding:74px 0 88px;border-bottom:1px solid var(--line)}
