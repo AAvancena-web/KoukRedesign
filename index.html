@@ -167,7 +167,7 @@
   .mcard{flex:none;width:clamp(300px,25vw,352px);margin-right:18px;border-radius:16px;overflow:hidden;
     background:linear-gradient(180deg,#fff 0%,#FAF6EF 100%);box-shadow:0 28px 50px -26px rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.14)}
   .mcard:not(.mcard--win){height:100%;aspect-ratio:16/10;position:relative}
-  .mcard .win{margin:13px 13px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 22px -14px rgba(23,20,15,.5)}
+  .mcard .win{overflow:hidden;border-bottom:1px solid var(--line)}
   .mcard .chrome{height:24px;display:flex;align-items:center;gap:6px;padding:0 11px;background:linear-gradient(#f5f1ea,#e8e1d5);border-bottom:1px solid rgba(23,20,15,.07)}
   .mcard .chrome .dot{width:6px;height:6px;border-radius:50%;background:rgba(23,20,15,.15);flex:none}
   .mcard .chrome .addr{flex:1;height:10px;margin-left:5px;border-radius:99px;background:#fff;box-shadow:inset 0 0 0 1px rgba(23,20,15,.09)}
@@ -955,12 +955,12 @@
         + '</div>';
     }
     var REV = [
-      { site:'trufflelovers.co.nz', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', initials:'JC', nm:'Johnny Cheung', rl:'Truffle Lovers NZ',
+      { site:'trufflelovers.co.nz', url:'https://trufflelovers.co.nz/', shot:'assets/projects/truffle-lovers.webp', mshot:'assets/projects/sabatino-mobile-v2.png', initials:'JC', nm:'Johnny Cheung', rl:'Truffle Lovers NZ',
         mlogo:'SABATINO', meyebrow:'Family owned', mh1:'The truffle is not just a food. It’s an experience.', mp:'Italy’s finest black truffles, delivered fresh across New Zealand.', mcta:'Shop the harvest',
         q:'This wasn’t simply a new website. It meant migrating our entire store from WooCommerce to Shopify. The team was <b>extremely knowledgeable, professional and responsive</b>, and <b>made what could have been a complicated migration feel very manageable</b>. We’re really happy with the clean design and improved shopping experience. <b>Highly recommended!</b>' },
       { site:'koukiphotography.co.nz', url:'case-studies.html', shot:'assets/projects/kouki-laptop.png', mshot:'assets/projects/kouki-mobile-v2.png', c:'#b5761a', g:'linear-gradient(135deg,#7a4326,#3a1e12)', cat:'Photography', h:'Moments, captured.', mp:'Portraits, weddings and events across Auckland.', mcta:'View portfolio', initials:'MK', nm:'Michael Kouk', rl:'Kouki Photography',
         q:'The new portfolio site is <b>beautifully designed</b> and shows my work exactly how I imagined. It’s <b>fast, easy to update</b>, and clients can enquire straight from the gallery. <b>Couldn’t be happier!</b>' },
-      { site:'parnellcricket.co.nz', url:'case-studies.html', shot:'assets/projects/parnell-laptop.png', mshot:'assets/projects/parnell-mobile.png', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', cat:'Sports club', h:'Home of the club.', mp:'Fixtures, news and everything for our members.', mcta:'Join us', initials:'CP', nm:'Craig P.', rl:'Parnell Cricket Club',
+      { site:'parnellcricket.co.nz', url:'case-studies.html', shot:'assets/projects/parnell-laptop.png', mshot:'assets/projects/parnell-mobile-v2.png', c:'#3a6b3a', g:'linear-gradient(135deg,#2c4322,#4a6b3a)', cat:'Sports club', h:'Home of the club.', mp:'Fixtures, news and everything for our members.', mcta:'Join us', initials:'CP', nm:'Craig P.', rl:'Parnell Cricket Club',
         q:'The new website is <b>wonderful</b>! Thanks so much with all the hard work creating a whole new look and feel, updated content, new photos, improved functionality etc. Really impressive and another signal to the local community and general public that we are <b>ahead of the rest</b>. <b>Outstanding!</b>' }
     ];
     host.innerHTML = REV.map(function(r,i){
